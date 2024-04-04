@@ -15,7 +15,7 @@ import emu.lunarcore.game.inventory.GameItemSubAffix;
 import emu.lunarcore.util.Utils;
 
 @Command(label = "giverealrelic", aliases = { "grr",
-        "realrelic" }, permission = "player.give", requireTarget = true, desc = "/giverealrelic [item id] lv[level] s[mainstat ID] [substat ID]:[Substat Value In Game x10] ... Gives the targeted player a relic with given substat values exactly.")
+        "realrelic" }, permission = "player.give", requireTarget = true, desc = "/giverealrelic [item id] lv[number] s[mainstat ID] [substat ID]:[Substat Value In Game x10] ... Gives the targeted player a relic with exactly the given substat values.")
 public class GiveRealRelicCommand implements CommandHandler {
 
     @Override

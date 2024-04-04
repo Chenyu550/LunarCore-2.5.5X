@@ -72,6 +72,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /gender {male | female}. Sets the player's gender.
 /give [item id] x[amount] lv[number]. Gives the targetted player an item.
 /giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.
+/giverealrelic [item id] lv[number] s[mainstat ID] [substat ID]:[Substat Value In Game x10] ... Gives the targeted player a relic with exactly the given substat values.
 /heal. Heals your avatars.
 /help. Displays a list of available commands.
 /kick @[player id]. Kicks a player from the server.
