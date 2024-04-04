@@ -100,19 +100,24 @@ public class GiveRealRelicCommand implements CommandHandler {
                     continue;
 
                 // Set count and step
-                int typeAffix = 100;
+                double typeAffix = 100;
+                double valueAffix = 1;
                 if (subAffix.getProperty().name().contains("Delta")) {
                     typeAffix = 1;
+                    if (!subAffix.getProperty().name().contains("Speed")) {
+                        valueAffix = 0.1;
+                        typeAffix = 0.1;
+                    }
                 }
-                List<Integer> result = solveCountAndStepByValue(entry.getIntValue(),
-                        typeAffix * subAffix.getBaseValue(), typeAffix * subAffix.getStepValue());
+                List<Integer> result = solveCountAndStepByValue((int) Math.floor(valueAffix * entry.getIntValue()),
+                        typeAffix * subAffix.getBaseValue(), typeAffix * subAffix.getStepValue(), subAffix.getStepNum());
                 GameItemSubAffix gameItemSubAffix = null;
                 if (result.get(0) > maxCount) {
                     gameItemSubAffix = new GameItemSubAffix(subAffix, maxCount);
-                    gameItemSubAffix.setStep(gameItemSubAffix.getCount() * 2);
+                    gameItemSubAffix.setStep(gameItemSubAffix.getCount() * subAffix.getStepNum());
                 } else {
                     gameItemSubAffix = new GameItemSubAffix(subAffix, result.get(0));
-                    int step = Math.min(result.get(1), (gameItemSubAffix.getCount() * 2));
+                    int step = Math.min(result.get(1), (gameItemSubAffix.getCount() * subAffix.getStepNum()));
                     gameItemSubAffix.setStep(step);
                 }
                 item.getSubAffixes().add(gameItemSubAffix);
@@ -121,39 +126,38 @@ public class GiveRealRelicCommand implements CommandHandler {
 
     }
 
-    private List<Integer> solveCountAndStepByValue(int value, double baseValue, double stepValue) {
+    private List<Integer> solveCountAndStepByValue(int value, double baseValue, double stepValue, int stepNum) {
         List<Integer> result = new ArrayList<>();
         baseValue = baseValue * 10;
         stepValue = stepValue * 10;
         int count = (int) Math.floor(((double) value) / baseValue);
-        double mod = ((double) value) - baseValue * count;
-        int step = (int) Math.floor(mod / stepValue);
-        if ((int) Math.floor(count * baseValue + step * stepValue) == value) {
-            // In Game Value
-            result.add(count);
-            result.add(step);
-            return result;
-        } else if ((int) Math.floor(count * baseValue + (step + 1) * stepValue) == value) {
-            // In Game Value
-            result.add(count);
-            result.add(step + 1);
-            return result;
-        } else if ((int) Math.ceil(count * baseValue + step * stepValue) == value) {
-            // Third party tool Value
-            result.add(count);
-            result.add(step);
-            return result;
-        } else if ((int) Math.ceil(count * baseValue + (step + 1) * stepValue) == value) {
-            // Third party tool Value
-            result.add(count);
-            result.add(step + 1);
-            return result;
-        } else {
-            // ???
-            result.add(count);
-            result.add(step);
-            return result;
-        }
+        int step = Integer.MAX_VALUE;
+        do {
+            double mod = ((double) value) - baseValue * count;
+            step = (int) Math.floor(mod / stepValue);
+            if ((int) Math.floor(count * baseValue + step * stepValue) == value) {
+                // In Game Value
+                // do nothing
+            } else if ((int) Math.floor(count * baseValue + (step + 1) * stepValue) == value) {
+                // In Game Value
+                step += 1;
+            } else if ((int) Math.ceil(count * baseValue + step * stepValue) == value) {
+                // Third party tool Value
+                // do nothing
+            } else if ((int) Math.ceil(count * baseValue + (step + 1) * stepValue) == value) {
+                // Third party tool Value
+                step += 1;
+            } else {
+                // ???
+                // do nothing
+            }
+            if (step > count * stepNum) {
+                count++;
+            }
+        } while (step > count * stepNum);
+        result.add(count);
+        result.add(step);
+        return result;
     }
 
 }
