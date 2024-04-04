@@ -75,3 +75,7 @@ config.json
 *.exe
 BuildConfig.java
 Test.java
+
+# My extra
+.0build.bat
+.0run_lunarcore.bat
