@@ -77,6 +77,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /help. Displays a list of available commands.
 /kick @[player id]. Kicks a player from the server.
 /mail [content]. Sends the targeted player a system mail.
+/move @[player id](optional) [x] [y] [z]. Move a player (yourself as default) with specific ID to a specific position.
 /permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
 /refill. Refill your skill points in open world.
 /reload. Reloads the server config.
