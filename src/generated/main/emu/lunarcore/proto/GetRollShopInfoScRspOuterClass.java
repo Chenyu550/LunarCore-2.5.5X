@@ -20,22 +20,26 @@ public final class GetRollShopInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 BBJIJINJAFK = 4;</code>
-     */
-    private int bBJIJINJAFK;
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 roll_shop_id = 15;</code>
+     * <code>optional uint32 roll_shop_id = 4;</code>
      */
     private int rollShopId;
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <pre>
+     *  gacha_random
+     * </pre>
+     *
+     * <code>optional uint32 BBJIJINJAFK = 9;</code>
+     */
+    private int bBJIJINJAFK;
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     */
+    private int retcode;
+
+    /**
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      */
     private final RepeatedInt dLPBJMPECFC = RepeatedInt.newEmptyInstance();
 
@@ -50,99 +54,25 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 BBJIJINJAFK = 4;</code>
-     * @return whether the bBJIJINJAFK field is set
+     * <code>optional uint32 roll_shop_id = 4;</code>
+     * @return whether the rollShopId field is set
      */
-    public boolean hasBBJIJINJAFK() {
+    public boolean hasRollShopId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 BBJIJINJAFK = 4;</code>
-     * @return this
-     */
-    public GetRollShopInfoScRsp clearBBJIJINJAFK() {
-      bitField0_ &= ~0x00000001;
-      bBJIJINJAFK = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 BBJIJINJAFK = 4;</code>
-     * @return the bBJIJINJAFK
-     */
-    public int getBBJIJINJAFK() {
-      return bBJIJINJAFK;
-    }
-
-    /**
-     * <code>optional uint32 BBJIJINJAFK = 4;</code>
-     * @param value the bBJIJINJAFK to set
-     * @return this
-     */
-    public GetRollShopInfoScRsp setBBJIJINJAFK(final int value) {
-      bitField0_ |= 0x00000001;
-      bBJIJINJAFK = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return this
-     */
-    public GetRollShopInfoScRsp clearRetcode() {
-      bitField0_ &= ~0x00000002;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public GetRollShopInfoScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000002;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 roll_shop_id = 15;</code>
-     * @return whether the rollShopId field is set
-     */
-    public boolean hasRollShopId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 roll_shop_id = 15;</code>
+     * <code>optional uint32 roll_shop_id = 4;</code>
      * @return this
      */
     public GetRollShopInfoScRsp clearRollShopId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       rollShopId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 roll_shop_id = 15;</code>
+     * <code>optional uint32 roll_shop_id = 4;</code>
      * @return the rollShopId
      */
     public int getRollShopId() {
@@ -150,18 +80,108 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 roll_shop_id = 15;</code>
+     * <code>optional uint32 roll_shop_id = 4;</code>
      * @param value the rollShopId to set
      * @return this
      */
     public GetRollShopInfoScRsp setRollShopId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       rollShopId = value;
       return this;
     }
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <pre>
+     *  gacha_random
+     * </pre>
+     *
+     * <code>optional uint32 BBJIJINJAFK = 9;</code>
+     * @return whether the bBJIJINJAFK field is set
+     */
+    public boolean hasBBJIJINJAFK() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <pre>
+     *  gacha_random
+     * </pre>
+     *
+     * <code>optional uint32 BBJIJINJAFK = 9;</code>
+     * @return this
+     */
+    public GetRollShopInfoScRsp clearBBJIJINJAFK() {
+      bitField0_ &= ~0x00000002;
+      bBJIJINJAFK = 0;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  gacha_random
+     * </pre>
+     *
+     * <code>optional uint32 BBJIJINJAFK = 9;</code>
+     * @return the bBJIJINJAFK
+     */
+    public int getBBJIJINJAFK() {
+      return bBJIJINJAFK;
+    }
+
+    /**
+     * <pre>
+     *  gacha_random
+     * </pre>
+     *
+     * <code>optional uint32 BBJIJINJAFK = 9;</code>
+     * @param value the bBJIJINJAFK to set
+     * @return this
+     */
+    public GetRollShopInfoScRsp setBBJIJINJAFK(final int value) {
+      bitField0_ |= 0x00000002;
+      bBJIJINJAFK = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @return this
+     */
+    public GetRollShopInfoScRsp clearRetcode() {
+      bitField0_ &= ~0x00000004;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public GetRollShopInfoScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000004;
+      retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      * @return whether the dLPBJMPECFC field is set
      */
     public boolean hasDLPBJMPECFC() {
@@ -169,7 +189,7 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      * @return this
      */
     public GetRollShopInfoScRsp clearDLPBJMPECFC() {
@@ -179,7 +199,7 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -193,7 +213,7 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -207,7 +227,7 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      * @param value the dLPBJMPECFC to add
      * @return this
      */
@@ -218,7 +238,7 @@ public final class GetRollShopInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 DLPBJMPECFC = 8;</code>
+     * <code>repeated uint32 DLPBJMPECFC = 5;</code>
      * @param values the dLPBJMPECFC to add
      * @return this
      */
@@ -233,9 +253,9 @@ public final class GetRollShopInfoScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        rollShopId = other.rollShopId;
         bBJIJINJAFK = other.bBJIJINJAFK;
         retcode = other.retcode;
-        rollShopId = other.rollShopId;
         dLPBJMPECFC.copyFrom(other.dLPBJMPECFC);
       }
       return this;
@@ -247,14 +267,14 @@ public final class GetRollShopInfoScRspOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasRollShopId()) {
+        setRollShopId(other.rollShopId);
+      }
       if (other.hasBBJIJINJAFK()) {
         setBBJIJINJAFK(other.bBJIJINJAFK);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
-      }
-      if (other.hasRollShopId()) {
-        setRollShopId(other.rollShopId);
       }
       if (other.hasDLPBJMPECFC()) {
         getMutableDLPBJMPECFC().addAll(other.dLPBJMPECFC);
@@ -269,9 +289,9 @@ public final class GetRollShopInfoScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      rollShopId = 0;
       bBJIJINJAFK = 0;
       retcode = 0;
-      rollShopId = 0;
       dLPBJMPECFC.clear();
       return this;
     }
@@ -297,9 +317,9 @@ public final class GetRollShopInfoScRspOuterClass {
       }
       GetRollShopInfoScRsp other = (GetRollShopInfoScRsp) o;
       return bitField0_ == other.bitField0_
+        && (!hasRollShopId() || rollShopId == other.rollShopId)
         && (!hasBBJIJINJAFK() || bBJIJINJAFK == other.bBJIJINJAFK)
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasRollShopId() || rollShopId == other.rollShopId)
         && (!hasDLPBJMPECFC() || dLPBJMPECFC.equals(other.dLPBJMPECFC));
     }
 
@@ -307,19 +327,19 @@ public final class GetRollShopInfoScRspOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(bBJIJINJAFK);
+        output.writeUInt32NoTag(rollShopId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(bBJIJINJAFK);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(rollShopId);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < dLPBJMPECFC.length(); i++) {
-          output.writeRawByte((byte) 64);
+          output.writeRawByte((byte) 40);
           output.writeUInt32NoTag(dLPBJMPECFC.array()[i]);
         }
       }
@@ -329,13 +349,13 @@ public final class GetRollShopInfoScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bBJIJINJAFK);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollShopId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(bBJIJINJAFK);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollShopId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * dLPBJMPECFC.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(dLPBJMPECFC);
@@ -351,33 +371,33 @@ public final class GetRollShopInfoScRspOuterClass {
       while (true) {
         switch (tag) {
           case 32: {
-            // bBJIJINJAFK
-            bBJIJINJAFK = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 40) {
-              break;
-            }
-          }
-          case 40: {
-            // retcode
-            retcode = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
             // rollShopId
             rollShopId = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 72) {
               break;
             }
           }
-          case 66: {
+          case 72: {
+            // bBJIJINJAFK
+            bBJIJINJAFK = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 104) {
+              break;
+            }
+          }
+          case 104: {
+            // retcode
+            retcode = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 42) {
+              break;
+            }
+          }
+          case 42: {
             // dLPBJMPECFC [packed=true]
             input.readPackedUInt32(dLPBJMPECFC, tag);
             bitField0_ |= 0x00000008;
@@ -396,7 +416,7 @@ public final class GetRollShopInfoScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 64: {
+          case 40: {
             // dLPBJMPECFC [packed=false]
             tag = input.readRepeatedUInt32(dLPBJMPECFC, tag);
             bitField0_ |= 0x00000008;
@@ -410,13 +430,13 @@ public final class GetRollShopInfoScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.bBJIJINJAFK, bBJIJINJAFK);
+        output.writeUInt32(FieldNames.rollShopId, rollShopId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.bBJIJINJAFK, bBJIJINJAFK);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.rollShopId, rollShopId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedUInt32(FieldNames.dLPBJMPECFC, dLPBJMPECFC);
@@ -431,11 +451,23 @@ public final class GetRollShopInfoScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case -904898162:
+          case -1612413630: {
+            if (input.isAtField(FieldNames.rollShopId)) {
+              if (!input.trySkipNullValue()) {
+                rollShopId = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1536175796: {
             if (input.isAtField(FieldNames.bBJIJINJAFK)) {
               if (!input.trySkipNullValue()) {
                 bBJIJINJAFK = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -446,18 +478,6 @@ public final class GetRollShopInfoScRspOuterClass {
             if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -904898162:
-          case -1612413630: {
-            if (input.isAtField(FieldNames.rollShopId)) {
-              if (!input.trySkipNullValue()) {
-                rollShopId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -529,11 +549,11 @@ public final class GetRollShopInfoScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName rollShopId = FieldName.forField("rollShopId", "roll_shop_id");
+
       static final FieldName bBJIJINJAFK = FieldName.forField("BBJIJINJAFK");
 
       static final FieldName retcode = FieldName.forField("retcode");
-
-      static final FieldName rollShopId = FieldName.forField("rollShopId", "roll_shop_id");
 
       static final FieldName dLPBJMPECFC = FieldName.forField("DLPBJMPECFC");
     }

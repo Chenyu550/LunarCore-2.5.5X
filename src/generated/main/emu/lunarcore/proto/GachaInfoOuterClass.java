@@ -21,22 +21,22 @@ public final class GachaInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 begin_time = 4;</code>
-     */
-    private long beginTime;
-
-    /**
-     * <code>optional int64 end_time = 8;</code>
+     * <code>optional int64 end_time = 3;</code>
      */
     private long endTime;
 
     /**
-     * <code>optional uint32 gacha_id = 11;</code>
+     * <code>optional int64 begin_time = 5;</code>
+     */
+    private long beginTime;
+
+    /**
+     * <code>optional uint32 gacha_id = 9;</code>
      */
     private int gachaId;
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      */
     private final GachaCeilingOuterClass.GachaCeiling gachaCeiling = GachaCeilingOuterClass.GachaCeiling.newInstance();
 
@@ -46,17 +46,17 @@ public final class GachaInfoOuterClass {
     private final Utf8String detailUrl = Utf8String.newEmptyInstance();
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      */
     private final Utf8String historyUrl = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      */
     private final RepeatedInt featured = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      */
     private final RepeatedInt upInfo = RepeatedInt.newEmptyInstance();
 
@@ -71,62 +71,25 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 4;</code>
-     * @return whether the beginTime field is set
+     * <code>optional int64 end_time = 3;</code>
+     * @return whether the endTime field is set
      */
-    public boolean hasBeginTime() {
+    public boolean hasEndTime() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional int64 begin_time = 4;</code>
-     * @return this
-     */
-    public GachaInfo clearBeginTime() {
-      bitField0_ &= ~0x00000001;
-      beginTime = 0L;
-      return this;
-    }
-
-    /**
-     * <code>optional int64 begin_time = 4;</code>
-     * @return the beginTime
-     */
-    public long getBeginTime() {
-      return beginTime;
-    }
-
-    /**
-     * <code>optional int64 begin_time = 4;</code>
-     * @param value the beginTime to set
-     * @return this
-     */
-    public GachaInfo setBeginTime(final long value) {
-      bitField0_ |= 0x00000001;
-      beginTime = value;
-      return this;
-    }
-
-    /**
-     * <code>optional int64 end_time = 8;</code>
-     * @return whether the endTime field is set
-     */
-    public boolean hasEndTime() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional int64 end_time = 8;</code>
+     * <code>optional int64 end_time = 3;</code>
      * @return this
      */
     public GachaInfo clearEndTime() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       endTime = 0L;
       return this;
     }
 
     /**
-     * <code>optional int64 end_time = 8;</code>
+     * <code>optional int64 end_time = 3;</code>
      * @return the endTime
      */
     public long getEndTime() {
@@ -134,18 +97,55 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 8;</code>
+     * <code>optional int64 end_time = 3;</code>
      * @param value the endTime to set
      * @return this
      */
     public GachaInfo setEndTime(final long value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       endTime = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 gacha_id = 11;</code>
+     * <code>optional int64 begin_time = 5;</code>
+     * @return whether the beginTime field is set
+     */
+    public boolean hasBeginTime() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 5;</code>
+     * @return this
+     */
+    public GachaInfo clearBeginTime() {
+      bitField0_ &= ~0x00000002;
+      beginTime = 0L;
+      return this;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 5;</code>
+     * @return the beginTime
+     */
+    public long getBeginTime() {
+      return beginTime;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 5;</code>
+     * @param value the beginTime to set
+     * @return this
+     */
+    public GachaInfo setBeginTime(final long value) {
+      bitField0_ |= 0x00000002;
+      beginTime = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 gacha_id = 9;</code>
      * @return whether the gachaId field is set
      */
     public boolean hasGachaId() {
@@ -153,7 +153,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 11;</code>
+     * <code>optional uint32 gacha_id = 9;</code>
      * @return this
      */
     public GachaInfo clearGachaId() {
@@ -163,7 +163,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 11;</code>
+     * <code>optional uint32 gacha_id = 9;</code>
      * @return the gachaId
      */
     public int getGachaId() {
@@ -171,7 +171,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 11;</code>
+     * <code>optional uint32 gacha_id = 9;</code>
      * @param value the gachaId to set
      * @return this
      */
@@ -182,7 +182,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      * @return whether the gachaCeiling field is set
      */
     public boolean hasGachaCeiling() {
@@ -190,7 +190,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      * @return this
      */
     public GachaInfo clearGachaCeiling() {
@@ -200,7 +200,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -214,7 +214,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -228,7 +228,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      * @param value the gachaCeiling to set
      * @return this
      */
@@ -304,7 +304,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @return whether the historyUrl field is set
      */
     public boolean hasHistoryUrl() {
@@ -312,7 +312,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @return this
      */
     public GachaInfo clearHistoryUrl() {
@@ -322,7 +322,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @return the historyUrl
      */
     public String getHistoryUrl() {
@@ -330,7 +330,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @return internal {@code Utf8String} representation of historyUrl for reading
      */
     public Utf8String getHistoryUrlBytes() {
@@ -338,7 +338,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @return internal {@code Utf8String} representation of historyUrl for modifications
      */
     public Utf8String getMutableHistoryUrlBytes() {
@@ -347,7 +347,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @param value the historyUrl to set
      * @return this
      */
@@ -358,7 +358,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>optional string history_url = 13;</code>
+     * <code>optional string history_url = 7;</code>
      * @param value the historyUrl to set
      * @return this
      */
@@ -369,7 +369,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      * @return whether the featured field is set
      */
     public boolean hasFeatured() {
@@ -377,7 +377,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      * @return this
      */
     public GachaInfo clearFeatured() {
@@ -387,7 +387,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -401,7 +401,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -415,7 +415,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      * @param value the featured to add
      * @return this
      */
@@ -426,7 +426,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 featured = 3;</code>
+     * <code>repeated uint32 featured = 4;</code>
      * @param values the featured to add
      * @return this
      */
@@ -437,7 +437,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      * @return whether the upInfo field is set
      */
     public boolean hasUpInfo() {
@@ -445,7 +445,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      * @return this
      */
     public GachaInfo clearUpInfo() {
@@ -455,7 +455,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -469,7 +469,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -483,7 +483,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      * @param value the upInfo to add
      * @return this
      */
@@ -494,7 +494,7 @@ public final class GachaInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 up_info = 9;</code>
+     * <code>repeated uint32 up_info = 10;</code>
      * @param values the upInfo to add
      * @return this
      */
@@ -509,8 +509,8 @@ public final class GachaInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        beginTime = other.beginTime;
         endTime = other.endTime;
+        beginTime = other.beginTime;
         gachaId = other.gachaId;
         gachaCeiling.copyFrom(other.gachaCeiling);
         detailUrl.copyFrom(other.detailUrl);
@@ -527,11 +527,11 @@ public final class GachaInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBeginTime()) {
-        setBeginTime(other.beginTime);
-      }
       if (other.hasEndTime()) {
         setEndTime(other.endTime);
+      }
+      if (other.hasBeginTime()) {
+        setBeginTime(other.beginTime);
       }
       if (other.hasGachaId()) {
         setGachaId(other.gachaId);
@@ -561,8 +561,8 @@ public final class GachaInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      beginTime = 0L;
       endTime = 0L;
+      beginTime = 0L;
       gachaId = 0;
       gachaCeiling.clear();
       detailUrl.clear();
@@ -597,8 +597,8 @@ public final class GachaInfoOuterClass {
       }
       GachaInfo other = (GachaInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasBeginTime() || beginTime == other.beginTime)
         && (!hasEndTime() || endTime == other.endTime)
+        && (!hasBeginTime() || beginTime == other.beginTime)
         && (!hasGachaId() || gachaId == other.gachaId)
         && (!hasGachaCeiling() || gachaCeiling.equals(other.gachaCeiling))
         && (!hasDetailUrl() || detailUrl.equals(other.detailUrl))
@@ -610,19 +610,19 @@ public final class GachaInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeInt64NoTag(beginTime);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 24);
         output.writeInt64NoTag(endTime);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 40);
+        output.writeInt64NoTag(beginTime);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(gachaId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(gachaCeiling);
       }
       if ((bitField0_ & 0x00000010) != 0) {
@@ -630,18 +630,18 @@ public final class GachaInfoOuterClass {
         output.writeStringNoTag(detailUrl);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 58);
         output.writeStringNoTag(historyUrl);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         for (int i = 0; i < featured.length(); i++) {
-          output.writeRawByte((byte) 24);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(featured.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000080) != 0) {
         for (int i = 0; i < upInfo.length(); i++) {
-          output.writeRawByte((byte) 72);
+          output.writeRawByte((byte) 80);
           output.writeUInt32NoTag(upInfo.array()[i]);
         }
       }
@@ -651,10 +651,10 @@ public final class GachaInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeInt64SizeNoTag(beginTime);
+        size += 1 + ProtoSink.computeInt64SizeNoTag(endTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeInt64SizeNoTag(endTime);
+        size += 1 + ProtoSink.computeInt64SizeNoTag(beginTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaId);
@@ -684,34 +684,34 @@ public final class GachaInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // beginTime
-            beginTime = input.readInt64();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
+          case 24: {
             // endTime
             endTime = input.readInt64();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 40) {
               break;
             }
           }
-          case 88: {
+          case 40: {
+            // beginTime
+            beginTime = input.readInt64();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
             // gachaId
             gachaId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 10) {
               break;
             }
           }
-          case 50: {
+          case 10: {
             // gachaCeiling
             input.readMessage(gachaCeiling);
             bitField0_ |= 0x00000008;
@@ -725,29 +725,29 @@ public final class GachaInfoOuterClass {
             input.readString(detailUrl);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 58) {
               break;
             }
           }
-          case 106: {
+          case 58: {
             // historyUrl
             input.readString(historyUrl);
             bitField0_ |= 0x00000020;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 34) {
               break;
             }
           }
-          case 26: {
+          case 34: {
             // featured [packed=true]
             input.readPackedUInt32(featured, tag);
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 82) {
               break;
             }
           }
-          case 74: {
+          case 82: {
             // upInfo [packed=true]
             input.readPackedUInt32(upInfo, tag);
             bitField0_ |= 0x00000080;
@@ -766,13 +766,13 @@ public final class GachaInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 24: {
+          case 32: {
             // featured [packed=false]
             tag = input.readRepeatedUInt32(featured, tag);
             bitField0_ |= 0x00000040;
             break;
           }
-          case 72: {
+          case 80: {
             // upInfo [packed=false]
             tag = input.readRepeatedUInt32(upInfo, tag);
             bitField0_ |= 0x00000080;
@@ -786,10 +786,10 @@ public final class GachaInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeInt64(FieldNames.beginTime, beginTime);
+        output.writeInt64(FieldNames.endTime, endTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeInt64(FieldNames.endTime, endTime);
+        output.writeInt64(FieldNames.beginTime, beginTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.gachaId, gachaId);
@@ -819,11 +819,11 @@ public final class GachaInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1072839914:
-          case 1112183971: {
-            if (input.isAtField(FieldNames.beginTime)) {
+          case -1607243192:
+          case 1725551537: {
+            if (input.isAtField(FieldNames.endTime)) {
               if (!input.trySkipNullValue()) {
-                beginTime = input.readInt64();
+                endTime = input.readInt64();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -831,11 +831,11 @@ public final class GachaInfoOuterClass {
             }
             break;
           }
-          case -1607243192:
-          case 1725551537: {
-            if (input.isAtField(FieldNames.endTime)) {
+          case -1072839914:
+          case 1112183971: {
+            if (input.isAtField(FieldNames.beginTime)) {
               if (!input.trySkipNullValue()) {
-                endTime = input.readInt64();
+                beginTime = input.readInt64();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -966,9 +966,9 @@ public final class GachaInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName beginTime = FieldName.forField("beginTime", "begin_time");
-
       static final FieldName endTime = FieldName.forField("endTime", "end_time");
+
+      static final FieldName beginTime = FieldName.forField("beginTime", "begin_time");
 
       static final FieldName gachaId = FieldName.forField("gachaId", "gacha_id");
 

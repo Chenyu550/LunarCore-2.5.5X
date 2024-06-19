@@ -28,8 +28,11 @@ import lombok.Getter;
 
 public class LunarCore {
     private static final Logger log = LoggerFactory.getLogger(LunarCore.class);
-    private static File configFile = new File("./config.json");
+    
+    private static final File configFile = new File("./config.json");
+    private static final File hotfixFile = new File("./hotfix.json");
     @Getter private static Config config;
+    @Getter private static HotfixData hotfixData;
 
     @Getter private static DatabaseManager accountDatabase;
     @Getter private static DatabaseManager gameDatabase;
@@ -81,6 +84,9 @@ public class LunarCore {
         } catch (Exception exception) {
             LunarCore.getLogger().error("Unable to load plugins.", exception);
         }
+        
+        // Load hotfix data
+        LunarCore.loadHotfixData();
 
         // Parse arguments
         for (String arg : args) {
@@ -177,7 +183,7 @@ public class LunarCore {
         }
     }
 
-    // Config
+    // Config/Hotfix
 
     public static void loadConfig() {
         // Load from file
@@ -211,6 +217,31 @@ public class LunarCore {
             getLogger().error("Config save error");
         }
     }
+    
+    public static void loadHotfixData() {
+        // Load from hotfix file
+        try (FileReader file = new FileReader(hotfixFile)) {
+            LunarCore.hotfixData = JsonUtils.loadToClass(file, HotfixData.class);
+        } catch (Exception e) {
+            LunarCore.hotfixData = null;
+        }
+        
+        if (LunarCore.hotfixData == null) {
+            LunarCore.hotfixData = new HotfixData();
+            
+            // Save hotfix data
+            Gson gson = new GsonBuilder()
+                    .setPrettyPrinting()
+                    .serializeNulls()
+                    .create();
+            
+            try (FileWriter fw = new FileWriter(hotfixFile)) {
+                fw.write(gson.toJson(hotfixData));
+            } catch (Exception ex) {
+                // Ignored
+            }
+        }
+    }
 
     // Build Config
     
@@ -226,7 +257,7 @@ public class LunarCore {
         return "";
     }
 
-    private static String getGitHash() {
+    public static String getGitHash() {
         // Use a string builder in case one of the build config fields are missing
         StringBuilder builder = new StringBuilder();
         
@@ -246,7 +277,7 @@ public class LunarCore {
         }
         
         if (builder.isEmpty()) {
-            return "";
+            return "UNKNOWN";
         } else {
             return builder.toString();
         }
@@ -273,6 +304,14 @@ public class LunarCore {
         } else {
             timeOffset = 0;
         }
+    }
+    
+    /**
+     * Returns the memory usage of the server, in megabytes.
+     */
+    public static long getMemoryUsage() {
+        Runtime runtime = Runtime.getRuntime();
+        return (runtime.totalMemory() - runtime.freeMemory()) / 1_048_576L;
     }
 
     // Server console

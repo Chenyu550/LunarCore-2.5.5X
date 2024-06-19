@@ -19,14 +19,18 @@ public final class DressAvatarCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 6;</code>
+     * <code>optional uint32 equip_avatar_id = 2;</code>
      */
-    private int equipmentUniqueId;
+    private int equipAvatarId;
 
     /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
+     * <pre>
+     *  uint32 base_avatar_id = 15;
+     * </pre>
+     *
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      */
-    private int baseAvatarId;
+    private int equipmentUniqueId;
 
     private DressAvatarCsReq() {
     }
@@ -39,25 +43,74 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 6;</code>
-     * @return whether the equipmentUniqueId field is set
+     * <code>optional uint32 equip_avatar_id = 2;</code>
+     * @return whether the equipAvatarId field is set
      */
-    public boolean hasEquipmentUniqueId() {
+    public boolean hasEquipAvatarId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 6;</code>
+     * <code>optional uint32 equip_avatar_id = 2;</code>
+     * @return this
+     */
+    public DressAvatarCsReq clearEquipAvatarId() {
+      bitField0_ &= ~0x00000001;
+      equipAvatarId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 equip_avatar_id = 2;</code>
+     * @return the equipAvatarId
+     */
+    public int getEquipAvatarId() {
+      return equipAvatarId;
+    }
+
+    /**
+     * <code>optional uint32 equip_avatar_id = 2;</code>
+     * @param value the equipAvatarId to set
+     * @return this
+     */
+    public DressAvatarCsReq setEquipAvatarId(final int value) {
+      bitField0_ |= 0x00000001;
+      equipAvatarId = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  uint32 base_avatar_id = 15;
+     * </pre>
+     *
+     * <code>optional uint32 equipment_unique_id = 14;</code>
+     * @return whether the equipmentUniqueId field is set
+     */
+    public boolean hasEquipmentUniqueId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <pre>
+     *  uint32 base_avatar_id = 15;
+     * </pre>
+     *
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @return this
      */
     public DressAvatarCsReq clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       equipmentUniqueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 6;</code>
+     * <pre>
+     *  uint32 base_avatar_id = 15;
+     * </pre>
+     *
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @return the equipmentUniqueId
      */
     public int getEquipmentUniqueId() {
@@ -65,50 +118,17 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 6;</code>
+     * <pre>
+     *  uint32 base_avatar_id = 15;
+     * </pre>
+     *
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @param value the equipmentUniqueId to set
      * @return this
      */
     public DressAvatarCsReq setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000001;
-      equipmentUniqueId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
-     * @return whether the baseAvatarId field is set
-     */
-    public boolean hasBaseAvatarId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
-     * @return this
-     */
-    public DressAvatarCsReq clearBaseAvatarId() {
-      bitField0_ &= ~0x00000002;
-      baseAvatarId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
-     * @return the baseAvatarId
-     */
-    public int getBaseAvatarId() {
-      return baseAvatarId;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
-     * @param value the baseAvatarId to set
-     * @return this
-     */
-    public DressAvatarCsReq setBaseAvatarId(final int value) {
       bitField0_ |= 0x00000002;
-      baseAvatarId = value;
+      equipmentUniqueId = value;
       return this;
     }
 
@@ -117,8 +137,8 @@ public final class DressAvatarCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        equipAvatarId = other.equipAvatarId;
         equipmentUniqueId = other.equipmentUniqueId;
-        baseAvatarId = other.baseAvatarId;
       }
       return this;
     }
@@ -129,11 +149,11 @@ public final class DressAvatarCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasEquipAvatarId()) {
+        setEquipAvatarId(other.equipAvatarId);
+      }
       if (other.hasEquipmentUniqueId()) {
         setEquipmentUniqueId(other.equipmentUniqueId);
-      }
-      if (other.hasBaseAvatarId()) {
-        setBaseAvatarId(other.baseAvatarId);
       }
       return this;
     }
@@ -145,8 +165,8 @@ public final class DressAvatarCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      equipAvatarId = 0;
       equipmentUniqueId = 0;
-      baseAvatarId = 0;
       return this;
     }
 
@@ -170,19 +190,19 @@ public final class DressAvatarCsReqOuterClass {
       }
       DressAvatarCsReq other = (DressAvatarCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
-        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId);
+        && (!hasEquipAvatarId() || equipAvatarId == other.equipAvatarId)
+        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(equipmentUniqueId);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(equipAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(baseAvatarId);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(equipmentUniqueId);
       }
     }
 
@@ -190,10 +210,10 @@ public final class DressAvatarCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
       }
       return size;
     }
@@ -205,18 +225,18 @@ public final class DressAvatarCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
+          case 16: {
+            // equipAvatarId
+            equipAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 112) {
               break;
             }
           }
-          case 72: {
-            // baseAvatarId
-            baseAvatarId = input.readUInt32();
+          case 112: {
+            // equipmentUniqueId
+            equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +261,10 @@ public final class DressAvatarCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
+        output.writeUInt32(FieldNames.equipAvatarId, equipAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
+        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
       }
       output.endObject();
     }
@@ -256,11 +276,11 @@ public final class DressAvatarCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1867136902:
-          case 760467160: {
-            if (input.isAtField(FieldNames.equipmentUniqueId)) {
+          case 169047204:
+          case 33057906: {
+            if (input.isAtField(FieldNames.equipAvatarId)) {
               if (!input.trySkipNullValue()) {
-                equipmentUniqueId = input.readUInt32();
+                equipAvatarId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +288,11 @@ public final class DressAvatarCsReqOuterClass {
             }
             break;
           }
-          case 118022725:
-          case -1756826157: {
-            if (input.isAtField(FieldNames.baseAvatarId)) {
+          case -1867136902:
+          case 760467160: {
+            if (input.isAtField(FieldNames.equipmentUniqueId)) {
               if (!input.trySkipNullValue()) {
-                baseAvatarId = input.readUInt32();
+                equipmentUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +353,9 @@ public final class DressAvatarCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
+      static final FieldName equipAvatarId = FieldName.forField("equipAvatarId", "equip_avatar_id");
 
-      static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
+      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
     }
   }
 }

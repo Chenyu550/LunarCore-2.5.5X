@@ -24,7 +24,7 @@ public final class MonsterArchiveOuterClass {
     private int monsterId;
 
     /**
-     * <code>optional uint32 num = 9;</code>
+     * <code>optional uint32 num = 3;</code>
      */
     private int num;
 
@@ -76,7 +76,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 9;</code>
+     * <code>optional uint32 num = 3;</code>
      * @return whether the num field is set
      */
     public boolean hasNum() {
@@ -84,7 +84,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 9;</code>
+     * <code>optional uint32 num = 3;</code>
      * @return this
      */
     public MonsterArchive clearNum() {
@@ -94,7 +94,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 9;</code>
+     * <code>optional uint32 num = 3;</code>
      * @return the num
      */
     public int getNum() {
@@ -102,7 +102,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 9;</code>
+     * <code>optional uint32 num = 3;</code>
      * @param value the num to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class MonsterArchiveOuterClass {
         output.writeUInt32NoTag(monsterId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(num);
       }
     }
@@ -210,11 +210,11 @@ public final class MonsterArchiveOuterClass {
             monsterId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 24) {
               break;
             }
           }
-          case 72: {
+          case 24: {
             // num
             num = input.readUInt32();
             bitField0_ |= 0x00000002;

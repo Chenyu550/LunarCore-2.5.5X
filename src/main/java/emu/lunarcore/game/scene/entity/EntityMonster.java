@@ -1,10 +1,14 @@
 package emu.lunarcore.game.scene.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.battle.BattleStage;
 import emu.lunarcore.game.inventory.ItemParamMap;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneBuff;
@@ -34,10 +38,10 @@ public class EntityMonster implements GameEntity, Tickable {
     private final Position rot;
     
     private Int2ObjectMap<SceneBuff> buffs;
-    @Setter private SceneBuff tempBuff;
+    private List<SceneBuff> tempBuffs;
     
     private int farmElementId;
-    @Setter private int customStageId;
+    private BattleStage customStage;
     @Setter private int customLevel;
     
     public EntityMonster(Scene scene, NpcMonsterExcel excel, GroupInfo group, MonsterInfo monsterInfo) {
@@ -59,11 +63,19 @@ public class EntityMonster implements GameEntity, Tickable {
     }
     
     public int getStageId() {
-        if (this.customStageId == 0) {
+        if (this.customStage == null) {
             return (this.getEventId() * 10) + worldLevel;
         } else {
-            return this.customStageId;
+            return this.customStage.getId();
         }
+    }
+
+    public void setCustomStage(BattleStage stage) {
+        this.customStage = stage;
+    }
+    
+    public void setCustomStage(int stageId) {
+        this.customStage = GameData.getStageExcelMap().get(stageId);
     }
     
     public synchronized SceneBuff addBuff(int caster, int buffId, int duration) {
@@ -79,6 +91,14 @@ public class EntityMonster implements GameEntity, Tickable {
         return buff;
     }
     
+    public synchronized void addTempBuff(SceneBuff tempBuff) {
+        if (this.tempBuffs == null) {
+            this.tempBuffs = new ArrayList<>();
+        }
+        
+        this.tempBuffs.add(tempBuff);
+    }
+    
     public synchronized void applyBuffs(Battle battle, int waveIndex) {
         if (this.buffs != null) {
             for (var entry : this.buffs.int2ObjectEntrySet()) {
@@ -92,9 +112,12 @@ public class EntityMonster implements GameEntity, Tickable {
             }
         }
         
-        if (this.getTempBuff() != null) {
-            this.applyBuff(battle, this.getTempBuff(), waveIndex);
-            this.tempBuff = null;
+        if (this.getTempBuffs() != null) {
+            for (var tempBuff : this.getTempBuffs()) {
+                this.applyBuff(battle, tempBuff, waveIndex);
+            }
+            
+            this.tempBuffs = null;
         }
     }
     

@@ -24,7 +24,7 @@ public final class SetClientPausedScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional bool paused = 13;</code>
+     * <code>optional bool paused = 1;</code>
      */
     private boolean paused;
 
@@ -76,7 +76,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 13;</code>
+     * <code>optional bool paused = 1;</code>
      * @return whether the paused field is set
      */
     public boolean hasPaused() {
@@ -84,7 +84,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 13;</code>
+     * <code>optional bool paused = 1;</code>
      * @return this
      */
     public SetClientPausedScRsp clearPaused() {
@@ -94,7 +94,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 13;</code>
+     * <code>optional bool paused = 1;</code>
      * @return the paused
      */
     public boolean getPaused() {
@@ -102,7 +102,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 13;</code>
+     * <code>optional bool paused = 1;</code>
      * @param value the paused to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class SetClientPausedScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 8);
         output.writeBoolNoTag(paused);
       }
     }
@@ -210,11 +210,11 @@ public final class SetClientPausedScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 8) {
               break;
             }
           }
-          case 104: {
+          case 8: {
             // paused
             paused = input.readBool();
             bitField0_ |= 0x00000002;

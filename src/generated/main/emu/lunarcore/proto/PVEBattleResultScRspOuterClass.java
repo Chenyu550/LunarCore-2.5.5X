@@ -21,37 +21,37 @@ public final class PVEBattleResultScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 stage_id = 5;</code>
-     */
-    private int stageId;
-
-    /**
-     * <code>optional uint32 event_id = 6;</code>
+     * <code>optional uint32 event_id = 2;</code>
      */
     private int eventId;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 battle_id = 11;</code>
+     * <code>optional uint32 battle_id = 4;</code>
      */
     private int battleId;
 
     /**
-     * <code>optional uint32 mismatch_turn_count = 13;</code>
+     * <code>optional uint32 mismatch_turn_count = 6;</code>
      */
     private int mismatchTurnCount;
 
     /**
-     * <code>optional .BattleEndStatus end_status = 8;</code>
+     * <code>optional uint32 stage_id = 7;</code>
+     */
+    private int stageId;
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     */
+    private int retcode;
+
+    /**
+     * <code>optional .BattleEndStatus end_status = 11;</code>
      */
     private int endStatus;
 
     /**
-     * <code>optional bool check_identical = 14;</code>
+     * <code>optional bool check_identical = 8;</code>
      */
     private boolean checkIdentical;
 
@@ -61,33 +61,29 @@ public final class PVEBattleResultScRspOuterClass {
     private final ItemListOuterClass.ItemList dropData = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>optional .ItemList unk1 = 7;</code>
+     * <code>optional .ItemList unk1 = 3;</code>
      */
     private final ItemListOuterClass.ItemList unk1 = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <pre>
-     *  extra_drop_data
-     * </pre>
-     *
-     * <code>optional .ItemList unk2 = 12;</code>
+     * <code>optional .ItemList unk2 = 10;</code>
      */
     private final ItemListOuterClass.ItemList unk2 = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>optional .ItemList unk3 = 1634;</code>
+     * <code>optional .ItemList unk3 = 253;</code>
      */
     private final ItemListOuterClass.ItemList unk3 = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>optional string bin_version = 2;</code>
-     */
-    private final Utf8String binVersion = Utf8String.newEmptyInstance();
-
-    /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      */
     private final Utf8String resVersion = Utf8String.newEmptyInstance();
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     */
+    private final Utf8String binVersion = Utf8String.newEmptyInstance();
 
     /**
      * <code>repeated .BattleAvatar battle_avatar_list = 15;</code>
@@ -105,62 +101,25 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 5;</code>
-     * @return whether the stageId field is set
+     * <code>optional uint32 event_id = 2;</code>
+     * @return whether the eventId field is set
      */
-    public boolean hasStageId() {
+    public boolean hasEventId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 stage_id = 5;</code>
-     * @return this
-     */
-    public PVEBattleResultScRsp clearStageId() {
-      bitField0_ &= ~0x00000001;
-      stageId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 stage_id = 5;</code>
-     * @return the stageId
-     */
-    public int getStageId() {
-      return stageId;
-    }
-
-    /**
-     * <code>optional uint32 stage_id = 5;</code>
-     * @param value the stageId to set
-     * @return this
-     */
-    public PVEBattleResultScRsp setStageId(final int value) {
-      bitField0_ |= 0x00000001;
-      stageId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 event_id = 6;</code>
-     * @return whether the eventId field is set
-     */
-    public boolean hasEventId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 event_id = 6;</code>
+     * <code>optional uint32 event_id = 2;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearEventId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       eventId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_id = 6;</code>
+     * <code>optional uint32 event_id = 2;</code>
      * @return the eventId
      */
     public int getEventId() {
@@ -168,73 +127,36 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 6;</code>
+     * <code>optional uint32 event_id = 2;</code>
      * @param value the eventId to set
      * @return this
      */
     public PVEBattleResultScRsp setEventId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       eventId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 10;</code>
-     * @return this
-     */
-    public PVEBattleResultScRsp clearRetcode() {
-      bitField0_ &= ~0x00000004;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 10;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 10;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public PVEBattleResultScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000004;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 battle_id = 11;</code>
+     * <code>optional uint32 battle_id = 4;</code>
      * @return whether the battleId field is set
      */
     public boolean hasBattleId() {
-      return (bitField0_ & 0x00000008) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 battle_id = 11;</code>
+     * <code>optional uint32 battle_id = 4;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearBattleId() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000002;
       battleId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 battle_id = 11;</code>
+     * <code>optional uint32 battle_id = 4;</code>
      * @return the battleId
      */
     public int getBattleId() {
@@ -242,36 +164,36 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 battle_id = 11;</code>
+     * <code>optional uint32 battle_id = 4;</code>
      * @param value the battleId to set
      * @return this
      */
     public PVEBattleResultScRsp setBattleId(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       battleId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 mismatch_turn_count = 13;</code>
+     * <code>optional uint32 mismatch_turn_count = 6;</code>
      * @return whether the mismatchTurnCount field is set
      */
     public boolean hasMismatchTurnCount() {
-      return (bitField0_ & 0x00000010) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 mismatch_turn_count = 13;</code>
+     * <code>optional uint32 mismatch_turn_count = 6;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearMismatchTurnCount() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000004;
       mismatchTurnCount = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 mismatch_turn_count = 13;</code>
+     * <code>optional uint32 mismatch_turn_count = 6;</code>
      * @return the mismatchTurnCount
      */
     public int getMismatchTurnCount() {
@@ -279,18 +201,92 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 mismatch_turn_count = 13;</code>
+     * <code>optional uint32 mismatch_turn_count = 6;</code>
      * @param value the mismatchTurnCount to set
      * @return this
      */
     public PVEBattleResultScRsp setMismatchTurnCount(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       mismatchTurnCount = value;
       return this;
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 8;</code>
+     * <code>optional uint32 stage_id = 7;</code>
+     * @return whether the stageId field is set
+     */
+    public boolean hasStageId() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 stage_id = 7;</code>
+     * @return this
+     */
+    public PVEBattleResultScRsp clearStageId() {
+      bitField0_ &= ~0x00000008;
+      stageId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 stage_id = 7;</code>
+     * @return the stageId
+     */
+    public int getStageId() {
+      return stageId;
+    }
+
+    /**
+     * <code>optional uint32 stage_id = 7;</code>
+     * @param value the stageId to set
+     * @return this
+     */
+    public PVEBattleResultScRsp setStageId(final int value) {
+      bitField0_ |= 0x00000008;
+      stageId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @return this
+     */
+    public PVEBattleResultScRsp clearRetcode() {
+      bitField0_ &= ~0x00000010;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public PVEBattleResultScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000010;
+      retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .BattleEndStatus end_status = 11;</code>
      * @return whether the endStatus field is set
      */
     public boolean hasEndStatus() {
@@ -298,7 +294,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 8;</code>
+     * <code>optional .BattleEndStatus end_status = 11;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearEndStatus() {
@@ -308,7 +304,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 8;</code>
+     * <code>optional .BattleEndStatus end_status = 11;</code>
      * @return the endStatus
      */
     public BattleEndStatusOuterClass.BattleEndStatus getEndStatus() {
@@ -341,7 +337,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 8;</code>
+     * <code>optional .BattleEndStatus end_status = 11;</code>
      * @param value the endStatus to set
      * @return this
      */
@@ -353,7 +349,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional bool check_identical = 14;</code>
+     * <code>optional bool check_identical = 8;</code>
      * @return whether the checkIdentical field is set
      */
     public boolean hasCheckIdentical() {
@@ -361,7 +357,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional bool check_identical = 14;</code>
+     * <code>optional bool check_identical = 8;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearCheckIdentical() {
@@ -371,7 +367,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional bool check_identical = 14;</code>
+     * <code>optional bool check_identical = 8;</code>
      * @return the checkIdentical
      */
     public boolean getCheckIdentical() {
@@ -379,7 +375,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional bool check_identical = 14;</code>
+     * <code>optional bool check_identical = 8;</code>
      * @param value the checkIdentical to set
      * @return this
      */
@@ -447,7 +443,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk1 = 7;</code>
+     * <code>optional .ItemList unk1 = 3;</code>
      * @return whether the unk1 field is set
      */
     public boolean hasUnk1() {
@@ -455,7 +451,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk1 = 7;</code>
+     * <code>optional .ItemList unk1 = 3;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearUnk1() {
@@ -465,7 +461,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk1 = 7;</code>
+     * <code>optional .ItemList unk1 = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -479,7 +475,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk1 = 7;</code>
+     * <code>optional .ItemList unk1 = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -493,7 +489,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk1 = 7;</code>
+     * <code>optional .ItemList unk1 = 3;</code>
      * @param value the unk1 to set
      * @return this
      */
@@ -504,11 +500,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  extra_drop_data
-     * </pre>
-     *
-     * <code>optional .ItemList unk2 = 12;</code>
+     * <code>optional .ItemList unk2 = 10;</code>
      * @return whether the unk2 field is set
      */
     public boolean hasUnk2() {
@@ -516,11 +508,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  extra_drop_data
-     * </pre>
-     *
-     * <code>optional .ItemList unk2 = 12;</code>
+     * <code>optional .ItemList unk2 = 10;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearUnk2() {
@@ -530,11 +518,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  extra_drop_data
-     * </pre>
-     *
-     * <code>optional .ItemList unk2 = 12;</code>
+     * <code>optional .ItemList unk2 = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -548,11 +532,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  extra_drop_data
-     * </pre>
-     *
-     * <code>optional .ItemList unk2 = 12;</code>
+     * <code>optional .ItemList unk2 = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -566,11 +546,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  extra_drop_data
-     * </pre>
-     *
-     * <code>optional .ItemList unk2 = 12;</code>
+     * <code>optional .ItemList unk2 = 10;</code>
      * @param value the unk2 to set
      * @return this
      */
@@ -581,7 +557,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk3 = 1634;</code>
+     * <code>optional .ItemList unk3 = 253;</code>
      * @return whether the unk3 field is set
      */
     public boolean hasUnk3() {
@@ -589,7 +565,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk3 = 1634;</code>
+     * <code>optional .ItemList unk3 = 253;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearUnk3() {
@@ -599,7 +575,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk3 = 1634;</code>
+     * <code>optional .ItemList unk3 = 253;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -613,7 +589,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk3 = 1634;</code>
+     * <code>optional .ItemList unk3 = 253;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -627,7 +603,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk3 = 1634;</code>
+     * <code>optional .ItemList unk3 = 253;</code>
      * @param value the unk3 to set
      * @return this
      */
@@ -638,90 +614,25 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional string bin_version = 2;</code>
-     * @return whether the binVersion field is set
+     * <code>optional string res_version = 5;</code>
+     * @return whether the resVersion field is set
      */
-    public boolean hasBinVersion() {
+    public boolean hasResVersion() {
       return (bitField0_ & 0x00000800) != 0;
     }
 
     /**
-     * <code>optional string bin_version = 2;</code>
-     * @return this
-     */
-    public PVEBattleResultScRsp clearBinVersion() {
-      bitField0_ &= ~0x00000800;
-      binVersion.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string bin_version = 2;</code>
-     * @return the binVersion
-     */
-    public String getBinVersion() {
-      return binVersion.getString();
-    }
-
-    /**
-     * <code>optional string bin_version = 2;</code>
-     * @return internal {@code Utf8String} representation of binVersion for reading
-     */
-    public Utf8String getBinVersionBytes() {
-      return this.binVersion;
-    }
-
-    /**
-     * <code>optional string bin_version = 2;</code>
-     * @return internal {@code Utf8String} representation of binVersion for modifications
-     */
-    public Utf8String getMutableBinVersionBytes() {
-      bitField0_ |= 0x00000800;
-      return this.binVersion;
-    }
-
-    /**
-     * <code>optional string bin_version = 2;</code>
-     * @param value the binVersion to set
-     * @return this
-     */
-    public PVEBattleResultScRsp setBinVersion(final CharSequence value) {
-      bitField0_ |= 0x00000800;
-      binVersion.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string bin_version = 2;</code>
-     * @param value the binVersion to set
-     * @return this
-     */
-    public PVEBattleResultScRsp setBinVersion(final Utf8String value) {
-      bitField0_ |= 0x00000800;
-      binVersion.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string res_version = 4;</code>
-     * @return whether the resVersion field is set
-     */
-    public boolean hasResVersion() {
-      return (bitField0_ & 0x00001000) != 0;
-    }
-
-    /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearResVersion() {
-      bitField0_ &= ~0x00001000;
+      bitField0_ &= ~0x00000800;
       resVersion.clear();
       return this;
     }
 
     /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      * @return the resVersion
      */
     public String getResVersion() {
@@ -729,7 +640,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      * @return internal {@code Utf8String} representation of resVersion for reading
      */
     public Utf8String getResVersionBytes() {
@@ -737,33 +648,98 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      * @return internal {@code Utf8String} representation of resVersion for modifications
      */
     public Utf8String getMutableResVersionBytes() {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00000800;
       return this.resVersion;
     }
 
     /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      * @param value the resVersion to set
      * @return this
      */
     public PVEBattleResultScRsp setResVersion(final CharSequence value) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00000800;
       resVersion.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string res_version = 4;</code>
+     * <code>optional string res_version = 5;</code>
      * @param value the resVersion to set
      * @return this
      */
     public PVEBattleResultScRsp setResVersion(final Utf8String value) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00000800;
       resVersion.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @return whether the binVersion field is set
+     */
+    public boolean hasBinVersion() {
+      return (bitField0_ & 0x00001000) != 0;
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @return this
+     */
+    public PVEBattleResultScRsp clearBinVersion() {
+      bitField0_ &= ~0x00001000;
+      binVersion.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @return the binVersion
+     */
+    public String getBinVersion() {
+      return binVersion.getString();
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @return internal {@code Utf8String} representation of binVersion for reading
+     */
+    public Utf8String getBinVersionBytes() {
+      return this.binVersion;
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @return internal {@code Utf8String} representation of binVersion for modifications
+     */
+    public Utf8String getMutableBinVersionBytes() {
+      bitField0_ |= 0x00001000;
+      return this.binVersion;
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @param value the binVersion to set
+     * @return this
+     */
+    public PVEBattleResultScRsp setBinVersion(final CharSequence value) {
+      bitField0_ |= 0x00001000;
+      binVersion.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string bin_version = 13;</code>
+     * @param value the binVersion to set
+     * @return this
+     */
+    public PVEBattleResultScRsp setBinVersion(final Utf8String value) {
+      bitField0_ |= 0x00001000;
+      binVersion.copyFrom(value);
       return this;
     }
 
@@ -842,19 +818,19 @@ public final class PVEBattleResultScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        stageId = other.stageId;
         eventId = other.eventId;
-        retcode = other.retcode;
         battleId = other.battleId;
         mismatchTurnCount = other.mismatchTurnCount;
+        stageId = other.stageId;
+        retcode = other.retcode;
         endStatus = other.endStatus;
         checkIdentical = other.checkIdentical;
         dropData.copyFrom(other.dropData);
         unk1.copyFrom(other.unk1);
         unk2.copyFrom(other.unk2);
         unk3.copyFrom(other.unk3);
-        binVersion.copyFrom(other.binVersion);
         resVersion.copyFrom(other.resVersion);
+        binVersion.copyFrom(other.binVersion);
         battleAvatarList.copyFrom(other.battleAvatarList);
       }
       return this;
@@ -866,20 +842,20 @@ public final class PVEBattleResultScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasStageId()) {
-        setStageId(other.stageId);
-      }
       if (other.hasEventId()) {
         setEventId(other.eventId);
-      }
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
       }
       if (other.hasBattleId()) {
         setBattleId(other.battleId);
       }
       if (other.hasMismatchTurnCount()) {
         setMismatchTurnCount(other.mismatchTurnCount);
+      }
+      if (other.hasStageId()) {
+        setStageId(other.stageId);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       if (other.hasEndStatus()) {
         setEndStatusValue(other.endStatus);
@@ -899,11 +875,11 @@ public final class PVEBattleResultScRspOuterClass {
       if (other.hasUnk3()) {
         getMutableUnk3().mergeFrom(other.unk3);
       }
-      if (other.hasBinVersion()) {
-        getMutableBinVersionBytes().copyFrom(other.binVersion);
-      }
       if (other.hasResVersion()) {
         getMutableResVersionBytes().copyFrom(other.resVersion);
+      }
+      if (other.hasBinVersion()) {
+        getMutableBinVersionBytes().copyFrom(other.binVersion);
       }
       if (other.hasBattleAvatarList()) {
         getMutableBattleAvatarList().addAll(other.battleAvatarList);
@@ -918,19 +894,19 @@ public final class PVEBattleResultScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      stageId = 0;
       eventId = 0;
-      retcode = 0;
       battleId = 0;
       mismatchTurnCount = 0;
+      stageId = 0;
+      retcode = 0;
       endStatus = 0;
       checkIdentical = false;
       dropData.clear();
       unk1.clear();
       unk2.clear();
       unk3.clear();
-      binVersion.clear();
       resVersion.clear();
+      binVersion.clear();
       battleAvatarList.clear();
       return this;
     }
@@ -946,8 +922,8 @@ public final class PVEBattleResultScRspOuterClass {
       unk1.clearQuick();
       unk2.clearQuick();
       unk3.clearQuick();
-      binVersion.clear();
       resVersion.clear();
+      binVersion.clear();
       battleAvatarList.clearQuick();
       return this;
     }
@@ -962,50 +938,50 @@ public final class PVEBattleResultScRspOuterClass {
       }
       PVEBattleResultScRsp other = (PVEBattleResultScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasStageId() || stageId == other.stageId)
         && (!hasEventId() || eventId == other.eventId)
-        && (!hasRetcode() || retcode == other.retcode)
         && (!hasBattleId() || battleId == other.battleId)
         && (!hasMismatchTurnCount() || mismatchTurnCount == other.mismatchTurnCount)
+        && (!hasStageId() || stageId == other.stageId)
+        && (!hasRetcode() || retcode == other.retcode)
         && (!hasEndStatus() || endStatus == other.endStatus)
         && (!hasCheckIdentical() || checkIdentical == other.checkIdentical)
         && (!hasDropData() || dropData.equals(other.dropData))
         && (!hasUnk1() || unk1.equals(other.unk1))
         && (!hasUnk2() || unk2.equals(other.unk2))
         && (!hasUnk3() || unk3.equals(other.unk3))
-        && (!hasBinVersion() || binVersion.equals(other.binVersion))
         && (!hasResVersion() || resVersion.equals(other.resVersion))
+        && (!hasBinVersion() || binVersion.equals(other.binVersion))
         && (!hasBattleAvatarList() || battleAvatarList.equals(other.battleAvatarList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(stageId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(eventId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(retcode);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 88);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(battleId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 104);
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(mismatchTurnCount);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(stageId);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(retcode);
+      }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 88);
         output.writeEnumNoTag(endStatus);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 64);
         output.writeBoolNoTag(checkIdentical);
       }
       if ((bitField0_ & 0x00000080) != 0) {
@@ -1013,24 +989,24 @@ public final class PVEBattleResultScRspOuterClass {
         output.writeMessageNoTag(dropData);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 26);
         output.writeMessageNoTag(unk1);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRawByte((byte) 98);
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(unk2);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeRawLittleEndian16((short) 26258);
+        output.writeRawLittleEndian16((short) 4074);
         output.writeMessageNoTag(unk3);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        output.writeRawByte((byte) 18);
-        output.writeStringNoTag(binVersion);
+        output.writeRawByte((byte) 42);
+        output.writeStringNoTag(resVersion);
       }
       if ((bitField0_ & 0x00001000) != 0) {
-        output.writeRawByte((byte) 34);
-        output.writeStringNoTag(resVersion);
+        output.writeRawByte((byte) 106);
+        output.writeStringNoTag(binVersion);
       }
       if ((bitField0_ & 0x00002000) != 0) {
         for (int i = 0; i < battleAvatarList.length(); i++) {
@@ -1044,19 +1020,19 @@ public final class PVEBattleResultScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(stageId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(eventId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(battleId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(mismatchTurnCount);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(stageId);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(endStatus);
@@ -1077,10 +1053,10 @@ public final class PVEBattleResultScRspOuterClass {
         size += 2 + ProtoSink.computeMessageSizeNoTag(unk3);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(binVersion);
+        size += 1 + ProtoSink.computeStringSizeNoTag(resVersion);
       }
       if ((bitField0_ & 0x00001000) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(resVersion);
+        size += 1 + ProtoSink.computeStringSizeNoTag(binVersion);
       }
       if ((bitField0_ & 0x00002000) != 0) {
         size += (1 * battleAvatarList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(battleAvatarList);
@@ -1095,52 +1071,52 @@ public final class PVEBattleResultScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // stageId
-            stageId = input.readUInt32();
+          case 16: {
+            // eventId
+            eventId = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 32) {
+              break;
+            }
+          }
+          case 32: {
+            // battleId
+            battleId = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 48) {
               break;
             }
           }
           case 48: {
-            // eventId
-            eventId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            // mismatchTurnCount
+            mismatchTurnCount = input.readUInt32();
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 56) {
               break;
             }
           }
-          case 80: {
+          case 56: {
+            // stageId
+            stageId = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
             // retcode
             retcode = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 88) {
               break;
             }
           }
           case 88: {
-            // battleId
-            battleId = input.readUInt32();
-            bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
-            // mismatchTurnCount
-            mismatchTurnCount = input.readUInt32();
-            bitField0_ |= 0x00000010;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
             // endStatus
             final int value = input.readInt32();
             if (BattleEndStatusOuterClass.BattleEndStatus.forNumber(value) != null) {
@@ -1148,11 +1124,11 @@ public final class PVEBattleResultScRspOuterClass {
               bitField0_ |= 0x00000020;
             }
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 64) {
               break;
             }
           }
-          case 112: {
+          case 64: {
             // checkIdentical
             checkIdentical = input.readBool();
             bitField0_ |= 0x00000040;
@@ -1166,49 +1142,49 @@ public final class PVEBattleResultScRspOuterClass {
             input.readMessage(dropData);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 26) {
               break;
             }
           }
-          case 58: {
+          case 26: {
             // unk1
             input.readMessage(unk1);
             bitField0_ |= 0x00000100;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 82) {
               break;
             }
           }
-          case 98: {
+          case 82: {
             // unk2
             input.readMessage(unk2);
             bitField0_ |= 0x00000200;
             tag = input.readTag();
-            if (tag != 13074) {
+            if (tag != 2026) {
               break;
             }
           }
-          case 13074: {
+          case 2026: {
             // unk3
             input.readMessage(unk3);
             bitField0_ |= 0x00000400;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 42) {
               break;
             }
           }
-          case 18: {
-            // binVersion
-            input.readString(binVersion);
-            bitField0_ |= 0x00000800;
-            tag = input.readTag();
-            if (tag != 34) {
-              break;
-            }
-          }
-          case 34: {
+          case 42: {
             // resVersion
             input.readString(resVersion);
+            bitField0_ |= 0x00000800;
+            tag = input.readTag();
+            if (tag != 106) {
+              break;
+            }
+          }
+          case 106: {
+            // binVersion
+            input.readString(binVersion);
             bitField0_ |= 0x00001000;
             tag = input.readTag();
             if (tag != 122) {
@@ -1241,19 +1217,19 @@ public final class PVEBattleResultScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.stageId, stageId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.eventId, eventId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.battleId, battleId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.mismatchTurnCount, mismatchTurnCount);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.stageId, stageId);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeEnum(FieldNames.endStatus, endStatus, BattleEndStatusOuterClass.BattleEndStatus.converter());
@@ -1274,10 +1250,10 @@ public final class PVEBattleResultScRspOuterClass {
         output.writeMessage(FieldNames.unk3, unk3);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        output.writeString(FieldNames.binVersion, binVersion);
+        output.writeString(FieldNames.resVersion, resVersion);
       }
       if ((bitField0_ & 0x00001000) != 0) {
-        output.writeString(FieldNames.resVersion, resVersion);
+        output.writeString(FieldNames.binVersion, binVersion);
       }
       if ((bitField0_ & 0x00002000) != 0) {
         output.writeRepeatedMessage(FieldNames.battleAvatarList, battleAvatarList);
@@ -1292,35 +1268,12 @@ public final class PVEBattleResultScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1897528135:
-          case 1306191356: {
-            if (input.isAtField(FieldNames.stageId)) {
-              if (!input.trySkipNullValue()) {
-                stageId = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1376502443:
           case 278118624: {
             if (input.isAtField(FieldNames.eventId)) {
               if (!input.trySkipNullValue()) {
                 eventId = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
-              if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -1332,7 +1285,7 @@ public final class PVEBattleResultScRspOuterClass {
             if (input.isAtField(FieldNames.battleId)) {
               if (!input.trySkipNullValue()) {
                 battleId = input.readUInt32();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -1344,6 +1297,29 @@ public final class PVEBattleResultScRspOuterClass {
             if (input.isAtField(FieldNames.mismatchTurnCount)) {
               if (!input.trySkipNullValue()) {
                 mismatchTurnCount = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1897528135:
+          case 1306191356: {
+            if (input.isAtField(FieldNames.stageId)) {
+              if (!input.trySkipNullValue()) {
+                stageId = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
+              if (!input.trySkipNullValue()) {
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -1425,11 +1401,11 @@ public final class PVEBattleResultScRspOuterClass {
             }
             break;
           }
-          case 1864225233:
-          case -2003285600: {
-            if (input.isAtField(FieldNames.binVersion)) {
+          case 1778976792:
+          case -351019975: {
+            if (input.isAtField(FieldNames.resVersion)) {
               if (!input.trySkipNullValue()) {
-                input.readString(binVersion);
+                input.readString(resVersion);
                 bitField0_ |= 0x00000800;
               }
             } else {
@@ -1437,11 +1413,11 @@ public final class PVEBattleResultScRspOuterClass {
             }
             break;
           }
-          case 1778976792:
-          case -351019975: {
-            if (input.isAtField(FieldNames.resVersion)) {
+          case 1864225233:
+          case -2003285600: {
+            if (input.isAtField(FieldNames.binVersion)) {
               if (!input.trySkipNullValue()) {
-                input.readString(resVersion);
+                input.readString(binVersion);
                 bitField0_ |= 0x00001000;
               }
             } else {
@@ -1514,15 +1490,15 @@ public final class PVEBattleResultScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName stageId = FieldName.forField("stageId", "stage_id");
-
       static final FieldName eventId = FieldName.forField("eventId", "event_id");
-
-      static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName battleId = FieldName.forField("battleId", "battle_id");
 
       static final FieldName mismatchTurnCount = FieldName.forField("mismatchTurnCount", "mismatch_turn_count");
+
+      static final FieldName stageId = FieldName.forField("stageId", "stage_id");
+
+      static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName endStatus = FieldName.forField("endStatus", "end_status");
 
@@ -1536,9 +1512,9 @@ public final class PVEBattleResultScRspOuterClass {
 
       static final FieldName unk3 = FieldName.forField("unk3");
 
-      static final FieldName binVersion = FieldName.forField("binVersion", "bin_version");
-
       static final FieldName resVersion = FieldName.forField("resVersion", "res_version");
+
+      static final FieldName binVersion = FieldName.forField("binVersion", "bin_version");
 
       static final FieldName battleAvatarList = FieldName.forField("battleAvatarList", "battle_avatar_list");
     }

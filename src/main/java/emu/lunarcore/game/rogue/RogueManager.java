@@ -23,9 +23,11 @@ import emu.lunarcore.proto.RogueTalentInfoOuterClass.RogueTalentInfo;
 import emu.lunarcore.proto.RogueTalentOuterClass.RogueTalent;
 import emu.lunarcore.proto.RogueTalentStatusOuterClass.RogueTalentStatus;
 import emu.lunarcore.server.packet.CmdId;
+import emu.lunarcore.server.packet.Retcode;
 import emu.lunarcore.server.packet.send.PacketLeaveRogueScRsp;
 import emu.lunarcore.server.packet.send.PacketStartRogueScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncRogueFinishScNotify;
+import emu.lunarcore.server.packet.send.PacketSyncRogueVirtualItemInfoScNotify;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
@@ -70,6 +72,12 @@ public class RogueManager extends BasePlayerManager {
     }
     
     public void startRogue(int areaId, int aeonId, RepeatedInt avatarIdList) {
+        // Check if map gen is loaded
+        if (GameDepot.getRogueMapGen().size() == 0) {
+            getPlayer().sendPacket(new PacketStartRogueScRsp(Retcode.ROGUE_AREA_INVALID.getVal()));
+            return;
+        }
+        
         // Make sure player already isnt in a rogue instance
         if (getPlayer().getRogueInstance() != null) {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
@@ -129,6 +137,7 @@ public class RogueManager extends BasePlayerManager {
         
         // Done
         getPlayer().sendPacket(new PacketStartRogueScRsp(getPlayer()));
+        getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(getPlayer())); // Hacky fix to show coin amount
     }
     
     public void leaveRogue() {
@@ -204,7 +213,7 @@ public class RogueManager extends BasePlayerManager {
                 aeonInfo.addAeonIdList(aeonExcel.getAeonID());
             }
             aeonInfo.setIsUnlocked(true);
-            //aeonInfo.setUnlockAeonEnhanceNum(3);  // guess
+            aeonInfo.setUnlockAeonEnhanceNum(3);  // guess
         }
         
         // Set rogue data

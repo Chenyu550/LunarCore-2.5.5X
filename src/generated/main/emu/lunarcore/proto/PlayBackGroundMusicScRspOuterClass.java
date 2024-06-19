@@ -19,17 +19,17 @@ public final class PlayBackGroundMusicScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 playing_id = 7;</code>
+     * <code>optional uint32 playing_id = 4;</code>
      */
     private int playingId;
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 play_music_id = 10;</code>
+     * <code>optional uint32 play_music_id = 15;</code>
      */
     private int playMusicId;
 
@@ -44,7 +44,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 playing_id = 7;</code>
+     * <code>optional uint32 playing_id = 4;</code>
      * @return whether the playingId field is set
      */
     public boolean hasPlayingId() {
@@ -52,7 +52,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 playing_id = 7;</code>
+     * <code>optional uint32 playing_id = 4;</code>
      * @return this
      */
     public PlayBackGroundMusicScRsp clearPlayingId() {
@@ -62,7 +62,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 playing_id = 7;</code>
+     * <code>optional uint32 playing_id = 4;</code>
      * @return the playingId
      */
     public int getPlayingId() {
@@ -70,7 +70,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 playing_id = 7;</code>
+     * <code>optional uint32 playing_id = 4;</code>
      * @param value the playingId to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -89,7 +89,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return this
      */
     public PlayBackGroundMusicScRsp clearRetcode() {
@@ -99,7 +99,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,7 +107,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 10;</code>
+     * <code>optional uint32 play_music_id = 15;</code>
      * @return whether the playMusicId field is set
      */
     public boolean hasPlayMusicId() {
@@ -126,7 +126,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 10;</code>
+     * <code>optional uint32 play_music_id = 15;</code>
      * @return this
      */
     public PlayBackGroundMusicScRsp clearPlayMusicId() {
@@ -136,7 +136,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 10;</code>
+     * <code>optional uint32 play_music_id = 15;</code>
      * @return the playMusicId
      */
     public int getPlayMusicId() {
@@ -144,7 +144,7 @@ public final class PlayBackGroundMusicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 10;</code>
+     * <code>optional uint32 play_music_id = 15;</code>
      * @param value the playMusicId to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class PlayBackGroundMusicScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(playingId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(playMusicId);
       }
     }
@@ -260,25 +260,25 @@ public final class PlayBackGroundMusicScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 32: {
             // playingId
             playingId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 72) {
               break;
             }
           }
-          case 64: {
+          case 72: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 120) {
               break;
             }
           }
-          case 80: {
+          case 120: {
             // playMusicId
             playMusicId = input.readUInt32();
             bitField0_ |= 0x00000004;

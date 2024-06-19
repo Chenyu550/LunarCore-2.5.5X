@@ -26,7 +26,13 @@ public class ChallengeEntityLoader extends SceneEntityLoader {
         scene.loadGroup(instance.getExcel().getMazeGroupID1());
         
         // Set leave entry
-        scene.setLeaveEntryId(instance.isStory() ? GameConstants.CHALLENGE_STORY_ENTRANCE : GameConstants.CHALLENGE_ENTRANCE);
+        int leaveEntryId = switch (instance.getType()) {
+            default -> GameConstants.CHALLENGE_ENTRANCE;
+            case STORY -> GameConstants.CHALLENGE_STORY_ENTRANCE;
+            case BOSS -> GameConstants.CHALLENGE_BOSS_ENTRANCE;
+        };
+        
+        scene.setLeaveEntryId(leaveEntryId);
         
         // Load all groups with props
         for (var group : scene.getFloorInfo().getGroups().values()) {
@@ -69,7 +75,7 @@ public class ChallengeEntityLoader extends SceneEntityLoader {
         // Create monster from group monster info
         EntityMonster monster = new EntityMonster(scene, npcMonsterExcel, group, monsterInfo);
         monster.setEventId(challengeMonsterInfo.getEventId());
-        monster.setCustomStageId(challengeMonsterInfo.getEventId());
+        monster.setCustomStage(challengeMonsterInfo.getEventId());
         
         return monster;
     }

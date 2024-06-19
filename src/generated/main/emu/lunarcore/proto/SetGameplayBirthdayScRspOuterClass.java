@@ -19,12 +19,12 @@ public final class SetGameplayBirthdayScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 birthday = 1;</code>
+     * <code>optional uint32 birthday = 8;</code>
      */
     private int birthday;
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
@@ -39,7 +39,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 1;</code>
+     * <code>optional uint32 birthday = 8;</code>
      * @return whether the birthday field is set
      */
     public boolean hasBirthday() {
@@ -47,7 +47,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 1;</code>
+     * <code>optional uint32 birthday = 8;</code>
      * @return this
      */
     public SetGameplayBirthdayScRsp clearBirthday() {
@@ -57,7 +57,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 1;</code>
+     * <code>optional uint32 birthday = 8;</code>
      * @return the birthday
      */
     public int getBirthday() {
@@ -65,7 +65,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 1;</code>
+     * <code>optional uint32 birthday = 8;</code>
      * @param value the birthday to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -84,7 +84,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public SetGameplayBirthdayScRsp clearRetcode() {
@@ -94,7 +94,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -102,7 +102,7 @@ public final class SetGameplayBirthdayScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class SetGameplayBirthdayScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(birthday);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -205,16 +205,16 @@ public final class SetGameplayBirthdayScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 64: {
             // birthday
             birthday = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 96) {
               break;
             }
           }
-          case 16: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;

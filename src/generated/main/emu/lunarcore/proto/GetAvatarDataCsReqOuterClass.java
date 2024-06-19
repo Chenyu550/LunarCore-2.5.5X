@@ -25,7 +25,7 @@ public final class GetAvatarDataCsReqOuterClass {
     private boolean isGetAll;
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      */
     private final RepeatedInt baseAvatarIdList = RepeatedInt.newEmptyInstance();
 
@@ -77,7 +77,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      * @return whether the baseAvatarIdList field is set
      */
     public boolean hasBaseAvatarIdList() {
@@ -85,7 +85,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      * @return this
      */
     public GetAvatarDataCsReq clearBaseAvatarIdList() {
@@ -95,7 +95,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      * @param value the baseAvatarIdList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 12;</code>
      * @param values the baseAvatarIdList to add
      * @return this
      */
@@ -215,7 +215,7 @@ public final class GetAvatarDataCsReqOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 56);
+          output.writeRawByte((byte) 96);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
         }
       }
@@ -245,11 +245,11 @@ public final class GetAvatarDataCsReqOuterClass {
             isGetAll = input.readBool();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 98) {
               break;
             }
           }
-          case 58: {
+          case 98: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class GetAvatarDataCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
+          case 96: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000002;

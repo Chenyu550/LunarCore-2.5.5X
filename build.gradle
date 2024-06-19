@@ -26,7 +26,7 @@ compileTestJava.options.encoding = "UTF-8"
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-version = '1.2.0'
+version = '1.3.0'
 
 var shouldGenerateProto = System.getenv("GENERATE_PROTO") == "true"
 System.out.println(shouldGenerateProto ?
@@ -114,6 +114,11 @@ application {
     mainClassName = 'emu.lunarcore.LunarCore'
 }
 
+run {
+    // Set the standard input to wait for user input
+    standardInput = System.in
+}
+
 jar {
 	dependsOn 'injectGitHash'
 
@@ -132,7 +137,7 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     from('src/main/java') {
         include '*.xml'

@@ -10,7 +10,6 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
 
 public final class GetNpcTakenRewardScRspOuterClass {
   /**
@@ -25,14 +24,9 @@ public final class GetNpcTakenRewardScRspOuterClass {
     private int npcId;
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     */
-    private final RepeatedInt gGJBDJJGNIG = RepeatedInt.newEmptyInstance();
 
     private GetNpcTakenRewardScRsp() {
     }
@@ -82,7 +76,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -90,7 +84,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public GetNpcTakenRewardScRsp clearRetcode() {
@@ -100,7 +94,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -108,81 +102,13 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
     public GetNpcTakenRewardScRsp setRetcode(final int value) {
       bitField0_ |= 0x00000002;
       retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     * @return whether the gGJBDJJGNIG field is set
-     */
-    public boolean hasGGJBDJJGNIG() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp clearGGJBDJJGNIG() {
-      bitField0_ &= ~0x00000004;
-      gGJBDJJGNIG.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableGGJBDJJGNIG()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getGGJBDJJGNIG() {
-      return gGJBDJJGNIG;
-    }
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableGGJBDJJGNIG() {
-      bitField0_ |= 0x00000004;
-      return gGJBDJJGNIG;
-    }
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     * @param value the gGJBDJJGNIG to add
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp addGGJBDJJGNIG(final int value) {
-      bitField0_ |= 0x00000004;
-      gGJBDJJGNIG.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 GGJBDJJGNIG = 7;</code>
-     * @param values the gGJBDJJGNIG to add
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp addAllGGJBDJJGNIG(final int... values) {
-      bitField0_ |= 0x00000004;
-      gGJBDJJGNIG.addAll(values);
       return this;
     }
 
@@ -193,7 +119,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
         bitField0_ = other.bitField0_;
         npcId = other.npcId;
         retcode = other.retcode;
-        gGJBDJJGNIG.copyFrom(other.gGJBDJJGNIG);
       }
       return this;
     }
@@ -210,9 +135,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasGGJBDJJGNIG()) {
-        getMutableGGJBDJJGNIG().addAll(other.gGJBDJJGNIG);
-      }
       return this;
     }
 
@@ -225,7 +147,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       bitField0_ = 0;
       npcId = 0;
       retcode = 0;
-      gGJBDJJGNIG.clear();
       return this;
     }
 
@@ -236,7 +157,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      gGJBDJJGNIG.clear();
       return this;
     }
 
@@ -251,8 +171,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
       GetNpcTakenRewardScRsp other = (GetNpcTakenRewardScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasNpcId() || npcId == other.npcId)
-        && (!hasRetcode() || retcode == other.retcode)
-        && (!hasGGJBDJJGNIG() || gGJBDJJGNIG.equals(other.gGJBDJJGNIG));
+        && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
@@ -262,14 +181,8 @@ public final class GetNpcTakenRewardScRspOuterClass {
         output.writeUInt32NoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < gGJBDJJGNIG.length(); i++) {
-          output.writeRawByte((byte) 56);
-          output.writeUInt32NoTag(gGJBDJJGNIG.array()[i]);
-        }
       }
     }
 
@@ -281,9 +194,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * gGJBDJJGNIG.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(gGJBDJJGNIG);
       }
       return size;
     }
@@ -300,23 +210,14 @@ public final class GetNpcTakenRewardScRspOuterClass {
             npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 96) {
               break;
             }
           }
-          case 64: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 58) {
-              break;
-            }
-          }
-          case 58: {
-            // gGJBDJJGNIG [packed=true]
-            input.readPackedUInt32(gGJBDJJGNIG, tag);
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -332,12 +233,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
-            // gGJBDJJGNIG [packed=false]
-            tag = input.readRepeatedUInt32(gGJBDJJGNIG, tag);
-            bitField0_ |= 0x00000004;
-            break;
-          }
         }
       }
     }
@@ -350,9 +245,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.gGJBDJJGNIG, gGJBDJJGNIG);
       }
       output.endObject();
     }
@@ -381,17 +273,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1061434801: {
-            if (input.isAtField(FieldNames.gGJBDJJGNIG)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(gGJBDJJGNIG);
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -454,8 +335,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
 
       static final FieldName retcode = FieldName.forField("retcode");
-
-      static final FieldName gGJBDJJGNIG = FieldName.forField("GGJBDJJGNIG");
     }
   }
 }

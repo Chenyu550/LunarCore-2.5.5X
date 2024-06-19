@@ -1,5 +1,10 @@
 package emu.lunarcore.game.player;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.types.ObjectId;
+
 import com.mongodb.client.model.Filters;
 
 import dev.morphia.annotations.Entity;
@@ -47,8 +52,8 @@ import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
-import emu.lunarcore.proto.AssistSimpleInfoOuterClass.AssistSimpleInfo;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
+import emu.lunarcore.proto.DisplayAvatarOuterClass.DisplayAvatar;
 import emu.lunarcore.proto.FriendOnlineStatusOuterClass.FriendOnlineStatus;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlatformTypeOuterClass.PlatformType;
@@ -68,6 +73,8 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 import lombok.Setter;
+import us.hebi.quickbuf.RepeatedInt;
+import us.hebi.quickbuf.RepeatedMessage;
 
 @Entity(value = "players", useDiscriminator = false)
 @Getter
@@ -119,6 +126,8 @@ public class Player implements Tickable {
     // Database persistent data
     private LineupManager lineupManager;
     private PlayerGachaInfo gachaInfo;
+    private List<ObjectId> assistAvatars;
+    private List<ObjectId> displayAvatars;
 
     // Instances
     @Setter private ChallengeInstance challengeInstance;
@@ -139,6 +148,8 @@ public class Player implements Tickable {
         this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.gender = PlayerGender.GENDER_MAN;
         this.foodBuffs = new Int2ObjectOpenHashMap<>();
+        this.assistAvatars = new ArrayList<>();
+        this.displayAvatars = new ArrayList<>();
         
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
@@ -325,6 +336,10 @@ public class Player implements Tickable {
         return getAvatars().getAvatarById(avatarId);
     }
     
+    public GameAvatar getAvatarById(ObjectId id) {
+        return getAvatars().getAvatarById(id);
+    }
+    
     public boolean setHeadIcon(int id) {
         if (this.getUnlocks().getHeadIcons().contains(id)) {
             this.headIcon = id;
@@ -415,18 +430,23 @@ public class Player implements Tickable {
     public void addExp(int amount) {
         // Setup
         int oldLevel = this.level;
-        int reqExp = GameData.getPlayerExpRequired(level + 1);
+        int expRequired = GameData.getPlayerExpRequired(level + 1);
 
         // Add exp
         this.exp += amount;
 
-        while (this.exp >= reqExp && reqExp > 0) {
+        // Check for level ups
+        while (this.exp >= expRequired && expRequired > 0) {
             this.level += 1;
-            reqExp = GameData.getPlayerExpRequired(this.level + 1);
+            expRequired = GameData.getPlayerExpRequired(this.level + 1);
         }
 
         // Update level and change property
-        this.onLevelChange(oldLevel, this.level);
+        if (oldLevel != this.level) {
+            this.onLevelChange(oldLevel, this.level);
+        }
+        
+        // Save to database
         this.save();
 
         // Send packet
@@ -713,7 +733,10 @@ public class Player implements Tickable {
                 anchorId = teleport.getAnchorID();
             }
         } else if (anchorId == 0) {
-            startGroup = floor.getStartGroupID();
+            var group = floor.getGroupInfoByIndex(floor.getStartGroupIndex());
+            if (group == null) return false;
+            
+            startGroup = group.getId();
             anchorId = floor.getStartAnchorID();
         }
         
@@ -778,6 +801,54 @@ public class Player implements Tickable {
         // Done, return success
         return true;
     }
+    
+    public void setAssistAvatars(RepeatedInt avatars) {
+        // Check size
+        if (avatars.length() > 3) {
+            return;
+        }
+        
+        // Clear
+        this.getAssistAvatars().clear();
+        
+        // Parse list from proto
+        for (int id : avatars) {
+            GameAvatar avatar = this.getAvatarById(id);
+            if (avatar == null) continue;
+            
+            this.getAssistAvatars().add(avatar.getId());
+        }
+        
+        // Save player
+        this.save();
+    }
+    
+    public void setDisplayAvatars(RepeatedMessage<DisplayAvatar> avatars) {
+        // Check size
+        if (avatars.length() > 5) {
+            return;
+        }
+        
+        // Clear
+        this.getDisplayAvatars().clear();
+        
+        // Parse list from proto
+        for (int i = 0; i < avatars.length(); i++) {
+            var info = avatars.get(i);
+            
+            if (info.getAvatarId() > 0) {
+                GameAvatar avatar = this.getAvatarById(info.getAvatarId());
+                if (avatar == null) continue;
+                
+                this.getDisplayAvatars().add(avatar.getId());
+            } else {
+                this.getDisplayAvatars().add(null);
+            }
+        }
+        
+        // Save player
+        this.save();
+    }
 
     public void sendMessage(String message) {
         var msg = new ChatMessage(GameConstants.SERVER_CONSOLE_UID, this.getUid(), message);
@@ -836,6 +907,17 @@ public class Player implements Tickable {
         // Reset position to starting scene in case we couldn't load the scene
         if (this.getScene() == null) {
             this.enterScene(GameConstants.START_ENTRY_ID, 0, false);
+        }
+        
+        // Make sure the current lineup's leader exists
+        var lineup = this.getCurrentLineup();
+        if (lineup.size() == 0) {
+            lineup.getAvatars().add(GameConstants.TRAILBLAZER_AVATAR_ID);
+            lineup.setLeader(0);
+            lineup.save();
+        } else if (lineup.getLeader() >= lineup.size()) {
+            lineup.setLeader(0);
+            lineup.save();
         }
         
         // Sanity check lineup to prevent the player from getting stuck in a loading screen if they loaded into the game with an avatar that had 0 hp
@@ -934,8 +1016,44 @@ public class Player implements Tickable {
                 .setLevel(this.getLevel())
                 .setWorldLevel(this.getWorldLevel())
                 .setPlatformType(PlatformType.PC)
-                .setRecordInfo("")
+                .setShowDisplayAvatars(true)
                 .setHeadIcon(this.getHeadIcon());
+        
+        proto.getMutableRecordInfo().getMutableCollectionInfo();
+        proto.getMutableDisplaySettings();
+        
+        for (int i = 0; i < this.getAssistAvatars().size(); i++) {
+            ObjectId objectId = this.getAssistAvatars().get(i);
+            
+            GameAvatar avatar = this.getAvatarById(objectId);
+            if (avatar == null && this.getSession() == null) {
+                avatar = this.getAvatars().loadAvatarByObjectId(objectId);
+            }
+            
+            if (avatar == null) continue;
+            
+            var info = avatar.toDisplayAvatarProto();
+            info.setPos(i);
+            
+            proto.addAssistAvatarList(info);
+        }
+        
+        for (int i = 0; i < this.getDisplayAvatars().size(); i++) {
+            ObjectId objectId = this.getDisplayAvatars().get(i);
+            if (objectId == null) continue;
+            
+            GameAvatar avatar = this.getAvatarById(objectId);
+            if (avatar == null && this.getSession() == null) {
+                avatar = this.getAvatars().loadAvatarByObjectId(objectId);
+            }
+            
+            if (avatar == null) continue;
+            
+            var info = avatar.toDisplayAvatarProto();
+            info.setPos(i);
+            
+            proto.addDisplayAvatarList(info);
+        }
         
         return proto;
     }
@@ -950,8 +1068,23 @@ public class Player implements Tickable {
                 .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
                 .setPlatformType(PlatformType.PC)
                 .setLastActiveTime(this.getLastActiveTime())
-                .addAssistSimpleInfo(AssistSimpleInfo.newInstance().setAvatarId(GameConstants.TRAILBLAZER_AVATAR_ID).setLevel(1)) // TODO
                 .setHeadIcon(this.getHeadIcon());
+        
+        for (int i = 0; i < this.getAssistAvatars().size(); i++) {
+            ObjectId objectId = this.getAssistAvatars().get(i);
+            
+            GameAvatar avatar = this.getAvatarById(objectId);
+            if (avatar == null && this.getSession() == null) {
+                avatar = this.getAvatars().loadAvatarByObjectId(objectId);
+            }
+            
+            if (avatar == null) continue;
+            
+            var info = avatar.toAssistSimpleProto();
+            info.setPos(i);
+            
+            proto.addAssistSimpleInfo(info);
+        }
         
         return proto;
     }
@@ -969,10 +1102,10 @@ public class Player implements Tickable {
     
     public RogueCurVirtualItemInfo getCurRogueVirtualItem() {
         var proto = RogueCurVirtualItemInfo.newInstance()
-                .setCurRogueAbilityPoint(this.getTalentPoints());
+                .setCurTalentCoin(this.getTalentPoints());
         
         if (this.getRogueInstance() != null) {
-            proto.setCurRogueCoin(this.getRogueInstance().getMoney());
+            proto.setCurRogueCoin(this.getRogueInstance().getCoin());
         }
         
         return proto;

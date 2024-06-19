@@ -6,15 +6,14 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 
-import dev.morphia.annotations.Entity;
-import dev.morphia.annotations.Id;
-import dev.morphia.annotations.Indexed;
+import dev.morphia.annotations.*;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.data.excel.RelicMainAffixExcel;
 import emu.lunarcore.data.excel.RelicSubAffixExcel;
+import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.AvatarPropertyType;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.player.Player;
@@ -53,7 +52,11 @@ public class GameItem {
     @Setter private int mainAffix;
     private List<GameItemSubAffix> subAffixes;
 
-    private int equipAvatar;
+    @Indexed private ObjectId equipAvatarId; // Object id of the avatar this item is equipped to
+    private transient GameAvatar equipAvatar;
+    
+    @LoadOnly @AlsoLoad("equipAvatar")
+    private int equipAvatarExcelId; // Deprecated legacy field
 
     @Deprecated
     public GameItem() {
@@ -132,7 +135,7 @@ public class GameItem {
     }
 
     public boolean isEquipped() {
-        return this.getEquipAvatar() > 0;
+        return this.getEquipAvatarId() != null;
     }
 
     public boolean isDestroyable() {
@@ -148,14 +151,22 @@ public class GameItem {
         return false;
     }
 
-    public boolean setEquipAvatar(int newEquipAvatar) {
-        if (this.equipAvatar != newEquipAvatar) {
-            this.equipAvatar = newEquipAvatar;
+    public boolean setEquipAvatar(GameAvatar avatar) {
+        if (avatar == null && this.isEquipped()) {
+            this.equipAvatarId = null;
+            this.equipAvatar = null;
+            this.equipAvatarExcelId = 0; // Legacy field
+            return true;
+        } else if (this.equipAvatarId != avatar.getId()) {
+            this.equipAvatarId = avatar.getId();
+            this.equipAvatar = avatar;
+            this.equipAvatarExcelId = 0; // Legacy field
             return true;
         }
+        
         return false;
     }
-
+    
     // Sub affixes
     
     public void resetSubAffixes() {
@@ -279,8 +290,11 @@ public class GameItem {
                 .setExp(this.getExp())
                 .setIsProtected(this.isLocked())
                 .setIsDiscarded(this.isDiscarded())
-                .setBaseAvatarId(this.getEquipAvatar())
                 .setMainAffixId(this.mainAffix);
+        
+        if (this.getEquipAvatar() != null) {
+            proto.setEquipAvatarId(this.getEquipAvatar().getAvatarId());
+        }
 
         if (this.subAffixes != null) {
             for (var subAffix : this.subAffixes) {
@@ -299,8 +313,11 @@ public class GameItem {
                 .setExp(this.getExp())
                 .setIsProtected(this.isLocked())
                 .setPromotion(this.getPromotion())
-                .setRank(this.getRank())
-                .setBaseAvatarId(this.getEquipAvatar());
+                .setRank(this.getRank());
+        
+        if (this.getEquipAvatar() != null) {
+            proto.setEquipAvatarId(this.getEquipAvatar().getAvatarId());
+        }
         
         return proto;
     }

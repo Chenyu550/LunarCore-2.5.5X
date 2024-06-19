@@ -20,14 +20,14 @@ public final class GetShopListScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 shop_type = 11;</code>
+     * <code>optional uint32 shop_type = 6;</code>
      */
     private int shopType;
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     */
+    private int retcode;
 
     /**
      * <code>repeated .Shop shop_list = 7;</code>
@@ -45,62 +45,25 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 shop_type = 6;</code>
+     * @return whether the shopType field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasShopType() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
-     * @return this
-     */
-    public GetShopListScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 1;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 1;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public GetShopListScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 shop_type = 11;</code>
-     * @return whether the shopType field is set
-     */
-    public boolean hasShopType() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 shop_type = 11;</code>
+     * <code>optional uint32 shop_type = 6;</code>
      * @return this
      */
     public GetShopListScRsp clearShopType() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       shopType = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 shop_type = 11;</code>
+     * <code>optional uint32 shop_type = 6;</code>
      * @return the shopType
      */
     public int getShopType() {
@@ -108,13 +71,50 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 11;</code>
+     * <code>optional uint32 shop_type = 6;</code>
      * @param value the shopType to set
      * @return this
      */
     public GetShopListScRsp setShopType(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       shopType = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @return this
+     */
+    public GetShopListScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public GetShopListScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
       return this;
     }
 
@@ -191,8 +191,8 @@ public final class GetShopListScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         shopType = other.shopType;
+        retcode = other.retcode;
         shopList.copyFrom(other.shopList);
       }
       return this;
@@ -204,11 +204,11 @@ public final class GetShopListScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasShopType()) {
         setShopType(other.shopType);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       if (other.hasShopList()) {
         getMutableShopList().addAll(other.shopList);
@@ -223,8 +223,8 @@ public final class GetShopListScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       shopType = 0;
+      retcode = 0;
       shopList.clear();
       return this;
     }
@@ -250,20 +250,20 @@ public final class GetShopListScRspOuterClass {
       }
       GetShopListScRsp other = (GetShopListScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
         && (!hasShopType() || shopType == other.shopType)
+        && (!hasRetcode() || retcode == other.retcode)
         && (!hasShopList() || shopList.equals(other.shopList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(shopType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(shopType);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < shopList.length(); i++) {
@@ -277,10 +277,10 @@ public final class GetShopListScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(shopType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(shopType);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += (1 * shopList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(shopList);
@@ -295,18 +295,18 @@ public final class GetShopListScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // retcode
-            retcode = input.readUInt32();
+          case 48: {
+            // shopType
+            shopType = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 64) {
               break;
             }
           }
-          case 88: {
-            // shopType
-            shopType = input.readUInt32();
+          case 64: {
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 58) {
@@ -339,10 +339,10 @@ public final class GetShopListScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.shopType, shopType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.shopType, shopType);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRepeatedMessage(FieldNames.shopList, shopList);
@@ -357,10 +357,11 @@ public final class GetShopListScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case -345279664:
+          case -2103716125: {
+            if (input.isAtField(FieldNames.shopType)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                shopType = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -368,11 +369,10 @@ public final class GetShopListScRspOuterClass {
             }
             break;
           }
-          case -345279664:
-          case -2103716125: {
-            if (input.isAtField(FieldNames.shopType)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                shopType = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -445,9 +445,9 @@ public final class GetShopListScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName shopType = FieldName.forField("shopType", "shop_type");
+
+      static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName shopList = FieldName.forField("shopList", "shop_list");
     }

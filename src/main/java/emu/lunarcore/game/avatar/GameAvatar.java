@@ -16,12 +16,16 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.GameEntity;
+import emu.lunarcore.proto.AssistSimpleInfoOuterClass.AssistSimpleInfo;
 import emu.lunarcore.proto.AvatarOuterClass.Avatar;
 import emu.lunarcore.proto.AvatarSkillTreeOuterClass.AvatarSkillTree;
 import emu.lunarcore.proto.AvatarTypeOuterClass.AvatarType;
 import emu.lunarcore.proto.BattleAvatarOuterClass.BattleAvatar;
 import emu.lunarcore.proto.BattleEquipmentOuterClass.BattleEquipment;
 import emu.lunarcore.proto.BattleRelicOuterClass.BattleRelic;
+import emu.lunarcore.proto.DisplayAvatarDetailInfoOuterClass.DisplayAvatarDetailInfo;
+import emu.lunarcore.proto.DisplayEquipmentInfoOuterClass.DisplayEquipmentInfo;
+import emu.lunarcore.proto.DisplayRelicInfoOuterClass.DisplayRelicInfo;
 import emu.lunarcore.proto.EquipRelicOuterClass.EquipRelic;
 import emu.lunarcore.proto.LineupAvatarOuterClass.LineupAvatar;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
@@ -50,6 +54,7 @@ public class GameAvatar implements GameEntity {
     @Setter private int level;
     @Setter private int exp;
     @Setter private int promotion;
+    @Setter private boolean marked;
     
     private int rewards; // Previously known as "taken rewards"
     private long timestamp;
@@ -236,7 +241,7 @@ public class GameAvatar implements GameEntity {
         if (slot == 0) return false;
 
         // Check if other avatars have this item equipped
-        GameAvatar otherAvatar = getOwner().getAvatarById(item.getEquipAvatar());
+        GameAvatar otherAvatar = getOwner().getAvatarById(item.getEquipAvatarId());
         if (otherAvatar != null) {
             // Unequip this item from the other avatar
             if (otherAvatar.unequipItem(slot) != null) {
@@ -259,7 +264,7 @@ public class GameAvatar implements GameEntity {
         getEquips().put(slot, item);
 
         // Save equip if equipped avatar was changed
-        if (item.setEquipAvatar(this.getAvatarId())) {
+        if (item.setEquipAvatar(this)) {
             item.save();
         }
 
@@ -273,7 +278,7 @@ public class GameAvatar implements GameEntity {
         GameItem item = getEquips().remove(slot);
 
         if (item != null) {
-            item.setEquipAvatar(0);
+            item.setEquipAvatar(null);
             item.save();
             return item;
         }
@@ -290,6 +295,7 @@ public class GameAvatar implements GameEntity {
                 .setExp(this.getExp())
                 .setPromotion(this.getPromotion())
                 .setRank(this.getRank())
+                .setIsMarked(this.isMarked())
                 .setFirstMetTimestamp(this.getTimestamp());
 
         for (var equip : this.getEquips().values()) {
@@ -347,10 +353,8 @@ public class GameAvatar implements GameEntity {
                 .setWorldLevel(this.getOwner().getWorldLevel());
 
         // Skill tree
-        if (!this.isHero()) {
-            for (var skill : getSkills().entrySet()) {
-                proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
-            }
+        for (var skill : getSkills().entrySet()) {
+            proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
         }
 
         // Build equips
@@ -382,6 +386,61 @@ public class GameAvatar implements GameEntity {
             }
         }
 
+        return proto;
+    }
+
+    public DisplayAvatarDetailInfo toDisplayAvatarProto() {
+        var proto = DisplayAvatarDetailInfo.newInstance()
+                .setAvatarId(this.getExcel().getAvatarID())
+                .setLevel(this.getLevel())
+                .setExp(this.getExp())
+                .setPromotion(this.getPromotion())
+                .setRank(this.getRank());
+        
+        // Skills
+        for (var skill : getSkills().entrySet()) {
+            proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
+        }
+        
+        // Build equips
+        for (var equip : this.getEquips().values()) {
+            if (equip.getItemMainType() == ItemMainType.Relic) {
+                // Build display relic proto
+                var relic = DisplayRelicInfo.newInstance()
+                        .setTid(equip.getItemId())
+                        .setLevel(equip.getLevel())
+                        .setExp(equip.getExp())
+                        .setSlot(equip.getEquipSlot())
+                        .setMainAffixId(equip.getMainAffix());
+
+                if (equip.getSubAffixes() != null) {
+                    for (var subAffix : equip.getSubAffixes()) {
+                        relic.addSubAffixList(subAffix.toProto());
+                    }
+                }
+
+                proto.addRelicList(relic);
+            } else if (equip.getItemMainType() == ItemMainType.Equipment) {
+                // Build display equipment proto
+                var equipment = DisplayEquipmentInfo.newInstance()
+                        .setTid(equip.getItemId())
+                        .setLevel(equip.getLevel())
+                        .setExp(equip.getExp())
+                        .setPromotion(equip.getPromotion())
+                        .setRank(equip.getRank());
+
+                proto.setEquipment(equipment);
+            }
+        }
+        
+        return proto;
+    }
+
+    public AssistSimpleInfo toAssistSimpleProto() {
+        var proto = AssistSimpleInfo.newInstance()
+                .setAvatarId(this.getAvatarId())
+                .setLevel(this.getLevel());
+        
         return proto;
     }
 

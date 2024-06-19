@@ -20,9 +20,14 @@ public final class RogueHandbookDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      */
     private final RepeatedMessage<RogueHandbookMiracleOuterClass.RogueHandbookMiracle> miracleList = RepeatedMessage.newEmptyInstance(RogueHandbookMiracleOuterClass.RogueHandbookMiracle.getFactory());
+
+    /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     */
+    private final RepeatedMessage<RogueHandbookAeonOuterClass.RogueHandbookAeon> rogueAeonList = RepeatedMessage.newEmptyInstance(RogueHandbookAeonOuterClass.RogueHandbookAeon.getFactory());
 
     /**
      * <code>repeated .RogueHandbookBuff buff_list = 10;</code>
@@ -33,11 +38,6 @@ public final class RogueHandbookDataOuterClass {
      * <code>repeated .RogueHandbookEvent rogue_event = 12;</code>
      */
     private final RepeatedMessage<RogueHandbookEventOuterClass.RogueHandbookEvent> rogueEvent = RepeatedMessage.newEmptyInstance(RogueHandbookEventOuterClass.RogueHandbookEvent.getFactory());
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     */
-    private final RepeatedMessage<RogueHandbookAeonOuterClass.RogueHandbookAeon> rogueAeonList = RepeatedMessage.newEmptyInstance(RogueHandbookAeonOuterClass.RogueHandbookAeon.getFactory());
 
     private RogueHandbookData() {
     }
@@ -50,7 +50,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      * @return whether the miracleList field is set
      */
     public boolean hasMiracleList() {
@@ -58,7 +58,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      * @return this
      */
     public RogueHandbookData clearMiracleList() {
@@ -68,7 +68,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -82,7 +82,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -97,7 +97,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      * @param value the miracleList to add
      * @return this
      */
@@ -109,7 +109,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueHandbookMiracle miracle_list = 5;</code>
+     * <code>repeated .RogueHandbookMiracle miracle_list = 3;</code>
      * @param values the miracleList to add
      * @return this
      */
@@ -121,11 +121,82 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     * @return whether the rogueAeonList field is set
+     */
+    public boolean hasRogueAeonList() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     * @return this
+     */
+    public RogueHandbookData clearRogueAeonList() {
+      bitField0_ &= ~0x00000002;
+      rogueAeonList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueAeonList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<RogueHandbookAeonOuterClass.RogueHandbookAeon> getRogueAeonList() {
+      return rogueAeonList;
+    }
+
+    /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<RogueHandbookAeonOuterClass.RogueHandbookAeon> getMutableRogueAeonList(
+        ) {
+      bitField0_ |= 0x00000002;
+      return rogueAeonList;
+    }
+
+    /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     * @param value the rogueAeonList to add
+     * @return this
+     */
+    public RogueHandbookData addRogueAeonList(
+        final RogueHandbookAeonOuterClass.RogueHandbookAeon value) {
+      bitField0_ |= 0x00000002;
+      rogueAeonList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 9;</code>
+     * @param values the rogueAeonList to add
+     * @return this
+     */
+    public RogueHandbookData addAllRogueAeonList(
+        final RogueHandbookAeonOuterClass.RogueHandbookAeon... values) {
+      bitField0_ |= 0x00000002;
+      rogueAeonList.addAll(values);
+      return this;
+    }
+
+    /**
      * <code>repeated .RogueHandbookBuff buff_list = 10;</code>
      * @return whether the buffList field is set
      */
     public boolean hasBuffList() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
@@ -133,7 +204,7 @@ public final class RogueHandbookDataOuterClass {
      * @return this
      */
     public RogueHandbookData clearBuffList() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000004;
       buffList.clear();
       return this;
     }
@@ -162,7 +233,7 @@ public final class RogueHandbookDataOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RogueHandbookBuffOuterClass.RogueHandbookBuff> getMutableBuffList() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       return buffList;
     }
 
@@ -173,7 +244,7 @@ public final class RogueHandbookDataOuterClass {
      */
     public RogueHandbookData addBuffList(
         final RogueHandbookBuffOuterClass.RogueHandbookBuff value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       buffList.add(value);
       return this;
     }
@@ -185,7 +256,7 @@ public final class RogueHandbookDataOuterClass {
      */
     public RogueHandbookData addAllBuffList(
         final RogueHandbookBuffOuterClass.RogueHandbookBuff... values) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       buffList.addAll(values);
       return this;
     }
@@ -195,7 +266,7 @@ public final class RogueHandbookDataOuterClass {
      * @return whether the rogueEvent field is set
      */
     public boolean hasRogueEvent() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
@@ -203,7 +274,7 @@ public final class RogueHandbookDataOuterClass {
      * @return this
      */
     public RogueHandbookData clearRogueEvent() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       rogueEvent.clear();
       return this;
     }
@@ -232,7 +303,7 @@ public final class RogueHandbookDataOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RogueHandbookEventOuterClass.RogueHandbookEvent> getMutableRogueEvent() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       return rogueEvent;
     }
 
@@ -243,7 +314,7 @@ public final class RogueHandbookDataOuterClass {
      */
     public RogueHandbookData addRogueEvent(
         final RogueHandbookEventOuterClass.RogueHandbookEvent value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       rogueEvent.add(value);
       return this;
     }
@@ -255,79 +326,8 @@ public final class RogueHandbookDataOuterClass {
      */
     public RogueHandbookData addAllRogueEvent(
         final RogueHandbookEventOuterClass.RogueHandbookEvent... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       rogueEvent.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     * @return whether the rogueAeonList field is set
-     */
-    public boolean hasRogueAeonList() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     * @return this
-     */
-    public RogueHandbookData clearRogueAeonList() {
-      bitField0_ &= ~0x00000008;
-      rogueAeonList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueAeonList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedMessage<RogueHandbookAeonOuterClass.RogueHandbookAeon> getRogueAeonList() {
-      return rogueAeonList;
-    }
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedMessage<RogueHandbookAeonOuterClass.RogueHandbookAeon> getMutableRogueAeonList(
-        ) {
-      bitField0_ |= 0x00000008;
-      return rogueAeonList;
-    }
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     * @param value the rogueAeonList to add
-     * @return this
-     */
-    public RogueHandbookData addRogueAeonList(
-        final RogueHandbookAeonOuterClass.RogueHandbookAeon value) {
-      bitField0_ |= 0x00000008;
-      rogueAeonList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueHandbookAeon rogue_aeon_list = 15;</code>
-     * @param values the rogueAeonList to add
-     * @return this
-     */
-    public RogueHandbookData addAllRogueAeonList(
-        final RogueHandbookAeonOuterClass.RogueHandbookAeon... values) {
-      bitField0_ |= 0x00000008;
-      rogueAeonList.addAll(values);
       return this;
     }
 
@@ -337,9 +337,9 @@ public final class RogueHandbookDataOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         miracleList.copyFrom(other.miracleList);
+        rogueAeonList.copyFrom(other.rogueAeonList);
         buffList.copyFrom(other.buffList);
         rogueEvent.copyFrom(other.rogueEvent);
-        rogueAeonList.copyFrom(other.rogueAeonList);
       }
       return this;
     }
@@ -353,14 +353,14 @@ public final class RogueHandbookDataOuterClass {
       if (other.hasMiracleList()) {
         getMutableMiracleList().addAll(other.miracleList);
       }
+      if (other.hasRogueAeonList()) {
+        getMutableRogueAeonList().addAll(other.rogueAeonList);
+      }
       if (other.hasBuffList()) {
         getMutableBuffList().addAll(other.buffList);
       }
       if (other.hasRogueEvent()) {
         getMutableRogueEvent().addAll(other.rogueEvent);
-      }
-      if (other.hasRogueAeonList()) {
-        getMutableRogueAeonList().addAll(other.rogueAeonList);
       }
       return this;
     }
@@ -373,9 +373,9 @@ public final class RogueHandbookDataOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       miracleList.clear();
+      rogueAeonList.clear();
       buffList.clear();
       rogueEvent.clear();
-      rogueAeonList.clear();
       return this;
     }
 
@@ -387,9 +387,9 @@ public final class RogueHandbookDataOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       miracleList.clearQuick();
+      rogueAeonList.clearQuick();
       buffList.clearQuick();
       rogueEvent.clearQuick();
-      rogueAeonList.clearQuick();
       return this;
     }
 
@@ -404,35 +404,35 @@ public final class RogueHandbookDataOuterClass {
       RogueHandbookData other = (RogueHandbookData) o;
       return bitField0_ == other.bitField0_
         && (!hasMiracleList() || miracleList.equals(other.miracleList))
+        && (!hasRogueAeonList() || rogueAeonList.equals(other.rogueAeonList))
         && (!hasBuffList() || buffList.equals(other.buffList))
-        && (!hasRogueEvent() || rogueEvent.equals(other.rogueEvent))
-        && (!hasRogueAeonList() || rogueAeonList.equals(other.rogueAeonList));
+        && (!hasRogueEvent() || rogueEvent.equals(other.rogueEvent));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < miracleList.length(); i++) {
-          output.writeRawByte((byte) 42);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(miracleList.get(i));
         }
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        for (int i = 0; i < rogueAeonList.length(); i++) {
+          output.writeRawByte((byte) 74);
+          output.writeMessageNoTag(rogueAeonList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < buffList.length(); i++) {
           output.writeRawByte((byte) 82);
           output.writeMessageNoTag(buffList.get(i));
         }
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < rogueEvent.length(); i++) {
           output.writeRawByte((byte) 98);
           output.writeMessageNoTag(rogueEvent.get(i));
-        }
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        for (int i = 0; i < rogueAeonList.length(); i++) {
-          output.writeRawByte((byte) 122);
-          output.writeMessageNoTag(rogueAeonList.get(i));
         }
       }
     }
@@ -444,13 +444,13 @@ public final class RogueHandbookDataOuterClass {
         size += (1 * miracleList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(miracleList);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += (1 * buffList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(buffList);
+        size += (1 * rogueAeonList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueAeonList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * rogueEvent.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueEvent);
+        size += (1 * buffList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(buffList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += (1 * rogueAeonList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueAeonList);
+        size += (1 * rogueEvent.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueEvent);
       }
       return size;
     }
@@ -462,10 +462,18 @@ public final class RogueHandbookDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 42: {
+          case 26: {
             // miracleList
             tag = input.readRepeatedMessage(miracleList, tag);
             bitField0_ |= 0x00000001;
+            if (tag != 74) {
+              break;
+            }
+          }
+          case 74: {
+            // rogueAeonList
+            tag = input.readRepeatedMessage(rogueAeonList, tag);
+            bitField0_ |= 0x00000002;
             if (tag != 82) {
               break;
             }
@@ -473,7 +481,7 @@ public final class RogueHandbookDataOuterClass {
           case 82: {
             // buffList
             tag = input.readRepeatedMessage(buffList, tag);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
             if (tag != 98) {
               break;
             }
@@ -481,14 +489,6 @@ public final class RogueHandbookDataOuterClass {
           case 98: {
             // rogueEvent
             tag = input.readRepeatedMessage(rogueEvent, tag);
-            bitField0_ |= 0x00000004;
-            if (tag != 122) {
-              break;
-            }
-          }
-          case 122: {
-            // rogueAeonList
-            tag = input.readRepeatedMessage(rogueAeonList, tag);
             bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
@@ -515,13 +515,13 @@ public final class RogueHandbookDataOuterClass {
         output.writeRepeatedMessage(FieldNames.miracleList, miracleList);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRepeatedMessage(FieldNames.buffList, buffList);
+        output.writeRepeatedMessage(FieldNames.rogueAeonList, rogueAeonList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedMessage(FieldNames.rogueEvent, rogueEvent);
+        output.writeRepeatedMessage(FieldNames.buffList, buffList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRepeatedMessage(FieldNames.rogueAeonList, rogueAeonList);
+        output.writeRepeatedMessage(FieldNames.rogueEvent, rogueEvent);
       }
       output.endObject();
     }
@@ -545,12 +545,24 @@ public final class RogueHandbookDataOuterClass {
             }
             break;
           }
+          case -1684933573:
+          case -1375837643: {
+            if (input.isAtField(FieldNames.rogueAeonList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(rogueAeonList);
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1522789487:
           case 55792906: {
             if (input.isAtField(FieldNames.buffList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(buffList);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -562,18 +574,6 @@ public final class RogueHandbookDataOuterClass {
             if (input.isAtField(FieldNames.rogueEvent)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(rogueEvent);
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1684933573:
-          case -1375837643: {
-            if (input.isAtField(FieldNames.rogueAeonList)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(rogueAeonList);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -636,11 +636,11 @@ public final class RogueHandbookDataOuterClass {
     static class FieldNames {
       static final FieldName miracleList = FieldName.forField("miracleList", "miracle_list");
 
+      static final FieldName rogueAeonList = FieldName.forField("rogueAeonList", "rogue_aeon_list");
+
       static final FieldName buffList = FieldName.forField("buffList", "buff_list");
 
       static final FieldName rogueEvent = FieldName.forField("rogueEvent", "rogue_event");
-
-      static final FieldName rogueAeonList = FieldName.forField("rogueAeonList", "rogue_aeon_list");
     }
   }
 }

@@ -1,6 +1,5 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.LunarCore;
 import emu.lunarcore.proto.RogueDialogueEventOuterClass.RogueDialogueEvent;
 import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.proto.SyncRogueDialogueEventDataScNotifyOuterClass.SyncRogueDialogueEventDataScNotify;
@@ -11,7 +10,8 @@ import java.util.List;
 
 public class PacketSyncRogueDialogueEventDataScNotify extends BasePacket {
     public PacketSyncRogueDialogueEventDataScNotify(RogueDialogueEvent event) {
-        super(CmdId.SyncRogueDialogueEventDataScNotify);
+        //super(CmdId.SyncRogueDialogueEventDataScNotify);
+        super(CmdId.NONE);
         
         var proto = SyncRogueDialogueEventDataScNotify.newInstance()
             .addRogueDialogueEvent(event);

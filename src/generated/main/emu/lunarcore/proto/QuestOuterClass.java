@@ -29,12 +29,12 @@ public final class QuestOuterClass {
     private int id;
 
     /**
-     * <code>optional uint32 progress = 8;</code>
+     * <code>optional uint32 progress = 9;</code>
      */
     private int progress;
 
     /**
-     * <code>optional .QuestStatus status = 14;</code>
+     * <code>optional .QuestStatus status = 13;</code>
      */
     private int status;
 
@@ -123,7 +123,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 8;</code>
+     * <code>optional uint32 progress = 9;</code>
      * @return whether the progress field is set
      */
     public boolean hasProgress() {
@@ -131,7 +131,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 8;</code>
+     * <code>optional uint32 progress = 9;</code>
      * @return this
      */
     public Quest clearProgress() {
@@ -141,7 +141,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 8;</code>
+     * <code>optional uint32 progress = 9;</code>
      * @return the progress
      */
     public int getProgress() {
@@ -149,7 +149,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 8;</code>
+     * <code>optional uint32 progress = 9;</code>
      * @param value the progress to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 14;</code>
+     * <code>optional .QuestStatus status = 13;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -168,7 +168,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 14;</code>
+     * <code>optional .QuestStatus status = 13;</code>
      * @return this
      */
     public Quest clearStatus() {
@@ -178,7 +178,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 14;</code>
+     * <code>optional .QuestStatus status = 13;</code>
      * @return the status
      */
     public QuestStatusOuterClass.QuestStatus getStatus() {
@@ -211,7 +211,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 14;</code>
+     * <code>optional .QuestStatus status = 13;</code>
      * @param value the status to set
      * @return this
      */
@@ -306,11 +306,11 @@ public final class QuestOuterClass {
         output.writeUInt32NoTag(id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(progress);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 104);
         output.writeEnumNoTag(status);
       }
     }
@@ -354,20 +354,20 @@ public final class QuestOuterClass {
             id = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 72) {
               break;
             }
           }
-          case 64: {
+          case 72: {
             // progress
             progress = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
+          case 104: {
             // status
             final int value = input.readInt32();
             if (QuestStatusOuterClass.QuestStatus.forNumber(value) != null) {
