@@ -20,7 +20,7 @@ public class SceneEntityLoader {
     public void onSceneLoad(Scene scene) {
         for (GroupInfo group : scene.getFloorInfo().getGroups().values()) {
             // Skip non-server groups
-            if (group.getLoadSide() != GroupLoadSide.Server) {
+            if (group.getLoadSide() != GroupLoadSide.Server || group.getOwnerMainMissionID() > 0) {
                 continue;
             }
             
