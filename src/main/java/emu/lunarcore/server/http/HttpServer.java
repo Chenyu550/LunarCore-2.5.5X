@@ -17,10 +17,6 @@ import emu.lunarcore.proto.DispatchRegionDataOuterClass.DispatchRegionData;
 import emu.lunarcore.server.game.RegionInfo;
 import emu.lunarcore.server.http.handlers.*;
 import emu.lunarcore.util.Utils;
-import emu.lunarcore.GameConstants;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import io.javalin.Javalin;
 import io.javalin.http.ContentType;
 import io.javalin.http.Context;
@@ -126,24 +122,6 @@ public class HttpServer {
         LunarCore.getLogger().info("Http Server running as: " + this.modes.stream().collect(Collectors.joining(", ")));
         LunarCore.getLogger().info("Http Server started on " + getServerConfig().getBindPort());
     }
-    /**
-    * Handles the /status/server endpoint, returning the current server status including player count, maximum player count, and version.
-    * @param ctx The context of the HTTP request
-    */
-    private void statusServerHandler(Context ctx) {
-        int playerCount = LunarCore.getGameServer().getPlayerCount();
-        int maxPlayer = LunarCore.getConfig().getServerOptions().maxPlayer;
-        String version = GameConstants.VERSION;
-                ctx.result(
-                "{\"retcode\":0,\"status\":{\"playerCount\":"
-                        + playerCount
-                        + ",\"maxPlayer\":"
-                        + maxPlayer
-                        + ",\"version\":\""
-                        + version
-                        + "\"}}");
-    
-}
 
     private void addRoutes() {
         // Add routes based on what type of server this is
@@ -157,8 +135,7 @@ public class HttpServer {
 
         // Fallback handler
         getApp().error(404, this::notFoundHandler);
-        getApp().get("/status/server", this::statusServerHandler);
-
+        getApp().get("/status/server", new StatusServerHandler()::handle);
     }
 
     private void addDispatchRoutes() {
@@ -223,20 +200,9 @@ public class HttpServer {
         this.modes.add("GATESERVER");
     }
 
-  private void notFoundHandler(Context ctx) {
-    ctx.status(404);
-    ctx.contentType(ContentType.TEXT_HTML);
-    File file = new File("index.html");
-    try {
-      if (file.exists()) {
-        String fileContent = Files.readString(file.toPath());
-        ctx.result(fileContent);
-      } else {
-        ctx.result("<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>not found</body></html>");
-      } 
-    } catch (IOException e) {
-      e.printStackTrace();
-      ctx.result("<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>error</body></html>");
-    } 
-  }
+ private void notFoundHandler(Context ctx) {
+        ctx.status(404);
+        ctx.contentType(ContentType.TEXT_PLAIN);
+        ctx.result("not found");
+    }
 }
