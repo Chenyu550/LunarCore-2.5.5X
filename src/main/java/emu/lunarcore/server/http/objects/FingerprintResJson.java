@@ -7,12 +7,12 @@ public class FingerprintResJson {
 
     public static class FingerprintDataJson {
         public String device_fp;
-        public String message;
+        public String msg; // 修改字段名为 msg
         public int code;
 
         public FingerprintDataJson(String fp) {
             this.code = 200;
-            this.message = "OK";
+            this.msg = "ok"; // 修改字段名为 msg
             this.device_fp = fp;
         }
     }

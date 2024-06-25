@@ -31,7 +31,7 @@ public class HttpServer {
     private boolean started;
     
     private long nextRegionUpdate;
-    private Object2ObjectMap<String, RegionInfo> regions;
+    private final Object2ObjectMap<String, RegionInfo> regions;
     private String regionList;
 
     public HttpServer(ServerType type) {
@@ -71,36 +71,41 @@ public class HttpServer {
         sslContextFactory.setRenegotiationAllowed(false);
         return sslContextFactory;
     }
-    
+
     public void forceRegionListRefresh() {
         this.nextRegionUpdate = 0;
     }
-    
+
     public String getRegionList() {
         synchronized (this.regions) {
             // Check if region list needs to be cached
             if (System.currentTimeMillis() > this.nextRegionUpdate || this.regionList == null) {
                 // Clear regions first
                 this.regions.clear();
-                
                 // Pull region infos from database
                 LunarCore.getAccountDatabase().getObjects(RegionInfo.class)
                     .forEach(region -> {
                         this.regions.put(region.getId(), region);
                     });
 
+                
                 // Serialize to proto
                 DispatchRegionData regionData = DispatchRegionData.newInstance();
                 regions.values().stream().map(RegionInfo::toProto).forEach(regionData::addRegionList);
-                
+
                 // Set region list cache
                 this.regionList = Utils.base64Encode(regionData.toByteArray());
                 this.nextRegionUpdate = System.currentTimeMillis() + getServerConfig().regionListRefresh;
             }
         }
-        
+
         return regionList;
     }
+
+
+
+
+
 
     public void start() {
         if (this.started) return;
@@ -135,7 +140,6 @@ public class HttpServer {
 
         // Fallback handler
         getApp().error(404, this::notFoundHandler);
-        getApp().get("/status/server", new StatusServerHandler()::handle);
     }
 
     private void addDispatchRoutes() {
@@ -147,36 +151,41 @@ public class HttpServer {
 
         // === AUTHENTICATION === hkrpg-sdk-os-static.hoyoverse.com
 
-        // Username & Password login (from client). Returns a session key to the client.
-        getApp().post("/hkrpg_global/mdk/shield/api/login", new UsernameLoginHandler());
+        getApp().post("/hkrpg_{region}/mdk/shield/api/login", new UsernameLoginHandler());
         // Cached session key verify (from registry). Returns a session key to the client.
-        getApp().post("/hkrpg_global/mdk/shield/api/verify", new TokenLoginHandler());
+        getApp().post("/hkrpg_{region}/mdk/shield/api/verify", new TokenLoginHandler());
 
         // Exchange session key for login token (combo token)
-        getApp().post("/hkrpg_global/combo/granter/login/v2/login", new ComboTokenGranterHandler());
+        getApp().post("/hkrpg_{region}/combo/granter/login/v2/login", new ComboTokenGranterHandler());
 
         // Config
-        getApp().get("/hkrpg_global/combo/granter/api/getConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"protocol\":true,\"qr_enabled\":false,\"log_level\":\"INFO\",\"announce_url\":\"\",\"push_alias_type\":0,\"disable_ysdk_guard\":true,\"enable_announce_pic_popup\":false,\"app_name\":\"崩�??RPG\",\"qr_enabled_apps\":{\"bbs\":false,\"cloud\":false},\"qr_app_icons\":{\"app\":\"\",\"bbs\":\"\",\"cloud\":\"\"},\"qr_cloud_display_name\":\"\",\"enable_user_center\":true,\"functional_switch_configs\":{}}}"));
-        getApp().get("/hkrpg_global/mdk/shield/api/loadConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"id\":24,\"game_key\":\"hkrpg_global\",\"client\":\"PC\",\"identity\":\"I_IDENTITY\",\"guest\":false,\"ignore_versions\":\"\",\"scene\":\"S_NORMAL\",\"name\":\"崩�??RPG\",\"disable_regist\":false,\"enable_email_captcha\":false,\"thirdparty\":[\"fb\",\"tw\",\"gl\",\"ap\"],\"disable_mmt\":false,\"server_guest\":false,\"thirdparty_ignore\":{},\"enable_ps_bind_account\":false,\"thirdparty_login_configs\":{\"tw\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":2592000},\"ap\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":604800},\"fb\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":2592000},\"gl\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":604800}},\"initialize_firebase\":false,\"bbs_auth_login\":false,\"bbs_auth_login_ignore\":[],\"fetch_instance_id\":false,\"enable_flash_login\":false}}"));
+        getApp().get("/hkrpg_{region}/combo/granter/api/getConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"protocol\":true,\"qr_enabled\":false,\"log_level\":\"INFO\",\"announce_url\":\"\",\"push_alias_type\":0,\"disable_ysdk_guard\":true,\"enable_announce_pic_popup\":false,\"app_name\":\"崩�??RPG\",\"qr_enabled_apps\":{\"bbs\":false,\"cloud\":false},\"qr_app_icons\":{\"app\":\"\",\"bbs\":\"\",\"cloud\":\"\"},\"qr_cloud_display_name\":\"\",\"enable_user_center\":true,\"functional_switch_configs\":{}}}"));
+        getApp().get("/hkrpg_cn/combo/granter/api/getConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"protocol\":false,\"qr_enabled\":true,\"log_level\":\"INFO\",\"announce_url\":\"https://webstatic.mihoyo.com/hkrpg/announcement/index.html?sdk_presentation_style=fullscreen\\u0026game=hkrpg\\u0026game_biz=hkrpg_cn\\u0026sdk_screen_transparent=true\\u0026auth_appid=announcement\\u0026authkey_ver=1\\u0026version=1.44\\u0026sign_type=2#/\",\"push_alias_type\":1,\"disable_ysdk_guard\":false,\"enable_announce_pic_popup\":false,\"app_name\":\"崩坏:星穹铁道\",\"qr_enabled_apps\":null,\"qr_app_icons\":null,\"qr_cloud_display_name\":\"\",\"enable_user_center\":true,\"functional_switch_configs\":{\"jpush\":true}}}"));
+
+        getApp().get("/hkrpg_{region}/mdk/shield/api/loadConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"id\":19,\"game_key\":\"hkrpg_cn\",\"client\":\"IOS\",\"identity\":\"I_IDENTITY\",\"guest\":false,\"ignore_versions\":\"\",\"scene\":\"S_NORMAL\",\"name\":\"崩坏RPG\",\"disable_regist\":false,\"enable_email_captcha\":false,\"thirdparty\":[],\"disable_mmt\":false,\"server_guest\":false,\"thirdparty_ignore\":{\"ap\":\"0.90.0\"},\"enable_ps_bind_account\":false,\"thirdparty_login_configs\":{},\"initialize_firebase\":false,\"bbs_auth_login\":true,\"bbs_auth_login_ignore\":[],\"fetch_instance_id\":false,\"enable_flash_login\":true,\"enable_logo_18\":false,\"logo_height\":\"0\",\"logo_width\":\"0\"}}"));
 
         // === EXTRA ===
 
         // hkrpg-sdk-os.hoyoverse.com
-        getApp().post("/hkrpg_global/combo/granter/api/compareProtocolVersion", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"modified\":false,\"protocol\":null}}"));
-        getApp().get("/hkrpg_global/mdk/agreement/api/getAgreementInfos", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"marketing_agreements\":[]}}"));
+        getApp().post("/hkrpg_{region}/combo/granter/api/compareProtocolVersion", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"modified\":false,\"protocol\":null}}"));
+        getApp().get("/hkrpg_{region}/mdk/agreement/api/getAgreementInfos", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"marketing_agreements\":[]}}"));
 
         // sdk-os-static.hoyoverse.com
         getApp().get("/combo/box/api/config/sdk/combo", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"vals\":{\"kibana_pc_config\":\"{ \\\"enable\\\": 0, \\\"level\\\": \\\"Info\\\",\\\"modules\\\": [\\\"download\\\"] }\\n\",\"network_report_config\":\"{ \\\"enable\\\": 0, \\\"status_codes\\\": [206], \\\"url_paths\\\": [\\\"dataUpload\\\", \\\"red_dot\\\"] }\\n\",\"list_price_tierv2_enable\":\"false\\n\",\"pay_payco_centered_host\":\"bill.payco.com\",\"telemetry_config\":\"{\\n \\\"dataupload_enable\\\": 0,\\n}\",\"enable_web_dpi\":\"true\"}}}"));
         getApp().get("/combo/box/api/config/sw/precache", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"vals\":{\"url\":\"\",\"enable\":\"false\"}}}"));
 
         // sg-public-data-api.hoyoverse.com
-        getApp().get("/device-fp/api/getFp", new FingerprintHandler());
-        getApp().get("/device-fp/api/getExtList", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"code\":200,\"msg\":\"ok\",\"ext_list\":[],\"pkg_list\":[],\"pkg_str\":\"/vK5WTh5SS3SAj8Zm0qPWg==\"}}"));
+        getApp().post("/device-fp/api/getFp", new FingerprintHandler());
+        getApp().get("/device-fp/api/getExtList", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"code\":200,\"msg\":\"ok\",\"ext_list\":[\"IDFV\",\"model\",\"osVersion\",\"screenSize\",\"vendor\",\"cpuType\",\"cpuCores\",\"isJailBreak\",\"networkType\",\"proxyStatus\",\"batteryStatus\",\"chargeStatus\",\"romCapacity\",\"romRemain\",\"ramCapacity\",\"ramRemain\",\"appMemory\",\"accelerometer\",\"gyroscope\",\"magnetometer\",\"deviceName\",\"screenBrightness\",\"isSimInserted\",\"isPushEnabled\",\"buildTime\",\"appInstallTimeDiff\",\"appUpdateTimeDiff\",\"hasVpn\",\"packageName\",\"packageVersion\"],\"pkg_list\":[],\"pkg_str\":\"\"}}"));
 
         // abtest-api-data-sg.hoyoverse.com
-        getApp().post("/data_abtest_api/config/experiment/list", new HttpJsonResponse("{\"retcode\":0,\"success\":true,\"message\":\"\",\"data\":[{\"code\":1000,\"type\":2,\"config_id\":\"14\",\"period_id\":\"6125_197\",\"version\":\"1\",\"configs\":{\"cardType\":\"direct\"}}]}"));
-    
-        // Add mode
+        getApp().post("/data_abtest_api/config/experiment/list", new HttpJsonResponse("{\"retcode\":0,\"success\":true,\"message\":\"\",\"data\":[{\"code\":1000,\"type\":2,\"config_id\":\"296\",\"period_id\":\"5306_534\",\"version\":\"2\",\"configs\":{\"loginType\":\"porte\"}}]}"));
+        //cn https://passport-api.mihoyo.com
+        getApp().post("/account/ma-cn-session/app/verify",new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"user_info\":{\"aid\":\"888888888\",\"mid\":\"0zuobmxgmz_mhy\",\"account_name\":\"\",\"email\":\"\",\"is_email_verify\":0,\"area_code\":\"+86\",\"mobile\":\"188******88\",\"safe_area_code\":\"\",\"safe_mobile\":\"\",\"realname\":\"**游\",\"identity_code\":\"488************888\",\"rebind_area_code\":\"\",\"rebind_mobile\":\"\",\"rebind_mobile_time\":\"0\",\"links\":[],\"country\":\"\",\"unmasked_email\":\"\",\"unmasked_email_type\":0},\"realname_info\":{\"required\":false,\"action_type\":\"\",\"action_ticket\":\"\"},\"need_realperson\":false}}"));
+        getApp().get("_ts", new HttpJsonResponse(
+            "{\"code\":0,\"message\":\"app running\",\"milliTs\":\"" + System.currentTimeMillis() + "\"}"
+        ));
+        getApp().get("/sdk_global/apphub/api/getAttributionReportConfig",new HttpJsonResponse("{\"data\":{\"device_blacklist\":\"\",\"enabled\":true,\"report_detail\":\"{\\n  \\\"allowed_fields\\\": [\\n    \\\"app_version\\\",\\n    \\\"manufacturer\\\",\\n    \\\"model\\\",\\n    \\\"os\\\",\\n    \\\"osversion\\\",\\n    \\\"network_type\\\",\\n    \\\"mac\\\",\\n    \\\"deviceid\\\",\\n    \\\"resolution\\\",\\n    \\\"idfa\\\",\\n    \\\"pkgname\\\",\\n    \\\"idfv\\\",\\n    \\\"lat\\\",\\n    \\\"tz\\\",\\n    \\\"devicetype\\\",\\n    \\\"screen_brightness\\\",\\n    \\\"audio_volume\\\",\\n    \\\"lib_version\\\",\\n    \\\"gyrodata\\\",\\n    \\\"ua\\\",\\n    \\\"boot_time\\\",\\n    \\\"update_time\\\",\\n    \\\"att_status\\\",\\n    \\\"language\\\",\\n    \\\"attribution_token\\\",\\n    \\\"country_code\\\",\\n    \\\"device_name\\\",\\n    \\\"carrier_info\\\",\\n    \\\"memory\\\",\\n    \\\"disk\\\",\\n    \\\"device_model\\\",\\n    \\\"caid\\\",\\n\\t\\\"mnt_id\\\",\\n\\t\\\"file_init_time\\\"\\n  ]\\n}\",\"report_interval_seconds\":3},\"message\":\"OK\",\"retcode\":0}"));// Add mode
         this.modes.add("DISPATCH");
     }
 
@@ -200,7 +209,7 @@ public class HttpServer {
         this.modes.add("GATESERVER");
     }
 
- private void notFoundHandler(Context ctx) {
+    private void notFoundHandler(Context ctx) {
         ctx.status(404);
         ctx.contentType(ContentType.TEXT_PLAIN);
         ctx.result("not found");
