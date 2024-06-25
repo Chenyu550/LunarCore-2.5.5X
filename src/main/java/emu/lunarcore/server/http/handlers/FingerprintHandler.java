@@ -18,17 +18,19 @@ public class FingerprintHandler implements Handler {
 
         FingerprintReqJson req = JsonUtils.decode(ctx.body(), FingerprintReqJson.class);
 
+        // 检查请求体是否成功解析
         if (req == null) {
-            res.retcode = -202;
+            res.retcode = -202; // 或其他适当的错误代码
             res.message = "Error";
+        } else {
+            // 设置成功响应
+            res.retcode = 0; // 成功的 retcode
+            res.message = "OK";
+            res.data = new FingerprintResJson.FingerprintDataJson(req.device_fp);
         }
 
-        res.message = "OK";
-        res.data = new FingerprintDataJson(req.device_fp);
-
-        // Result
+        // 设置响应类型并返回结果
         ctx.contentType(ContentType.APPLICATION_JSON);
         ctx.result(JsonUtils.encode(res));
     }
-
 }

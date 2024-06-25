@@ -17,7 +17,7 @@ public class QueryGatewayHandler implements Handler {
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
         // Get streaming data from config
-        var data = LunarCore.getHotfixData();
+        var data = LunarCore.getConfig().getDownloadData();
         
         // Build gateserver proto
         Gateserver gateserver = Gateserver.newInstance()
@@ -31,30 +31,25 @@ public class QueryGatewayHandler implements Handler {
                 .setUnk4(true)
                 .setUnk5(true);
         
-        // Set hotfix urls
-        if (data.assetBundleUrl != null && !data.assetBundleUrl.isBlank()) {
+        if (data.assetBundleUrl != null) {
             gateserver.setAssetBundleUrl(data.assetBundleUrl);
         }
-        if (data.exResourceUrl != null && !data.exResourceUrl.isBlank()) {
+        if (data.exResourceUrl != null) {
             gateserver.setExResourceUrl(data.exResourceUrl);
         }
-        if (data.luaUrl != null && !data.luaUrl.isBlank()) {
+        if (data.luaUrl != null) {
             gateserver.setLuaUrl(data.luaUrl);
+            gateserver.setMdkResVersion(
+                data.luaUrl.split("/")[data.luaUrl.split("/").length - 1].split("_")[1]
+            );
         }
-        if (data.ifixUrl != null && !data.ifixUrl.isBlank()) {
+        if (data.ifixUrl != null) {
             gateserver.setIfixUrl(data.ifixUrl);
+            gateserver.setIfixVersion(
+                data.ifixUrl.split("/")[data.ifixUrl.split("/").length - 1].split("_")[1]
+            );
         }
-        
-        // Set hotfix versions
-        String mdkResVersion = data.getMdkResVersion();
-        String ifixVersion = data.getIfixVersion();
-        if (mdkResVersion != null) {
-            gateserver.setMdkResVersion(mdkResVersion);
-        }
-        if (ifixVersion != null) {
-            gateserver.setIfixVersion(ifixVersion);
-        }
-        
+
         // Log
         if (LunarCore.getConfig().getLogOptions().connections) {
             LunarCore.getLogger().info("Client request: query_gateway");
