@@ -112,6 +112,7 @@ public class Player implements Tickable {
     private int planeId;
     private int floorId;
     private int entryId;
+    private int worldId;
     
     private long lastActiveTime;
     
@@ -479,17 +480,19 @@ public class Player implements Tickable {
         // Set new avatar path
         avatar.setMultiPath(path);
         
-        // Set current avatar path
-        this.getCurAvatarPaths().put(excel.getBaseAvatarID(), pathId);
-        
-        // Sync with client
-        this.sendPacket(new PacketPlayerSyncScNotify(path));
-        for (var item : avatar.getEquips().values()) {
-            this.sendPacket(new PacketPlayerSyncScNotify(item));
+        // Set gender if we are changing the main character
+        if (excel.getBaseAvatarID() == GameConstants.TRAILBLAZER_AVATAR_ID && excel.getGender() != null) {
+            this.gender = excel.getGender();
         }
         
-        this.sendPacket(new PacketAvatarPathChangedNotify(avatar, path));
+        // Set current avatar path and save to database
+        this.getCurAvatarPaths().put(excel.getBaseAvatarID(), pathId);
+        this.save();
 
+        // Sync with client
+        this.sendPacket(new PacketAvatarPathChangedNotify(avatar, path));
+        this.sendPacket(new PacketPlayerSyncScNotify(avatar));
+        
         // Success
         return pathId;
     }
@@ -798,6 +801,11 @@ public class Player implements Tickable {
             nextScene = new Scene(this, planeExcel, floorId);
         }
         
+        // Set world id
+        if (planeExcel.getPlaneType() == PlaneType.Town || planeExcel.getPlaneType() == PlaneType.Maze) {
+            this.worldId = planeExcel.getWorldID();
+        }
+        
         // Set player position
         this.getPos().set(pos);
         this.getRot().set(rot);
@@ -914,6 +922,11 @@ public class Player implements Tickable {
         if (this.getChallengeInstance() != null && !this.getChallengeInstance().validate(this)) {
             // Delete instance if it failed to validate (example: missing an excel)
             this.challengeInstance = null;
+        }
+        
+        // Set default world id if we don't have it
+        if (this.worldId == 0) {
+            this.worldId = GameConstants.DEFAULT_WORLD_ID;
         }
         
         // Unstuck check, dont load player into raid scenes

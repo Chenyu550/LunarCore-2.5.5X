@@ -85,13 +85,6 @@ public class GameAvatar implements GameEntity, IAvatar {
         this.setExcel(excel);
     }
     
-    public GameAvatar(AvatarMultiPath path) {
-        this();
-        this.avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
-        this.timestamp = System.currentTimeMillis() / 1000;
-        this.setMultiPath(path);
-    }
-    
     @Override
     public Scene getScene() {
         return this.getOwner().getScene();
@@ -243,18 +236,16 @@ public class GameAvatar implements GameEntity, IAvatar {
                 .setIsMarked(this.isMarked())
                 .setFirstMetTimestamp(this.getTimestamp());
 
-        if (!this.hasMultiPath()) {
-            for (var equip : this.getEquips().values()) {
-                if (equip.getItemMainType() == ItemMainType.Relic) {
-                    proto.addEquipRelicList(EquipRelic.newInstance().setSlot(equip.getEquipSlot()).setRelicUniqueId(equip.getInternalUid()));
-                } else if (equip.getItemMainType() == ItemMainType.Equipment) {
-                    proto.setEquipmentUniqueId(equip.getInternalUid());
-                }
+        for (var equip : this.getEquips().values()) {
+            if (equip.getItemMainType() == ItemMainType.Relic) {
+                proto.addEquipRelicList(EquipRelic.newInstance().setSlot(equip.getEquipSlot()).setRelicUniqueId(equip.getInternalUid()));
+            } else if (equip.getItemMainType() == ItemMainType.Equipment) {
+                proto.setEquipmentUniqueId(equip.getInternalUid());
             }
-            
-            for (var skill : getSkills().entrySet()) {
-                proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
-            }
+        }
+        
+        for (var skill : getSkills().entrySet()) {
+            proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
         }
         
         for (int i = 0; i < this.getPromotion(); i++) {
