@@ -40,8 +40,8 @@ public class GachaService extends BaseGameService {
     private int[] yellowAvatars = new int[] {1003, 1004, 1101, 1107, 1104, 1209, 1211};
     private int[] yellowWeapons = new int[] {23000, 23002, 23003, 23004, 23005, 23012, 23013};
     private int[] purpleAvatars = new int[] {1314, 1315};
-    private int[] purpleWeapons = new int[] {1314};
-    private int[] blueWeapons = new int[] {1310};
+    private int[] purpleWeapons = new int[] {21000, 21001, 21002, 21003, 21004, 21005, 21006, 21007, 21008, 21009, 21010, 21011, 21012, 21013, 21014, 21015, 21016, 21017, 21018, 21019, 21020};
+    private int[] blueWeapons = new int[] {20000, 20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012, 20013, 20014, 20015, 20016, 20017, 20018, 20019, 20020};
     private int[] defaultFeaturedIds = new int[] {23002, 1003, 1101, 1104, 23000, 23003};
     
     private static int starglightId = 252;
