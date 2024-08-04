@@ -8,7 +8,7 @@
 **Perhatian:** Untuk dukungan, pertanyaan, atau diskusi tambahan, lihat di [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### Fitur penting
-- Fitur game umum: Log in, setup team, inventory, scene/management entitas
+- Fitur game umum: Log in, setup team, inventory, scene/menegemen entitas
 - Pertarungan monster
 - Natural world monster/prop/NPC spawns
 - Teknik char(trace)
