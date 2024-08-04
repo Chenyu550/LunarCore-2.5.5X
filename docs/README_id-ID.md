@@ -14,9 +14,9 @@
 - Teknik char(trace)
 - Crafting/Consumables working
 - NPC shops handled
-- Gacha system
-- Mail system
-- Friend system (assist masih belum berfungsi)
+- Sistem Gacha
+- Sistem Pesan
+- Friendlist (assist masih belum berfungsi)
 - Forgotten hall
 - Pure Fiction
 - Simulated universe (Beberapa fitur mungkin akan bug)
@@ -58,10 +58,10 @@ class Handlers
 ```
 
 4. Jika `autoCreateAccount` disetel ke true di konfigurasi, maka Anda dapat melewati langkah ini. Jika tidak, ketik `/account create [nama akun]` di konsol server untuk membuat akun.
-5. Login dengan nama akun Anda, kolom kata sandi diabaikan oleh server dan dapat diatur ke apa saja.
+5. Login dengan nama akun Anda, kolom kata sandi diabaikan oleh server dan dapat diatur ke apa saja(bebas isi apa saja).
 
 ### Server commands
-Perintah server dapat dijalankan di konsol server atau dalam game. Ada pengguna tiruan bernama "Server" di setiap daftar teman pemain yang dapat Anda kirimi pesan untuk menggunakan perintah dalam game.
+Perintah server dapat dijalankan di konsol server atau dalam game. Ada pengguna tiruan bernama "Server" di setiap daftar teman pemain yang dapat Anda kirimi pesan(Command) untuk menggunakan perintah dalam game.
 
 ```
 /account {create | delete} [nama pengguna] (uid pemain yang dipesan). Membuat atau menghapus akun.
