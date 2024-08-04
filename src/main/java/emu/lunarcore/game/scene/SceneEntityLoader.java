@@ -23,6 +23,10 @@ public class SceneEntityLoader {
             if (group.getLoadSide() != GroupLoadSide.Server) {
                 continue;
             }
+            //Avoid trigger some quest 
+            if (group.getOwnerMainMissionID() > 0) {
+                continue;
+            }
             
             // Load group
             scene.loadGroup(group);
