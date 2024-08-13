@@ -2,6 +2,7 @@ package emu.lunarcore.game.scene.entity;
 
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.NpcInfo;
+import emu.lunarcore.game.rogue.event.RogueEventInstance;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.NpcRogueInfoOuterClass.NpcRogueInfo;
@@ -22,9 +23,7 @@ public class EntityNpc implements GameEntity {
     private final Position pos;
     private final Position rot;
     
-    @Setter private int rogueNpcId;
-    @Setter private boolean isDialogueFinished = false;
-    @Setter private int eventId = 0;
+    @Setter private RogueEventInstance eventInstance;
     
     public EntityNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
         this.scene = scene;
@@ -42,11 +41,14 @@ public class EntityNpc implements GameEntity {
                 .setNpcId(this.getNpcId());
         
         // Rogue data
-        if (this.rogueNpcId > 0) {
+        if (this.eventInstance != null) {
             var rogue = NpcRogueInfo.newInstance()
-                    .setRogueNpcId(this.rogueNpcId)
-                    .setFinishDialogue(isDialogueFinished)
-                    .setDialogueGroupId(eventId);
+                    .setEventId(this.eventInstance.EventId)
+                    .setFinishDialogue(this.eventInstance.Finished)
+                    .setEventUniqueId(this.eventInstance.EventUniqueId);
+            
+            for (var option: this.eventInstance.Options)
+                rogue.addDialogueEventParamList(option.toNpcProto());
             
             npc.getMutableExtraInfo().setRogueInfo(rogue);
         }

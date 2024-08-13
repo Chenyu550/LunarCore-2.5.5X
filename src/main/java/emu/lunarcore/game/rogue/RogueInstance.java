@@ -8,8 +8,11 @@ import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.enums.RogueBuffAeonType;
+import emu.lunarcore.game.enums.RogueDialogueType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
+import emu.lunarcore.game.rogue.event.RogueEventInstance;
+import emu.lunarcore.game.scene.entity.EntityNpc;
 import emu.lunarcore.proto.AvatarTypeOuterClass.AvatarType;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
@@ -22,7 +25,6 @@ import emu.lunarcore.proto.RogueBuffOuterClass.RogueBuff;
 import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
 import emu.lunarcore.proto.RogueCommonPendingActionOuterClass.RogueCommonPendingAction;
 import emu.lunarcore.proto.RogueCurrentInfoOuterClass.RogueCurrentInfo;
-import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.proto.RogueFinishInfoOuterClass.RogueFinishInfo;
 import emu.lunarcore.proto.RogueMapInfoOuterClass.RogueMapInfo;
 import emu.lunarcore.proto.RogueMiracleInfoOuterClass.RogueMiracleInfo;
@@ -70,7 +72,7 @@ public class RogueInstance {
     private int coin;  // universal debris
     public int actionUniqueId = 0;
     public int eventUniqueId = 690;
-    public Int2ObjectMap<List<RogueDialogueEventParam>> curDialogueParams = new Int2ObjectOpenHashMap<>();
+    public Int2ObjectMap<RogueEventInstance> runningEvents = new Int2ObjectOpenHashMap<>();
     private final Set<RogueBuffData> normalBuff = GameData.getRogueBuffGroupExcelMap().get(100005).getRogueBuffList();
     private final Set<RogueBuffData> uncommonBuff = GameData.getRogueBuffGroupExcelMap().get(100003).getRogueBuffList();
     
@@ -442,57 +444,22 @@ public class RogueInstance {
         this.getPlayer().sendPacket(new PacketPickRogueAvatarScRsp(newAvatarIds));
     }
     
-    public synchronized List<RogueDialogueEventParam> setDialogueParams(int npcId) {
+    public synchronized RogueEventInstance generateEvent(int npcId, EntityNpc npcEntity) {
         try {
-            this.curDialogueParams.clear();
+            this.runningEvents.clear();
 
-            DialogueEventExcel event = GameData.getRogueDialogueEventList().get(npcId);
-            var sequence = event.getInfo().getOnStartSequece();
+            RogueNPCExcel npc = GameData.getRogueNPCExcelMap().get(npcId);
 
-            ArrayList<RogueDialogueEventParam> params = new ArrayList<>();
-            Int2ObjectMap<String> map = new Int2ObjectOpenHashMap<>();
-            Map<String, String> argMap = new HashMap<>();
-            for (var e : sequence) {
-                var talkList = e.getTaskList();
-                var tempName = "";
-
-                for (var talk : talkList) {
-                    if (talk.getOptionList() != null && !talk.getOptionList().isEmpty()){
-                        for (var option : talk.getOptionList()) {
-                            if (option.getDialogueEventID() != 0) {
-                                map.put(option.getDialogueEventID(), option.getTriggerCustomString());
-                            }
-                        }
-                        continue;
-                    }
-
-                    if (talk.Type.equals("RPG.GameCore.WaitCustomString")) {
-                        tempName = talk.getCustomString().getValue();
-                        continue;
-                    }
-
-                    if (!Objects.equals(tempName, "") && talk.Type.equals("RPG.GameCore.TriggerCustomString")) {
-                        argMap.put(tempName, talk.getCustomString().getValue());
-                        tempName = "";
-                    }
-                }
+            if (npc == null || npc.getRogueNpcConfig() == null || 
+                npc.getRogueNpcConfig().DialogueType != RogueDialogueType.Event) {  // make sure the npc is an event npc
+                return null;
             }
+            
+            var instance = new RogueEventInstance(npc, npcEntity, this.eventUniqueId++);
+            
+            this.getRunningEvents().put(instance.EventUniqueId, instance);
 
-            map.forEach((k, v) -> {
-                var param = RogueDialogueEventParam.newInstance()
-                    .setDialogueEventId(k)
-                    .setIsValid(true);
-
-                if (argMap.containsKey(v) && argMap.get(v).equals("RelateToBuff")) {
-                    param.setArgId(this.getAeonId());
-                }
-
-                params.add(param);
-            });
-
-            this.getCurDialogueParams().put(npcId, params);
-
-            return params;
+            return instance;
         } catch (Exception e) {
             return null;
         }
@@ -557,8 +524,14 @@ public class RogueInstance {
     
     // Dialogue stuff
     
-    public int onSelectDialogue(int dialogueEventId, int npcId) {
-        return this.eventManager.handleEvent(dialogueEventId, npcId);
+    public int onSelectDialogue(int dialogueEventId, int eventUniqueId) {
+        var instance = this.getRunningEvents().get(eventUniqueId);
+        if (instance == null) {
+            return 0;
+        }
+        
+        instance.SelectedOptionId = 0;  // reset selected option
+        return this.eventManager.handleEvent(dialogueEventId, eventUniqueId);
     }
     
     // Battle

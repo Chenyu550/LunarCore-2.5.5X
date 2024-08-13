@@ -1,7 +1,6 @@
 package emu.lunarcore.game.rogue;
 
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.config.NpcInfo;
@@ -11,13 +10,14 @@ import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.data.excel.RogueMonsterExcel;
 import emu.lunarcore.data.excel.RogueNPCExcel;
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.rogue.event.RogueEventInstance;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneEntityLoader;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.game.scene.entity.EntityNpc;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.extra.PropRogueData;
-import emu.lunarcore.server.packet.send.PacketSyncRogueDialogueEventDataScNotify;
+import emu.lunarcore.server.packet.send.PacketSyncRogueCommonDialogueDataScNotify;
 import emu.lunarcore.util.Utils;
 
 public class RogueEntityLoader extends SceneEntityLoader {
@@ -140,17 +140,16 @@ public class RogueEntityLoader extends SceneEntityLoader {
         if (npc.getNpcId() == 3013) {
             int npcId;
             RogueInstance instance;
+            RogueEventInstance eventInstance;
             do {
-                RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameDepot.getRogueRandomNpcList());
+                RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameData.getRogueNPCExcelMap().values().stream().toList());
                 npcId = rogueNpcExcel.getId();
                 instance = scene.getPlayer().getRogueInstance();
-            } while (instance.setDialogueParams(npcId) == null);
+                eventInstance = instance.generateEvent(npcId, npc);
+            } while (eventInstance == null);
             
-            instance.getEventManager().setNowPercentage(0);
-            npc.setRogueNpcId(npcId);
-            npc.setEventId(++instance.eventUniqueId);
-            scene.getPlayer().sendPacket(new PacketSyncRogueDialogueEventDataScNotify(npcId, instance.curDialogueParams.get(npcId),
-                instance.eventUniqueId));
+            npc.setEventInstance(eventInstance);
+            scene.getPlayer().sendPacket(new PacketSyncRogueCommonDialogueDataScNotify(eventInstance));
         }
         
         return npc;
