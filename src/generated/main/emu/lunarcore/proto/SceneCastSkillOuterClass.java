@@ -67,7 +67,7 @@ public final class SceneCastSkillOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<SceneCastSkill> converter() {
+    public static EnumConverter<SceneCastSkill> converter() {
       return SceneCastSkillConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class SceneCastSkillOuterClass {
       return value == null ? other : value;
     }
 
-    enum SceneCastSkillConverter implements ProtoEnum.EnumConverter<SceneCastSkill> {
+    enum SceneCastSkillConverter implements EnumConverter<SceneCastSkill> {
       INSTANCE;
 
       private static final SceneCastSkill[] lookup = new SceneCastSkill[3];

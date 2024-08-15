@@ -1161,7 +1161,7 @@ public final class BattlePassInfoNotifyOuterClass {
       /**
        * @return a converter that maps between this enum's numeric and text representations
        */
-      public static ProtoEnum.EnumConverter<BpTierType> converter() {
+      public static EnumConverter<BpTierType> converter() {
         return BpTierTypeConverter.INSTANCE;
       }
 
@@ -1183,7 +1183,7 @@ public final class BattlePassInfoNotifyOuterClass {
         return value == null ? other : value;
       }
 
-      enum BpTierTypeConverter implements ProtoEnum.EnumConverter<BpTierType> {
+      enum BpTierTypeConverter implements EnumConverter<BpTierType> {
         INSTANCE;
 
         private static final BpTierType[] lookup = new BpTierType[4];

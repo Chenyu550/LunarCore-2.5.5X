@@ -87,7 +87,7 @@ public final class SyncReasonOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<SyncReason> converter() {
+    public static EnumConverter<SyncReason> converter() {
       return SyncReasonConverter.INSTANCE;
     }
 
@@ -109,7 +109,7 @@ public final class SyncReasonOuterClass {
       return value == null ? other : value;
     }
 
-    enum SyncReasonConverter implements ProtoEnum.EnumConverter<SyncReason> {
+    enum SyncReasonConverter implements EnumConverter<SyncReason> {
       INSTANCE;
 
       private static final SyncReason[] lookup = new SyncReason[5];

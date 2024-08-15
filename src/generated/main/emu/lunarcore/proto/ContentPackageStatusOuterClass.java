@@ -77,7 +77,7 @@ public final class ContentPackageStatusOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<ContentPackageStatus> converter() {
+    public static EnumConverter<ContentPackageStatus> converter() {
       return ContentPackageStatusConverter.INSTANCE;
     }
 
@@ -99,7 +99,7 @@ public final class ContentPackageStatusOuterClass {
       return value == null ? other : value;
     }
 
-    enum ContentPackageStatusConverter implements ProtoEnum.EnumConverter<ContentPackageStatus> {
+    enum ContentPackageStatusConverter implements EnumConverter<ContentPackageStatus> {
       INSTANCE;
 
       private static final ContentPackageStatus[] lookup = new ContentPackageStatus[4];

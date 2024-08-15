@@ -67,7 +67,7 @@ public final class EnterSceneReasonOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<EnterSceneReason> converter() {
+    public static EnumConverter<EnterSceneReason> converter() {
       return EnterSceneReasonConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class EnterSceneReasonOuterClass {
       return value == null ? other : value;
     }
 
-    enum EnterSceneReasonConverter implements ProtoEnum.EnumConverter<EnterSceneReason> {
+    enum EnterSceneReasonConverter implements EnumConverter<EnterSceneReason> {
       INSTANCE;
 
       private static final EnterSceneReason[] lookup = new EnterSceneReason[3];

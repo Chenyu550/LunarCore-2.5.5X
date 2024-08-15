@@ -77,7 +77,7 @@ public final class BattleEndStatusOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<BattleEndStatus> converter() {
+    public static EnumConverter<BattleEndStatus> converter() {
       return BattleEndStatusConverter.INSTANCE;
     }
 
@@ -99,7 +99,7 @@ public final class BattleEndStatusOuterClass {
       return value == null ? other : value;
     }
 
-    enum BattleEndStatusConverter implements ProtoEnum.EnumConverter<BattleEndStatus> {
+    enum BattleEndStatusConverter implements EnumConverter<BattleEndStatus> {
       INSTANCE;
 
       private static final BattleEndStatus[] lookup = new BattleEndStatus[4];

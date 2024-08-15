@@ -67,7 +67,7 @@ public final class RogueCommonActionResultDisplayTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<RogueCommonActionResultDisplayType> converter() {
+    public static EnumConverter<RogueCommonActionResultDisplayType> converter() {
       return RogueCommonActionResultDisplayTypeConverter.INSTANCE;
     }
 
@@ -90,7 +90,7 @@ public final class RogueCommonActionResultDisplayTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum RogueCommonActionResultDisplayTypeConverter implements ProtoEnum.EnumConverter<RogueCommonActionResultDisplayType> {
+    enum RogueCommonActionResultDisplayTypeConverter implements EnumConverter<RogueCommonActionResultDisplayType> {
       INSTANCE;
 
       private static final RogueCommonActionResultDisplayType[] lookup = new RogueCommonActionResultDisplayType[3];

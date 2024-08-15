@@ -77,7 +77,7 @@ public final class MapInfoChestTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static ProtoEnum.EnumConverter<MapInfoChestType> converter() {
+    public static EnumConverter<MapInfoChestType> converter() {
       return MapInfoChestTypeConverter.INSTANCE;
     }
 
@@ -99,7 +99,7 @@ public final class MapInfoChestTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum MapInfoChestTypeConverter implements ProtoEnum.EnumConverter<MapInfoChestType> {
+    enum MapInfoChestTypeConverter implements EnumConverter<MapInfoChestType> {
       INSTANCE;
 
       @Override
