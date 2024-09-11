@@ -734,5 +734,33 @@
       21012,
       21046
     ]
+  },
+  {
+    "id": 2041,
+    "gachaType": "AvatarUp",
+    "beginTime": 0,
+    "endTime": 1924992000,
+    "rateUpItems5": [
+      1220
+    ],
+    "rateUpItems4": [
+      1009,
+      1111,
+      1223
+    ]
+  },
+  {
+    "id": 3041,
+    "gachaType": "WeaponUp",
+    "beginTime": 0,
+    "endTime": 1924992000,
+    "rateUpItems5": [
+      23031
+    ],
+    "rateUpItems4": [
+      21015,
+      21006,
+      21010
+    ]
   }
 ]
