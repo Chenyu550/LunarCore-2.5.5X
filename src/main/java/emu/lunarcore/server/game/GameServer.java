@@ -14,6 +14,7 @@ import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.inventory.InventoryService;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.shop.ShopService;
+import emu.lunarcore.server.packet.send.PacketPlayerKickOutScNotify;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import kcp.highway.ChannelConfig;
@@ -210,7 +211,7 @@ public class GameServer extends KcpServer {
         list.addAll(players.values());
         
         for (Player player : list) {
-            player.getSession().close();
+            player.sendPacket(new PacketPlayerKickOutScNotify(3));
         }
     }
 }
