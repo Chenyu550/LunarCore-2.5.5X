@@ -20,7 +20,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entry_id = 3;</code>
+     * <code>optional uint32 entry_id = 13;</code>
      */
     private int entryId;
 
@@ -40,7 +40,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 3;</code>
+     * <code>optional uint32 entry_id = 13;</code>
      * @return whether the entryId field is set
      */
     public boolean hasEntryId() {
@@ -48,7 +48,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 3;</code>
+     * <code>optional uint32 entry_id = 13;</code>
      * @return this
      */
     public SceneEntityMoveCsReq clearEntryId() {
@@ -58,7 +58,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 3;</code>
+     * <code>optional uint32 entry_id = 13;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -66,7 +66,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 3;</code>
+     * <code>optional uint32 entry_id = 13;</code>
      * @param value the entryId to set
      * @return this
      */
@@ -212,7 +212,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -242,7 +242,7 @@ public final class SceneEntityMoveCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 104: {
             // entryId
             entryId = input.readUInt32();
             bitField0_ |= 0x00000001;

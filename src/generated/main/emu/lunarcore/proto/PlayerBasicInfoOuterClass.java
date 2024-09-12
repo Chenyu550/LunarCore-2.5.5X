@@ -50,11 +50,19 @@ public final class PlayerBasicInfoOuterClass {
     private int scoin;
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional uint32 world_level = 8;</code>
      */
     private int worldLevel;
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      */
     private final Utf8String nickname = Utf8String.newEmptyInstance();
@@ -292,6 +300,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional uint32 world_level = 8;</code>
      * @return whether the worldLevel field is set
      */
@@ -300,6 +312,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional uint32 world_level = 8;</code>
      * @return this
      */
@@ -310,6 +326,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional uint32 world_level = 8;</code>
      * @return the worldLevel
      */
@@ -318,6 +338,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional uint32 world_level = 8;</code>
      * @param value the worldLevel to set
      * @return this
@@ -329,6 +353,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @return whether the nickname field is set
      */
@@ -337,6 +365,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @return this
      */
@@ -347,6 +379,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @return the nickname
      */
@@ -355,6 +391,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @return internal {@code Utf8String} representation of nickname for reading
      */
@@ -363,6 +403,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @return internal {@code Utf8String} representation of nickname for modifications
      */
@@ -372,6 +416,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @param value the nickname to set
      * @return this
@@ -383,6 +431,10 @@ public final class PlayerBasicInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * <code>optional string nickname = 1;</code>
      * @param value the nickname to set
      * @return this

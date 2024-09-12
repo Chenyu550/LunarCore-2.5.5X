@@ -19,22 +19,22 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_id = 3;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      */
     private int buffId;
 
     /**
-     * <code>optional uint32 max_score = 14;</code>
+     * <code>optional uint32 max_score = 12;</code>
      */
     private int maxScore;
 
     /**
-     * <code>optional bool is_win = 12;</code>
+     * <code>optional bool is_win = 4;</code>
      */
     private boolean isWin;
 
     /**
-     * <code>optional bool has_been_challenged = 13;</code>
+     * <code>optional bool has_been_challenged = 5;</code>
      */
     private boolean hasBeenChallenged;
 
@@ -49,7 +49,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 3;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -57,7 +57,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 3;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @return this
      */
     public ChallengeBossSingleNodeInfo clearBuffId() {
@@ -67,7 +67,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 3;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -75,7 +75,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 3;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -86,7 +86,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_score = 14;</code>
+     * <code>optional uint32 max_score = 12;</code>
      * @return whether the maxScore field is set
      */
     public boolean hasMaxScore() {
@@ -94,7 +94,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_score = 14;</code>
+     * <code>optional uint32 max_score = 12;</code>
      * @return this
      */
     public ChallengeBossSingleNodeInfo clearMaxScore() {
@@ -104,7 +104,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_score = 14;</code>
+     * <code>optional uint32 max_score = 12;</code>
      * @return the maxScore
      */
     public int getMaxScore() {
@@ -112,7 +112,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_score = 14;</code>
+     * <code>optional uint32 max_score = 12;</code>
      * @param value the maxScore to set
      * @return this
      */
@@ -123,7 +123,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 12;</code>
+     * <code>optional bool is_win = 4;</code>
      * @return whether the isWin field is set
      */
     public boolean hasIsWin() {
@@ -131,7 +131,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 12;</code>
+     * <code>optional bool is_win = 4;</code>
      * @return this
      */
     public ChallengeBossSingleNodeInfo clearIsWin() {
@@ -141,7 +141,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 12;</code>
+     * <code>optional bool is_win = 4;</code>
      * @return the isWin
      */
     public boolean getIsWin() {
@@ -149,7 +149,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 12;</code>
+     * <code>optional bool is_win = 4;</code>
      * @param value the isWin to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool has_been_challenged = 13;</code>
+     * <code>optional bool has_been_challenged = 5;</code>
      * @return whether the hasBeenChallenged field is set
      */
     public boolean hasHasBeenChallenged() {
@@ -168,7 +168,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool has_been_challenged = 13;</code>
+     * <code>optional bool has_been_challenged = 5;</code>
      * @return this
      */
     public ChallengeBossSingleNodeInfo clearHasBeenChallenged() {
@@ -178,7 +178,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool has_been_challenged = 13;</code>
+     * <code>optional bool has_been_challenged = 5;</code>
      * @return the hasBeenChallenged
      */
     public boolean getHasBeenChallenged() {
@@ -186,7 +186,7 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     }
 
     /**
-     * <code>optional bool has_been_challenged = 13;</code>
+     * <code>optional bool has_been_challenged = 5;</code>
      * @param value the hasBeenChallenged to set
      * @return this
      */
@@ -273,19 +273,19 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(buffId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(maxScore);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 32);
         output.writeBoolNoTag(isWin);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 40);
         output.writeBoolNoTag(hasBeenChallenged);
       }
     }
@@ -315,34 +315,34 @@ public final class ChallengeBossSingleNodeInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 72: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
-            // maxScore
-            maxScore = input.readUInt32();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 96) {
               break;
             }
           }
           case 96: {
+            // maxScore
+            maxScore = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 32) {
+              break;
+            }
+          }
+          case 32: {
             // isWin
             isWin = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 40) {
               break;
             }
           }
-          case 104: {
+          case 40: {
             // hasBeenChallenged
             hasBeenChallenged = input.readBool();
             bitField0_ |= 0x00000008;

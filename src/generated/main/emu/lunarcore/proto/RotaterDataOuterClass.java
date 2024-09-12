@@ -20,17 +20,17 @@ public final class RotaterDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional float APDIFCCFAGG = 14;</code>
+     * <code>optional float APDIFCCFAGG = 2;</code>
      */
     private float aPDIFCCFAGG;
 
     /**
-     * <code>optional uint32 unk_int = 3;</code>
+     * <code>optional uint32 unk_int = 5;</code>
      */
     private int unkInt;
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 12;</code>
      */
     private int groupId;
 
@@ -45,7 +45,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional float APDIFCCFAGG = 14;</code>
+     * <code>optional float APDIFCCFAGG = 2;</code>
      * @return whether the aPDIFCCFAGG field is set
      */
     public boolean hasAPDIFCCFAGG() {
@@ -53,7 +53,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional float APDIFCCFAGG = 14;</code>
+     * <code>optional float APDIFCCFAGG = 2;</code>
      * @return this
      */
     public RotaterData clearAPDIFCCFAGG() {
@@ -63,7 +63,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional float APDIFCCFAGG = 14;</code>
+     * <code>optional float APDIFCCFAGG = 2;</code>
      * @return the aPDIFCCFAGG
      */
     public float getAPDIFCCFAGG() {
@@ -71,7 +71,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional float APDIFCCFAGG = 14;</code>
+     * <code>optional float APDIFCCFAGG = 2;</code>
      * @param value the aPDIFCCFAGG to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 unk_int = 3;</code>
+     * <code>optional uint32 unk_int = 5;</code>
      * @return whether the unkInt field is set
      */
     public boolean hasUnkInt() {
@@ -90,7 +90,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 unk_int = 3;</code>
+     * <code>optional uint32 unk_int = 5;</code>
      * @return this
      */
     public RotaterData clearUnkInt() {
@@ -100,7 +100,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 unk_int = 3;</code>
+     * <code>optional uint32 unk_int = 5;</code>
      * @return the unkInt
      */
     public int getUnkInt() {
@@ -108,7 +108,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 unk_int = 3;</code>
+     * <code>optional uint32 unk_int = 5;</code>
      * @param value the unkInt to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -127,7 +127,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @return this
      */
     public RotaterData clearGroupId() {
@@ -137,7 +137,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -145,7 +145,7 @@ public final class RotaterDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -226,15 +226,15 @@ public final class RotaterDataOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 117);
+        output.writeRawByte((byte) 21);
         output.writeFloatNoTag(aPDIFCCFAGG);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(unkInt);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(groupId);
       }
     }
@@ -261,25 +261,25 @@ public final class RotaterDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 117: {
+          case 21: {
             // aPDIFCCFAGG
             aPDIFCCFAGG = input.readFloat();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 24) {
+            if (tag != 40) {
               break;
             }
           }
-          case 24: {
+          case 40: {
             // unkInt
             unkInt = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 96) {
               break;
             }
           }
-          case 120: {
+          case 96: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000004;

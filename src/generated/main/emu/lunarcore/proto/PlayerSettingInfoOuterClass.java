@@ -19,39 +19,39 @@ public final class PlayerSettingInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .DisplayRecordType display_record_type = 12;</code>
+     * <code>optional .DisplayRecordType display_record_type = 99;</code>
      */
     private int displayRecordType;
 
     /**
-     * <code>optional bool b1 = 2;</code>
-     */
-    private boolean b1;
-
-    /**
-     * <code>optional bool b4 = 3;</code>
+     * <code>optional bool b4 = 4;</code>
      */
     private boolean b4;
 
     /**
-     * <code>optional bool b3 = 4;</code>
+     * <code>optional bool b5 = 6;</code>
+     */
+    private boolean b5;
+
+    /**
+     * <code>optional bool b1 = 9;</code>
+     */
+    private boolean b1;
+
+    /**
+     * <code>optional bool b3 = 12;</code>
      */
     private boolean b3;
 
     /**
-     * <code>optional bool b6 = 5;</code>
-     */
-    private boolean b6;
-
-    /**
-     * <code>optional bool b2 = 8;</code>
+     * <code>optional bool b2 = 13;</code>
      */
     private boolean b2;
 
     /**
-     * <code>optional bool b5 = 13;</code>
+     * <code>optional bool b6 = 14;</code>
      */
-    private boolean b5;
+    private boolean b6;
 
     private PlayerSettingInfo() {
     }
@@ -64,7 +64,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional .DisplayRecordType display_record_type = 12;</code>
+     * <code>optional .DisplayRecordType display_record_type = 99;</code>
      * @return whether the displayRecordType field is set
      */
     public boolean hasDisplayRecordType() {
@@ -72,7 +72,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional .DisplayRecordType display_record_type = 12;</code>
+     * <code>optional .DisplayRecordType display_record_type = 99;</code>
      * @return this
      */
     public PlayerSettingInfo clearDisplayRecordType() {
@@ -82,7 +82,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional .DisplayRecordType display_record_type = 12;</code>
+     * <code>optional .DisplayRecordType display_record_type = 99;</code>
      * @return the displayRecordType
      */
     public DisplayRecordTypeOuterClass.DisplayRecordType getDisplayRecordType() {
@@ -115,7 +115,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional .DisplayRecordType display_record_type = 12;</code>
+     * <code>optional .DisplayRecordType display_record_type = 99;</code>
      * @param value the displayRecordType to set
      * @return this
      */
@@ -127,62 +127,25 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b1 = 2;</code>
-     * @return whether the b1 field is set
+     * <code>optional bool b4 = 4;</code>
+     * @return whether the b4 field is set
      */
-    public boolean hasB1() {
+    public boolean hasB4() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional bool b1 = 2;</code>
-     * @return this
-     */
-    public PlayerSettingInfo clearB1() {
-      bitField0_ &= ~0x00000002;
-      b1 = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool b1 = 2;</code>
-     * @return the b1
-     */
-    public boolean getB1() {
-      return b1;
-    }
-
-    /**
-     * <code>optional bool b1 = 2;</code>
-     * @param value the b1 to set
-     * @return this
-     */
-    public PlayerSettingInfo setB1(final boolean value) {
-      bitField0_ |= 0x00000002;
-      b1 = value;
-      return this;
-    }
-
-    /**
-     * <code>optional bool b4 = 3;</code>
-     * @return whether the b4 field is set
-     */
-    public boolean hasB4() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional bool b4 = 3;</code>
+     * <code>optional bool b4 = 4;</code>
      * @return this
      */
     public PlayerSettingInfo clearB4() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       b4 = false;
       return this;
     }
 
     /**
-     * <code>optional bool b4 = 3;</code>
+     * <code>optional bool b4 = 4;</code>
      * @return the b4
      */
     public boolean getB4() {
@@ -190,36 +153,110 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b4 = 3;</code>
+     * <code>optional bool b4 = 4;</code>
      * @param value the b4 to set
      * @return this
      */
     public PlayerSettingInfo setB4(final boolean value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       b4 = value;
       return this;
     }
 
     /**
-     * <code>optional bool b3 = 4;</code>
-     * @return whether the b3 field is set
+     * <code>optional bool b5 = 6;</code>
+     * @return whether the b5 field is set
      */
-    public boolean hasB3() {
+    public boolean hasB5() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional bool b5 = 6;</code>
+     * @return this
+     */
+    public PlayerSettingInfo clearB5() {
+      bitField0_ &= ~0x00000004;
+      b5 = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool b5 = 6;</code>
+     * @return the b5
+     */
+    public boolean getB5() {
+      return b5;
+    }
+
+    /**
+     * <code>optional bool b5 = 6;</code>
+     * @param value the b5 to set
+     * @return this
+     */
+    public PlayerSettingInfo setB5(final boolean value) {
+      bitField0_ |= 0x00000004;
+      b5 = value;
+      return this;
+    }
+
+    /**
+     * <code>optional bool b1 = 9;</code>
+     * @return whether the b1 field is set
+     */
+    public boolean hasB1() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional bool b3 = 4;</code>
+     * <code>optional bool b1 = 9;</code>
+     * @return this
+     */
+    public PlayerSettingInfo clearB1() {
+      bitField0_ &= ~0x00000008;
+      b1 = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool b1 = 9;</code>
+     * @return the b1
+     */
+    public boolean getB1() {
+      return b1;
+    }
+
+    /**
+     * <code>optional bool b1 = 9;</code>
+     * @param value the b1 to set
+     * @return this
+     */
+    public PlayerSettingInfo setB1(final boolean value) {
+      bitField0_ |= 0x00000008;
+      b1 = value;
+      return this;
+    }
+
+    /**
+     * <code>optional bool b3 = 12;</code>
+     * @return whether the b3 field is set
+     */
+    public boolean hasB3() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional bool b3 = 12;</code>
      * @return this
      */
     public PlayerSettingInfo clearB3() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000010;
       b3 = false;
       return this;
     }
 
     /**
-     * <code>optional bool b3 = 4;</code>
+     * <code>optional bool b3 = 12;</code>
      * @return the b3
      */
     public boolean getB3() {
@@ -227,55 +264,18 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b3 = 4;</code>
+     * <code>optional bool b3 = 12;</code>
      * @param value the b3 to set
      * @return this
      */
     public PlayerSettingInfo setB3(final boolean value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       b3 = value;
       return this;
     }
 
     /**
-     * <code>optional bool b6 = 5;</code>
-     * @return whether the b6 field is set
-     */
-    public boolean hasB6() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <code>optional bool b6 = 5;</code>
-     * @return this
-     */
-    public PlayerSettingInfo clearB6() {
-      bitField0_ &= ~0x00000010;
-      b6 = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool b6 = 5;</code>
-     * @return the b6
-     */
-    public boolean getB6() {
-      return b6;
-    }
-
-    /**
-     * <code>optional bool b6 = 5;</code>
-     * @param value the b6 to set
-     * @return this
-     */
-    public PlayerSettingInfo setB6(final boolean value) {
-      bitField0_ |= 0x00000010;
-      b6 = value;
-      return this;
-    }
-
-    /**
-     * <code>optional bool b2 = 8;</code>
+     * <code>optional bool b2 = 13;</code>
      * @return whether the b2 field is set
      */
     public boolean hasB2() {
@@ -283,7 +283,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b2 = 8;</code>
+     * <code>optional bool b2 = 13;</code>
      * @return this
      */
     public PlayerSettingInfo clearB2() {
@@ -293,7 +293,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b2 = 8;</code>
+     * <code>optional bool b2 = 13;</code>
      * @return the b2
      */
     public boolean getB2() {
@@ -301,7 +301,7 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b2 = 8;</code>
+     * <code>optional bool b2 = 13;</code>
      * @param value the b2 to set
      * @return this
      */
@@ -312,39 +312,39 @@ public final class PlayerSettingInfoOuterClass {
     }
 
     /**
-     * <code>optional bool b5 = 13;</code>
-     * @return whether the b5 field is set
+     * <code>optional bool b6 = 14;</code>
+     * @return whether the b6 field is set
      */
-    public boolean hasB5() {
+    public boolean hasB6() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional bool b5 = 13;</code>
+     * <code>optional bool b6 = 14;</code>
      * @return this
      */
-    public PlayerSettingInfo clearB5() {
+    public PlayerSettingInfo clearB6() {
       bitField0_ &= ~0x00000040;
-      b5 = false;
+      b6 = false;
       return this;
     }
 
     /**
-     * <code>optional bool b5 = 13;</code>
-     * @return the b5
+     * <code>optional bool b6 = 14;</code>
+     * @return the b6
      */
-    public boolean getB5() {
-      return b5;
+    public boolean getB6() {
+      return b6;
     }
 
     /**
-     * <code>optional bool b5 = 13;</code>
-     * @param value the b5 to set
+     * <code>optional bool b6 = 14;</code>
+     * @param value the b6 to set
      * @return this
      */
-    public PlayerSettingInfo setB5(final boolean value) {
+    public PlayerSettingInfo setB6(final boolean value) {
       bitField0_ |= 0x00000040;
-      b5 = value;
+      b6 = value;
       return this;
     }
 
@@ -354,12 +354,12 @@ public final class PlayerSettingInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         displayRecordType = other.displayRecordType;
-        b1 = other.b1;
         b4 = other.b4;
-        b3 = other.b3;
-        b6 = other.b6;
-        b2 = other.b2;
         b5 = other.b5;
+        b1 = other.b1;
+        b3 = other.b3;
+        b2 = other.b2;
+        b6 = other.b6;
       }
       return this;
     }
@@ -373,23 +373,23 @@ public final class PlayerSettingInfoOuterClass {
       if (other.hasDisplayRecordType()) {
         setDisplayRecordTypeValue(other.displayRecordType);
       }
-      if (other.hasB1()) {
-        setB1(other.b1);
-      }
       if (other.hasB4()) {
         setB4(other.b4);
+      }
+      if (other.hasB5()) {
+        setB5(other.b5);
+      }
+      if (other.hasB1()) {
+        setB1(other.b1);
       }
       if (other.hasB3()) {
         setB3(other.b3);
       }
-      if (other.hasB6()) {
-        setB6(other.b6);
-      }
       if (other.hasB2()) {
         setB2(other.b2);
       }
-      if (other.hasB5()) {
-        setB5(other.b5);
+      if (other.hasB6()) {
+        setB6(other.b6);
       }
       return this;
     }
@@ -402,12 +402,12 @@ public final class PlayerSettingInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       displayRecordType = 0;
-      b1 = false;
       b4 = false;
-      b3 = false;
-      b6 = false;
-      b2 = false;
       b5 = false;
+      b1 = false;
+      b3 = false;
+      b2 = false;
+      b6 = false;
       return this;
     }
 
@@ -432,43 +432,43 @@ public final class PlayerSettingInfoOuterClass {
       PlayerSettingInfo other = (PlayerSettingInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasDisplayRecordType() || displayRecordType == other.displayRecordType)
-        && (!hasB1() || b1 == other.b1)
         && (!hasB4() || b4 == other.b4)
+        && (!hasB5() || b5 == other.b5)
+        && (!hasB1() || b1 == other.b1)
         && (!hasB3() || b3 == other.b3)
-        && (!hasB6() || b6 == other.b6)
         && (!hasB2() || b2 == other.b2)
-        && (!hasB5() || b5 == other.b5);
+        && (!hasB6() || b6 == other.b6);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawLittleEndian16((short) 1688);
         output.writeEnumNoTag(displayRecordType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeBoolNoTag(b1);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 32);
         output.writeBoolNoTag(b4);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeBoolNoTag(b5);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeBoolNoTag(b3);
+        output.writeRawByte((byte) 72);
+        output.writeBoolNoTag(b1);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeBoolNoTag(b6);
+        output.writeRawByte((byte) 96);
+        output.writeBoolNoTag(b3);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 104);
         output.writeBoolNoTag(b2);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeBoolNoTag(b5);
+        output.writeRawByte((byte) 112);
+        output.writeBoolNoTag(b6);
       }
     }
 
@@ -476,7 +476,7 @@ public final class PlayerSettingInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeEnumSizeNoTag(displayRecordType);
+        size += 2 + ProtoSink.computeEnumSizeNoTag(displayRecordType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 2;
@@ -506,7 +506,7 @@ public final class PlayerSettingInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 792: {
             // displayRecordType
             final int value = input.readInt32();
             if (DisplayRecordTypeOuterClass.DisplayRecordType.forNumber(value) != null) {
@@ -514,58 +514,58 @@ public final class PlayerSettingInfoOuterClass {
               bitField0_ |= 0x00000001;
             }
             tag = input.readTag();
-            if (tag != 16) {
-              break;
-            }
-          }
-          case 16: {
-            // b1
-            b1 = input.readBool();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
-            // b4
-            b4 = input.readBool();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
             if (tag != 32) {
               break;
             }
           }
           case 32: {
-            // b3
-            b3 = input.readBool();
+            // b4
+            b4 = input.readBool();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
+            // b5
+            b5 = input.readBool();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
+            // b1
+            b1 = input.readBool();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 96) {
               break;
             }
           }
-          case 40: {
-            // b6
-            b6 = input.readBool();
+          case 96: {
+            // b3
+            b3 = input.readBool();
             bitField0_ |= 0x00000010;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
-            // b2
-            b2 = input.readBool();
-            bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 104) {
               break;
             }
           }
           case 104: {
-            // b5
-            b5 = input.readBool();
+            // b2
+            b2 = input.readBool();
+            bitField0_ |= 0x00000020;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
+            // b6
+            b6 = input.readBool();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 0) {
@@ -593,22 +593,22 @@ public final class PlayerSettingInfoOuterClass {
         output.writeEnum(FieldNames.displayRecordType, displayRecordType, DisplayRecordTypeOuterClass.DisplayRecordType.converter());
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.b1, b1);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeBool(FieldNames.b4, b4);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeBool(FieldNames.b5, b5);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeBool(FieldNames.b3, b3);
+        output.writeBool(FieldNames.b1, b1);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeBool(FieldNames.b6, b6);
+        output.writeBool(FieldNames.b3, b3);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeBool(FieldNames.b2, b2);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeBool(FieldNames.b5, b5);
+        output.writeBool(FieldNames.b6, b6);
       }
       output.endObject();
     }
@@ -637,10 +637,10 @@ public final class PlayerSettingInfoOuterClass {
             }
             break;
           }
-          case 3087: {
-            if (input.isAtField(FieldNames.b1)) {
+          case 3090: {
+            if (input.isAtField(FieldNames.b4)) {
               if (!input.trySkipNullValue()) {
-                b1 = input.readBool();
+                b4 = input.readBool();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -648,11 +648,22 @@ public final class PlayerSettingInfoOuterClass {
             }
             break;
           }
-          case 3090: {
-            if (input.isAtField(FieldNames.b4)) {
+          case 3091: {
+            if (input.isAtField(FieldNames.b5)) {
               if (!input.trySkipNullValue()) {
-                b4 = input.readBool();
+                b5 = input.readBool();
                 bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 3087: {
+            if (input.isAtField(FieldNames.b1)) {
+              if (!input.trySkipNullValue()) {
+                b1 = input.readBool();
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -663,17 +674,6 @@ public final class PlayerSettingInfoOuterClass {
             if (input.isAtField(FieldNames.b3)) {
               if (!input.trySkipNullValue()) {
                 b3 = input.readBool();
-                bitField0_ |= 0x00000008;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 3092: {
-            if (input.isAtField(FieldNames.b6)) {
-              if (!input.trySkipNullValue()) {
-                b6 = input.readBool();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -692,10 +692,10 @@ public final class PlayerSettingInfoOuterClass {
             }
             break;
           }
-          case 3091: {
-            if (input.isAtField(FieldNames.b5)) {
+          case 3092: {
+            if (input.isAtField(FieldNames.b6)) {
               if (!input.trySkipNullValue()) {
-                b5 = input.readBool();
+                b6 = input.readBool();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -758,17 +758,17 @@ public final class PlayerSettingInfoOuterClass {
     static class FieldNames {
       static final FieldName displayRecordType = FieldName.forField("displayRecordType", "display_record_type");
 
-      static final FieldName b1 = FieldName.forField("b1");
-
       static final FieldName b4 = FieldName.forField("b4");
+
+      static final FieldName b5 = FieldName.forField("b5");
+
+      static final FieldName b1 = FieldName.forField("b1");
 
       static final FieldName b3 = FieldName.forField("b3");
 
-      static final FieldName b6 = FieldName.forField("b6");
-
       static final FieldName b2 = FieldName.forField("b2");
 
-      static final FieldName b5 = FieldName.forField("b5");
+      static final FieldName b6 = FieldName.forField("b6");
     }
   }
 }

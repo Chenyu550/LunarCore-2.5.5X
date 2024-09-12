@@ -30,7 +30,11 @@ public final class RogueMiracleInfoDataOuterClass {
     private int bDDANOBJMEL;
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      */
     private final RepeatedMessage<RogueMiracleDataInfoOuterClass.RogueMiracleDataInfo> rogueMiracleList = RepeatedMessage.newEmptyInstance(RogueMiracleDataInfoOuterClass.RogueMiracleDataInfo.getFactory());
 
@@ -119,7 +123,11 @@ public final class RogueMiracleInfoDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      * @return whether the rogueMiracleList field is set
      */
     public boolean hasRogueMiracleList() {
@@ -127,7 +135,11 @@ public final class RogueMiracleInfoDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      * @return this
      */
     public RogueMiracleInfoData clearRogueMiracleList() {
@@ -137,7 +149,11 @@ public final class RogueMiracleInfoDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -152,7 +168,11 @@ public final class RogueMiracleInfoDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -167,7 +187,11 @@ public final class RogueMiracleInfoDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      * @param value the rogueMiracleList to add
      * @return this
      */
@@ -179,7 +203,11 @@ public final class RogueMiracleInfoDataOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 12;</code>
+     * <pre>
+     *  
+     * </pre>
+     *
+     * <code>repeated .RogueMiracleDataInfo rogue_miracle_list = 10;</code>
      * @param values the rogueMiracleList to add
      * @return this
      */
@@ -271,7 +299,7 @@ public final class RogueMiracleInfoDataOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < rogueMiracleList.length(); i++) {
-          output.writeRawByte((byte) 98);
+          output.writeRawByte((byte) 82);
           output.writeMessageNoTag(rogueMiracleList.get(i));
         }
       }
@@ -313,11 +341,11 @@ public final class RogueMiracleInfoDataOuterClass {
             bDDANOBJMEL = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 82) {
               break;
             }
           }
-          case 98: {
+          case 82: {
             // rogueMiracleList
             tag = input.readRepeatedMessage(rogueMiracleList, tag);
             bitField0_ |= 0x00000004;

@@ -20,17 +20,17 @@ public final class StartRogueCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_aeon_id = 11;</code>
-     */
-    private int buffAeonId;
-
-    /**
-     * <code>optional uint32 area_id = 13;</code>
+     * <code>optional uint32 area_id = 9;</code>
      */
     private int areaId;
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>optional uint32 buff_aeon_id = 15;</code>
+     */
+    private int buffAeonId;
+
+    /**
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      */
     private final RepeatedInt baseAvatarIdList = RepeatedInt.newEmptyInstance();
 
@@ -45,62 +45,25 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_aeon_id = 11;</code>
-     * @return whether the buffAeonId field is set
+     * <code>optional uint32 area_id = 9;</code>
+     * @return whether the areaId field is set
      */
-    public boolean hasBuffAeonId() {
+    public boolean hasAreaId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 buff_aeon_id = 11;</code>
-     * @return this
-     */
-    public StartRogueCsReq clearBuffAeonId() {
-      bitField0_ &= ~0x00000001;
-      buffAeonId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 buff_aeon_id = 11;</code>
-     * @return the buffAeonId
-     */
-    public int getBuffAeonId() {
-      return buffAeonId;
-    }
-
-    /**
-     * <code>optional uint32 buff_aeon_id = 11;</code>
-     * @param value the buffAeonId to set
-     * @return this
-     */
-    public StartRogueCsReq setBuffAeonId(final int value) {
-      bitField0_ |= 0x00000001;
-      buffAeonId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 area_id = 13;</code>
-     * @return whether the areaId field is set
-     */
-    public boolean hasAreaId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 area_id = 13;</code>
+     * <code>optional uint32 area_id = 9;</code>
      * @return this
      */
     public StartRogueCsReq clearAreaId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       areaId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 area_id = 13;</code>
+     * <code>optional uint32 area_id = 9;</code>
      * @return the areaId
      */
     public int getAreaId() {
@@ -108,18 +71,55 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 area_id = 13;</code>
+     * <code>optional uint32 area_id = 9;</code>
      * @param value the areaId to set
      * @return this
      */
     public StartRogueCsReq setAreaId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       areaId = value;
       return this;
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>optional uint32 buff_aeon_id = 15;</code>
+     * @return whether the buffAeonId field is set
+     */
+    public boolean hasBuffAeonId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 buff_aeon_id = 15;</code>
+     * @return this
+     */
+    public StartRogueCsReq clearBuffAeonId() {
+      bitField0_ &= ~0x00000002;
+      buffAeonId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 buff_aeon_id = 15;</code>
+     * @return the buffAeonId
+     */
+    public int getBuffAeonId() {
+      return buffAeonId;
+    }
+
+    /**
+     * <code>optional uint32 buff_aeon_id = 15;</code>
+     * @param value the buffAeonId to set
+     * @return this
+     */
+    public StartRogueCsReq setBuffAeonId(final int value) {
+      bitField0_ |= 0x00000002;
+      buffAeonId = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      * @return whether the baseAvatarIdList field is set
      */
     public boolean hasBaseAvatarIdList() {
@@ -127,7 +127,7 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      * @return this
      */
     public StartRogueCsReq clearBaseAvatarIdList() {
@@ -137,7 +137,7 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +151,7 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -165,7 +165,7 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      * @param value the baseAvatarIdList to add
      * @return this
      */
@@ -176,7 +176,7 @@ public final class StartRogueCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 7;</code>
+     * <code>repeated uint32 base_avatar_id_list = 13;</code>
      * @param values the baseAvatarIdList to add
      * @return this
      */
@@ -191,8 +191,8 @@ public final class StartRogueCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        buffAeonId = other.buffAeonId;
         areaId = other.areaId;
+        buffAeonId = other.buffAeonId;
         baseAvatarIdList.copyFrom(other.baseAvatarIdList);
       }
       return this;
@@ -204,11 +204,11 @@ public final class StartRogueCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBuffAeonId()) {
-        setBuffAeonId(other.buffAeonId);
-      }
       if (other.hasAreaId()) {
         setAreaId(other.areaId);
+      }
+      if (other.hasBuffAeonId()) {
+        setBuffAeonId(other.buffAeonId);
       }
       if (other.hasBaseAvatarIdList()) {
         getMutableBaseAvatarIdList().addAll(other.baseAvatarIdList);
@@ -223,8 +223,8 @@ public final class StartRogueCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      buffAeonId = 0;
       areaId = 0;
+      buffAeonId = 0;
       baseAvatarIdList.clear();
       return this;
     }
@@ -250,24 +250,24 @@ public final class StartRogueCsReqOuterClass {
       }
       StartRogueCsReq other = (StartRogueCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasBuffAeonId() || buffAeonId == other.buffAeonId)
         && (!hasAreaId() || areaId == other.areaId)
+        && (!hasBuffAeonId() || buffAeonId == other.buffAeonId)
         && (!hasBaseAvatarIdList() || baseAvatarIdList.equals(other.baseAvatarIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(buffAeonId);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(areaId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(areaId);
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(buffAeonId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 56);
+          output.writeRawByte((byte) 104);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
         }
       }
@@ -277,10 +277,10 @@ public final class StartRogueCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(buffAeonId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(areaId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(areaId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(buffAeonId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
@@ -295,25 +295,25 @@ public final class StartRogueCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
-            // buffAeonId
-            buffAeonId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
+          case 72: {
             // areaId
             areaId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 120) {
               break;
             }
           }
-          case 58: {
+          case 120: {
+            // buffAeonId
+            buffAeonId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 106) {
+              break;
+            }
+          }
+          case 106: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000004;
@@ -332,7 +332,7 @@ public final class StartRogueCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
+          case 104: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000004;
@@ -346,10 +346,10 @@ public final class StartRogueCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.buffAeonId, buffAeonId);
+        output.writeUInt32(FieldNames.areaId, areaId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.areaId, areaId);
+        output.writeUInt32(FieldNames.buffAeonId, buffAeonId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
@@ -364,11 +364,11 @@ public final class StartRogueCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 864413617:
-          case -1316781589: {
-            if (input.isAtField(FieldNames.buffAeonId)) {
+          case -1409553784:
+          case -746472947: {
+            if (input.isAtField(FieldNames.areaId)) {
               if (!input.trySkipNullValue()) {
-                buffAeonId = input.readUInt32();
+                areaId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -376,11 +376,11 @@ public final class StartRogueCsReqOuterClass {
             }
             break;
           }
-          case -1409553784:
-          case -746472947: {
-            if (input.isAtField(FieldNames.areaId)) {
+          case 864413617:
+          case -1316781589: {
+            if (input.isAtField(FieldNames.buffAeonId)) {
               if (!input.trySkipNullValue()) {
-                areaId = input.readUInt32();
+                buffAeonId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -453,9 +453,9 @@ public final class StartRogueCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName buffAeonId = FieldName.forField("buffAeonId", "buff_aeon_id");
-
       static final FieldName areaId = FieldName.forField("areaId", "area_id");
+
+      static final FieldName buffAeonId = FieldName.forField("buffAeonId", "buff_aeon_id");
 
       static final FieldName baseAvatarIdList = FieldName.forField("baseAvatarIdList", "base_avatar_id_list");
     }

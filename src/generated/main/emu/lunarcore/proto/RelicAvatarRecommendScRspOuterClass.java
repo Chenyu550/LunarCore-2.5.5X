@@ -20,22 +20,22 @@ public final class RelicAvatarRecommendScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 set_id = 5;</code>
-     */
-    private int setId;
-
-    /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional bool is_fetch_avatar_list = 7;</code>
+     * <code>optional uint32 set_id = 15;</code>
+     */
+    private int setId;
+
+    /**
+     * <code>optional bool is_fetch_avatar_list = 6;</code>
      */
     private boolean isFetchAvatarList;
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      */
     private final RepeatedInt avatarIdList = RepeatedInt.newEmptyInstance();
 
@@ -50,62 +50,25 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 set_id = 5;</code>
-     * @return whether the setId field is set
+     * <code>optional uint32 retcode = 12;</code>
+     * @return whether the retcode field is set
      */
-    public boolean hasSetId() {
+    public boolean hasRetcode() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 set_id = 5;</code>
-     * @return this
-     */
-    public RelicAvatarRecommendScRsp clearSetId() {
-      bitField0_ &= ~0x00000001;
-      setId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 set_id = 5;</code>
-     * @return the setId
-     */
-    public int getSetId() {
-      return setId;
-    }
-
-    /**
-     * <code>optional uint32 set_id = 5;</code>
-     * @param value the setId to set
-     * @return this
-     */
-    public RelicAvatarRecommendScRsp setSetId(final int value) {
-      bitField0_ |= 0x00000001;
-      setId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 8;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public RelicAvatarRecommendScRsp clearRetcode() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -113,18 +76,55 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
     public RelicAvatarRecommendScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       retcode = value;
       return this;
     }
 
     /**
-     * <code>optional bool is_fetch_avatar_list = 7;</code>
+     * <code>optional uint32 set_id = 15;</code>
+     * @return whether the setId field is set
+     */
+    public boolean hasSetId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 set_id = 15;</code>
+     * @return this
+     */
+    public RelicAvatarRecommendScRsp clearSetId() {
+      bitField0_ &= ~0x00000002;
+      setId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 set_id = 15;</code>
+     * @return the setId
+     */
+    public int getSetId() {
+      return setId;
+    }
+
+    /**
+     * <code>optional uint32 set_id = 15;</code>
+     * @param value the setId to set
+     * @return this
+     */
+    public RelicAvatarRecommendScRsp setSetId(final int value) {
+      bitField0_ |= 0x00000002;
+      setId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional bool is_fetch_avatar_list = 6;</code>
      * @return whether the isFetchAvatarList field is set
      */
     public boolean hasIsFetchAvatarList() {
@@ -132,7 +132,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_fetch_avatar_list = 7;</code>
+     * <code>optional bool is_fetch_avatar_list = 6;</code>
      * @return this
      */
     public RelicAvatarRecommendScRsp clearIsFetchAvatarList() {
@@ -142,7 +142,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_fetch_avatar_list = 7;</code>
+     * <code>optional bool is_fetch_avatar_list = 6;</code>
      * @return the isFetchAvatarList
      */
     public boolean getIsFetchAvatarList() {
@@ -150,7 +150,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_fetch_avatar_list = 7;</code>
+     * <code>optional bool is_fetch_avatar_list = 6;</code>
      * @param value the isFetchAvatarList to set
      * @return this
      */
@@ -161,7 +161,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      * @return whether the avatarIdList field is set
      */
     public boolean hasAvatarIdList() {
@@ -169,7 +169,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      * @return this
      */
     public RelicAvatarRecommendScRsp clearAvatarIdList() {
@@ -179,7 +179,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -193,7 +193,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -207,7 +207,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      * @param value the avatarIdList to add
      * @return this
      */
@@ -218,7 +218,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 14;</code>
+     * <code>repeated uint32 avatar_id_list = 13;</code>
      * @param values the avatarIdList to add
      * @return this
      */
@@ -233,8 +233,8 @@ public final class RelicAvatarRecommendScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        setId = other.setId;
         retcode = other.retcode;
+        setId = other.setId;
         isFetchAvatarList = other.isFetchAvatarList;
         avatarIdList.copyFrom(other.avatarIdList);
       }
@@ -247,11 +247,11 @@ public final class RelicAvatarRecommendScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasSetId()) {
-        setSetId(other.setId);
-      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasSetId()) {
+        setSetId(other.setId);
       }
       if (other.hasIsFetchAvatarList()) {
         setIsFetchAvatarList(other.isFetchAvatarList);
@@ -269,8 +269,8 @@ public final class RelicAvatarRecommendScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      setId = 0;
       retcode = 0;
+      setId = 0;
       isFetchAvatarList = false;
       avatarIdList.clear();
       return this;
@@ -297,8 +297,8 @@ public final class RelicAvatarRecommendScRspOuterClass {
       }
       RelicAvatarRecommendScRsp other = (RelicAvatarRecommendScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasSetId() || setId == other.setId)
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasSetId() || setId == other.setId)
         && (!hasIsFetchAvatarList() || isFetchAvatarList == other.isFetchAvatarList)
         && (!hasAvatarIdList() || avatarIdList.equals(other.avatarIdList));
     }
@@ -306,20 +306,20 @@ public final class RelicAvatarRecommendScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(setId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(setId);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 48);
         output.writeBoolNoTag(isFetchAvatarList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < avatarIdList.length(); i++) {
-          output.writeRawByte((byte) 112);
+          output.writeRawByte((byte) 104);
           output.writeUInt32NoTag(avatarIdList.array()[i]);
         }
       }
@@ -329,10 +329,10 @@ public final class RelicAvatarRecommendScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(setId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(setId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 2;
@@ -350,34 +350,34 @@ public final class RelicAvatarRecommendScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // setId
-            setId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 120) {
               break;
             }
           }
-          case 56: {
+          case 120: {
+            // setId
+            setId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
             // isFetchAvatarList
             isFetchAvatarList = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 106) {
               break;
             }
           }
-          case 114: {
+          case 106: {
             // avatarIdList [packed=true]
             input.readPackedUInt32(avatarIdList, tag);
             bitField0_ |= 0x00000008;
@@ -396,7 +396,7 @@ public final class RelicAvatarRecommendScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 112: {
+          case 104: {
             // avatarIdList [packed=false]
             tag = input.readRepeatedUInt32(avatarIdList, tag);
             bitField0_ |= 0x00000008;
@@ -410,10 +410,10 @@ public final class RelicAvatarRecommendScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.setId, setId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.setId, setId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeBool(FieldNames.isFetchAvatarList, isFetchAvatarList);
@@ -431,11 +431,10 @@ public final class RelicAvatarRecommendScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 109327645:
-          case -905788904: {
-            if (input.isAtField(FieldNames.setId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                setId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -443,10 +442,11 @@ public final class RelicAvatarRecommendScRspOuterClass {
             }
             break;
           }
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 109327645:
+          case -905788904: {
+            if (input.isAtField(FieldNames.setId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                setId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -531,9 +531,9 @@ public final class RelicAvatarRecommendScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName setId = FieldName.forField("setId", "set_id");
-
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName setId = FieldName.forField("setId", "set_id");
 
       static final FieldName isFetchAvatarList = FieldName.forField("isFetchAvatarList", "is_fetch_avatar_list");
 

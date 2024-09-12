@@ -19,11 +19,15 @@ public final class LockRelicScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 14;</code>
      */
     private int retcode;
 
     /**
+     * <pre>
+     * 这个去哪了？？
+     * </pre>
+     *
      * <code>optional uint32 relic_unique_id = 15;</code>
      */
     private int relicUniqueId;
@@ -39,7 +43,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +51,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return this
      */
     public LockRelicScRsp clearRetcode() {
@@ -57,7 +61,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +69,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,6 +80,10 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
+     * <pre>
+     * 这个去哪了？？
+     * </pre>
+     *
      * <code>optional uint32 relic_unique_id = 15;</code>
      * @return whether the relicUniqueId field is set
      */
@@ -84,6 +92,10 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
+     * <pre>
+     * 这个去哪了？？
+     * </pre>
+     *
      * <code>optional uint32 relic_unique_id = 15;</code>
      * @return this
      */
@@ -94,6 +106,10 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
+     * <pre>
+     * 这个去哪了？？
+     * </pre>
+     *
      * <code>optional uint32 relic_unique_id = 15;</code>
      * @return the relicUniqueId
      */
@@ -102,6 +118,10 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
+     * <pre>
+     * 这个去哪了？？
+     * </pre>
+     *
      * <code>optional uint32 relic_unique_id = 15;</code>
      * @param value the relicUniqueId to set
      * @return this
@@ -177,7 +197,7 @@ public final class LockRelicScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -205,7 +225,7 @@ public final class LockRelicScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 112: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;

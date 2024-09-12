@@ -13,13 +13,17 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class PlayerHeartbeatCsReqOuterClass {
   /**
+   * <pre>
+   *
+   * </pre>
+   *
    * Protobuf type {@code PlayerHeartbeatCsReq}
    */
   public static final class PlayerHeartbeatCsReq extends ProtoMessage<PlayerHeartbeatCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 6;</code>
      */
     private long clientTimeMs;
 
@@ -27,6 +31,10 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * @return a new empty instance of {@code PlayerHeartbeatCsReq}
      */
     public static PlayerHeartbeatCsReq newInstance() {
@@ -34,7 +42,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 6;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
@@ -42,7 +50,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 6;</code>
      * @return this
      */
     public PlayerHeartbeatCsReq clearClientTimeMs() {
@@ -52,7 +60,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 6;</code>
      * @return the clientTimeMs
      */
     public long getClientTimeMs() {
@@ -60,7 +68,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 6;</code>
      * @param value the clientTimeMs to set
      * @return this
      */
@@ -129,7 +137,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 48);
         output.writeUInt64NoTag(clientTimeMs);
       }
     }
@@ -150,7 +158,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 48: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;

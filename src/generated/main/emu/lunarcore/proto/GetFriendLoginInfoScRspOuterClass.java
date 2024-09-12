@@ -20,16 +20,16 @@ public final class GetFriendLoginInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 2;</code>
      */
     private int retcode;
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      */
     private final RepeatedInt friendUidList = RepeatedInt.newEmptyInstance();
 
@@ -44,7 +44,7 @@ public final class GetFriendLoginInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +52,7 @@ public final class GetFriendLoginInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return this
      */
     public GetFriendLoginInfoScRsp clearRetcode() {
@@ -62,7 +62,7 @@ public final class GetFriendLoginInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +70,7 @@ public final class GetFriendLoginInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -82,10 +82,10 @@ public final class GetFriendLoginInfoScRspOuterClass {
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      * @return whether the friendUidList field is set
      */
     public boolean hasFriendUidList() {
@@ -94,10 +94,10 @@ public final class GetFriendLoginInfoScRspOuterClass {
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      * @return this
      */
     public GetFriendLoginInfoScRsp clearFriendUidList() {
@@ -108,10 +108,10 @@ public final class GetFriendLoginInfoScRspOuterClass {
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -126,10 +126,10 @@ public final class GetFriendLoginInfoScRspOuterClass {
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -144,10 +144,10 @@ public final class GetFriendLoginInfoScRspOuterClass {
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      * @param value the friendUidList to add
      * @return this
      */
@@ -159,10 +159,10 @@ public final class GetFriendLoginInfoScRspOuterClass {
 
     /**
      * <pre>
-     *  could be 9, TODO: check
+     *  or 11
      * </pre>
      *
-     * <code>repeated uint32 friend_uid_list = 7;</code>
+     * <code>repeated uint32 friend_uid_list = 8;</code>
      * @param values the friendUidList to add
      * @return this
      */
@@ -238,12 +238,12 @@ public final class GetFriendLoginInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < friendUidList.length(); i++) {
-          output.writeRawByte((byte) 56);
+          output.writeRawByte((byte) 64);
           output.writeUInt32NoTag(friendUidList.array()[i]);
         }
       }
@@ -268,16 +268,16 @@ public final class GetFriendLoginInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 112: {
+          case 16: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 66) {
               break;
             }
           }
-          case 58: {
+          case 66: {
             // friendUidList [packed=true]
             input.readPackedUInt32(friendUidList, tag);
             bitField0_ |= 0x00000002;
@@ -296,7 +296,7 @@ public final class GetFriendLoginInfoScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
+          case 64: {
             // friendUidList [packed=false]
             tag = input.readRepeatedUInt32(friendUidList, tag);
             bitField0_ |= 0x00000002;

@@ -13,13 +13,17 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class DeactivateFarmElementCsReqOuterClass {
   /**
+   * <pre>
+   *
+   * </pre>
+   *
    * Protobuf type {@code DeactivateFarmElementCsReq}
    */
   public static final class DeactivateFarmElementCsReq extends ProtoMessage<DeactivateFarmElementCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entity_id = 8;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      */
     private int entityId;
 
@@ -27,6 +31,10 @@ public final class DeactivateFarmElementCsReqOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * @return a new empty instance of {@code DeactivateFarmElementCsReq}
      */
     public static DeactivateFarmElementCsReq newInstance() {
@@ -34,7 +42,7 @@ public final class DeactivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 8;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @return whether the entityId field is set
      */
     public boolean hasEntityId() {
@@ -42,7 +50,7 @@ public final class DeactivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 8;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @return this
      */
     public DeactivateFarmElementCsReq clearEntityId() {
@@ -52,7 +60,7 @@ public final class DeactivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 8;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -60,7 +68,7 @@ public final class DeactivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 8;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @param value the entityId to set
      * @return this
      */
@@ -129,7 +137,7 @@ public final class DeactivateFarmElementCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(entityId);
       }
     }
@@ -150,7 +158,7 @@ public final class DeactivateFarmElementCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 24: {
             // entityId
             entityId = input.readUInt32();
             bitField0_ |= 0x00000001;

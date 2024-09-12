@@ -110,6 +110,9 @@ public class GiveAllCommand implements CommandHandler {
                     // Get avatar id
                     GameAvatar avatar = target.getAvatarById(excel.getAvatarID());
                     
+                    int avatarId = excel.getAvatarID();
+                    if (avatarId > 2000){continue;}// 避免给予奇怪的角色导致角色界面卡死
+                    
                     // Add avatar
                     if (avatar == null) {
                         // Add avatar

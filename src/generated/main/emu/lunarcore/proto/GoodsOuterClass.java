@@ -24,22 +24,22 @@ public final class GoodsOuterClass {
     private long endTime;
 
     /**
-     * <code>optional int64 begin_time = 14;</code>
+     * <code>optional int64 begin_time = 11;</code>
      */
     private long beginTime;
 
     /**
-     * <code>optional uint32 buy_times = 11;</code>
+     * <code>optional uint32 buy_times = 1;</code>
      */
     private int buyTimes;
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 7;</code>
      */
     private int goodsId;
 
     /**
-     * <code>optional uint32 item_id = 15;</code>
+     * <code>optional uint32 item_id = 8;</code>
      */
     private int itemId;
 
@@ -91,7 +91,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 14;</code>
+     * <code>optional int64 begin_time = 11;</code>
      * @return whether the beginTime field is set
      */
     public boolean hasBeginTime() {
@@ -99,7 +99,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 14;</code>
+     * <code>optional int64 begin_time = 11;</code>
      * @return this
      */
     public Goods clearBeginTime() {
@@ -109,7 +109,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 14;</code>
+     * <code>optional int64 begin_time = 11;</code>
      * @return the beginTime
      */
     public long getBeginTime() {
@@ -117,7 +117,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 14;</code>
+     * <code>optional int64 begin_time = 11;</code>
      * @param value the beginTime to set
      * @return this
      */
@@ -128,7 +128,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 buy_times = 11;</code>
+     * <code>optional uint32 buy_times = 1;</code>
      * @return whether the buyTimes field is set
      */
     public boolean hasBuyTimes() {
@@ -136,7 +136,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 buy_times = 11;</code>
+     * <code>optional uint32 buy_times = 1;</code>
      * @return this
      */
     public Goods clearBuyTimes() {
@@ -146,7 +146,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 buy_times = 11;</code>
+     * <code>optional uint32 buy_times = 1;</code>
      * @return the buyTimes
      */
     public int getBuyTimes() {
@@ -154,7 +154,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 buy_times = 11;</code>
+     * <code>optional uint32 buy_times = 1;</code>
      * @param value the buyTimes to set
      * @return this
      */
@@ -165,7 +165,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 7;</code>
      * @return whether the goodsId field is set
      */
     public boolean hasGoodsId() {
@@ -173,7 +173,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 7;</code>
      * @return this
      */
     public Goods clearGoodsId() {
@@ -183,7 +183,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 7;</code>
      * @return the goodsId
      */
     public int getGoodsId() {
@@ -191,7 +191,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 7;</code>
      * @param value the goodsId to set
      * @return this
      */
@@ -202,7 +202,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 15;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @return whether the itemId field is set
      */
     public boolean hasItemId() {
@@ -210,7 +210,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 15;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @return this
      */
     public Goods clearItemId() {
@@ -220,7 +220,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 15;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @return the itemId
      */
     public int getItemId() {
@@ -228,7 +228,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 15;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @param value the itemId to set
      * @return this
      */
@@ -325,19 +325,19 @@ public final class GoodsOuterClass {
         output.writeInt64NoTag(endTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 88);
         output.writeInt64NoTag(beginTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(buyTimes);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(goodsId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(itemId);
       }
     }
@@ -375,38 +375,38 @@ public final class GoodsOuterClass {
             endTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
-            // beginTime
-            beginTime = input.readInt64();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
             if (tag != 88) {
               break;
             }
           }
           case 88: {
+            // beginTime
+            beginTime = input.readInt64();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 8) {
+              break;
+            }
+          }
+          case 8: {
             // buyTimes
             buyTimes = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 56) {
               break;
             }
           }
-          case 104: {
+          case 56: {
             // goodsId
             goodsId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 64) {
               break;
             }
           }
-          case 120: {
+          case 64: {
             // itemId
             itemId = input.readUInt32();
             bitField0_ |= 0x00000010;

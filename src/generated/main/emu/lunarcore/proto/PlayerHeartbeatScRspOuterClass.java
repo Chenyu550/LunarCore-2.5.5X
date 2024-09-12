@@ -13,23 +13,27 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class PlayerHeartbeatScRspOuterClass {
   /**
+   * <pre>
+   *
+   * </pre>
+   *
    * Protobuf type {@code PlayerHeartbeatScRsp}
    */
   public static final class PlayerHeartbeatScRsp extends ProtoMessage<PlayerHeartbeatScRsp> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 1;</code>
      */
     private long clientTimeMs;
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 4;</code>
      */
     private long serverTimeMs;
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
@@ -37,6 +41,10 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
+     * <pre>
+     *
+     * </pre>
+     *
      * @return a new empty instance of {@code PlayerHeartbeatScRsp}
      */
     public static PlayerHeartbeatScRsp newInstance() {
@@ -44,7 +52,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 1;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
@@ -52,7 +60,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 1;</code>
      * @return this
      */
     public PlayerHeartbeatScRsp clearClientTimeMs() {
@@ -62,7 +70,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 1;</code>
      * @return the clientTimeMs
      */
     public long getClientTimeMs() {
@@ -70,7 +78,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 1;</code>
      * @param value the clientTimeMs to set
      * @return this
      */
@@ -81,7 +89,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 4;</code>
      * @return whether the serverTimeMs field is set
      */
     public boolean hasServerTimeMs() {
@@ -89,7 +97,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 4;</code>
      * @return this
      */
     public PlayerHeartbeatScRsp clearServerTimeMs() {
@@ -99,7 +107,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 4;</code>
      * @return the serverTimeMs
      */
     public long getServerTimeMs() {
@@ -107,7 +115,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 4;</code>
      * @param value the serverTimeMs to set
      * @return this
      */
@@ -118,7 +126,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -126,7 +134,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public PlayerHeartbeatScRsp clearRetcode() {
@@ -136,7 +144,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -144,7 +152,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -225,15 +233,15 @@ public final class PlayerHeartbeatScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 8);
         output.writeUInt64NoTag(clientTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 32);
         output.writeUInt64NoTag(serverTimeMs);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -260,25 +268,25 @@ public final class PlayerHeartbeatScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 8: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 32) {
+              break;
+            }
+          }
+          case 32: {
+            // serverTimeMs
+            serverTimeMs = input.readUInt64();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 96) {
               break;
             }
           }
           case 96: {
-            // serverTimeMs
-            serverTimeMs = input.readUInt64();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000004;

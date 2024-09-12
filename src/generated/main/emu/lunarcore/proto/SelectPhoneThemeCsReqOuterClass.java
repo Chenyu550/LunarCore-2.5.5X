@@ -19,7 +19,11 @@ public final class SelectPhoneThemeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 theme_id = 13;</code>
+     * <pre>
+     *
+     * </pre>
+     *
+     * <code>optional uint32 theme_id = 8;</code>
      */
     private int themeId;
 
@@ -34,7 +38,11 @@ public final class SelectPhoneThemeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 13;</code>
+     * <pre>
+     *
+     * </pre>
+     *
+     * <code>optional uint32 theme_id = 8;</code>
      * @return whether the themeId field is set
      */
     public boolean hasThemeId() {
@@ -42,7 +50,11 @@ public final class SelectPhoneThemeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 13;</code>
+     * <pre>
+     *
+     * </pre>
+     *
+     * <code>optional uint32 theme_id = 8;</code>
      * @return this
      */
     public SelectPhoneThemeCsReq clearThemeId() {
@@ -52,7 +64,11 @@ public final class SelectPhoneThemeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 13;</code>
+     * <pre>
+     *
+     * </pre>
+     *
+     * <code>optional uint32 theme_id = 8;</code>
      * @return the themeId
      */
     public int getThemeId() {
@@ -60,7 +76,11 @@ public final class SelectPhoneThemeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 13;</code>
+     * <pre>
+     *
+     * </pre>
+     *
+     * <code>optional uint32 theme_id = 8;</code>
      * @param value the themeId to set
      * @return this
      */
@@ -129,7 +149,7 @@ public final class SelectPhoneThemeCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(themeId);
       }
     }
@@ -150,7 +170,7 @@ public final class SelectPhoneThemeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 64: {
             // themeId
             themeId = input.readUInt32();
             bitField0_ |= 0x00000001;

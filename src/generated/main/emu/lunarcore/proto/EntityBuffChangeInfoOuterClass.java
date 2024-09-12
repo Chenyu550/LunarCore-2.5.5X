@@ -19,17 +19,17 @@ public final class EntityBuffChangeInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 remove_buff_id = 9;</code>
+     * <code>optional uint32 remove_buff_id = 7;</code>
      */
     private int removeBuffId;
 
     /**
-     * <code>optional uint32 entity_id = 13;</code>
+     * <code>optional uint32 entity_id = 10;</code>
      */
     private int entityId;
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 8;</code>
+     * <code>optional .BuffInfo add_buff_info = 6;</code>
      */
     private final BuffInfoOuterClass.BuffInfo addBuffInfo = BuffInfoOuterClass.BuffInfo.newInstance();
 
@@ -44,7 +44,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 remove_buff_id = 9;</code>
+     * <code>optional uint32 remove_buff_id = 7;</code>
      * @return whether the removeBuffId field is set
      */
     public boolean hasRemoveBuffId() {
@@ -52,7 +52,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 remove_buff_id = 9;</code>
+     * <code>optional uint32 remove_buff_id = 7;</code>
      * @return this
      */
     public EntityBuffChangeInfo clearRemoveBuffId() {
@@ -62,7 +62,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 remove_buff_id = 9;</code>
+     * <code>optional uint32 remove_buff_id = 7;</code>
      * @return the removeBuffId
      */
     public int getRemoveBuffId() {
@@ -70,7 +70,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 remove_buff_id = 9;</code>
+     * <code>optional uint32 remove_buff_id = 7;</code>
      * @param value the removeBuffId to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 13;</code>
+     * <code>optional uint32 entity_id = 10;</code>
      * @return whether the entityId field is set
      */
     public boolean hasEntityId() {
@@ -89,7 +89,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 13;</code>
+     * <code>optional uint32 entity_id = 10;</code>
      * @return this
      */
     public EntityBuffChangeInfo clearEntityId() {
@@ -99,7 +99,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 13;</code>
+     * <code>optional uint32 entity_id = 10;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -107,7 +107,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 13;</code>
+     * <code>optional uint32 entity_id = 10;</code>
      * @param value the entityId to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 8;</code>
+     * <code>optional .BuffInfo add_buff_info = 6;</code>
      * @return whether the addBuffInfo field is set
      */
     public boolean hasAddBuffInfo() {
@@ -126,7 +126,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 8;</code>
+     * <code>optional .BuffInfo add_buff_info = 6;</code>
      * @return this
      */
     public EntityBuffChangeInfo clearAddBuffInfo() {
@@ -136,7 +136,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 8;</code>
+     * <code>optional .BuffInfo add_buff_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 8;</code>
+     * <code>optional .BuffInfo add_buff_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 8;</code>
+     * <code>optional .BuffInfo add_buff_info = 6;</code>
      * @param value the addBuffInfo to set
      * @return this
      */
@@ -246,15 +246,15 @@ public final class EntityBuffChangeInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(removeBuffId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(entityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 66);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(addBuffInfo);
       }
     }
@@ -281,25 +281,25 @@ public final class EntityBuffChangeInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 56: {
             // removeBuffId
             removeBuffId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 80) {
               break;
             }
           }
-          case 104: {
+          case 80: {
             // entityId
             entityId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 50) {
               break;
             }
           }
-          case 66: {
+          case 50: {
             // addBuffInfo
             input.readMessage(addBuffInfo);
             bitField0_ |= 0x00000004;

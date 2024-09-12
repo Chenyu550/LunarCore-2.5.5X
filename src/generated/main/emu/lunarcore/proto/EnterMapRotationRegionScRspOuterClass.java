@@ -19,7 +19,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 client_pos_version = 2;</code>
+     * <code>optional uint32 client_pos_version = 11;</code>
      */
     private int clientPosVersion;
 
@@ -29,7 +29,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .MotionInfo motion = 6;</code>
+     * <code>optional .MotionInfo motion = 2;</code>
      */
     private final MotionInfoOuterClass.MotionInfo motion = MotionInfoOuterClass.MotionInfo.newInstance();
 
@@ -44,7 +44,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 2;</code>
+     * <code>optional uint32 client_pos_version = 11;</code>
      * @return whether the clientPosVersion field is set
      */
     public boolean hasClientPosVersion() {
@@ -52,7 +52,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 2;</code>
+     * <code>optional uint32 client_pos_version = 11;</code>
      * @return this
      */
     public EnterMapRotationRegionScRsp clearClientPosVersion() {
@@ -62,7 +62,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 2;</code>
+     * <code>optional uint32 client_pos_version = 11;</code>
      * @return the clientPosVersion
      */
     public int getClientPosVersion() {
@@ -70,7 +70,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 2;</code>
+     * <code>optional uint32 client_pos_version = 11;</code>
      * @param value the clientPosVersion to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 6;</code>
+     * <code>optional .MotionInfo motion = 2;</code>
      * @return whether the motion field is set
      */
     public boolean hasMotion() {
@@ -126,7 +126,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 6;</code>
+     * <code>optional .MotionInfo motion = 2;</code>
      * @return this
      */
     public EnterMapRotationRegionScRsp clearMotion() {
@@ -136,7 +136,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 6;</code>
+     * <code>optional .MotionInfo motion = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 6;</code>
+     * <code>optional .MotionInfo motion = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 6;</code>
+     * <code>optional .MotionInfo motion = 2;</code>
      * @param value the motion to set
      * @return this
      */
@@ -246,7 +246,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(clientPosVersion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -254,7 +254,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 18);
         output.writeMessageNoTag(motion);
       }
     }
@@ -281,7 +281,7 @@ public final class EnterMapRotationRegionScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 88: {
             // clientPosVersion
             clientPosVersion = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -295,11 +295,11 @@ public final class EnterMapRotationRegionScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 18) {
               break;
             }
           }
-          case 50: {
+          case 18: {
             // motion
             input.readMessage(motion);
             bitField0_ |= 0x00000004;
