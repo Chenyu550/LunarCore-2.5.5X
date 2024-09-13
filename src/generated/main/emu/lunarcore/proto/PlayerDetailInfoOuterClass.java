@@ -97,7 +97,7 @@ public final class PlayerDetailInfoOuterClass {
      * ？？？？？？？？？？？？？
      * </pre>
      *
-     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 507;</code>
      */
     private final PlayerDisplaySettingsOuterClass.PlayerDisplaySettings displaySettings = PlayerDisplaySettingsOuterClass.PlayerDisplaySettings.newInstance();
 
@@ -609,7 +609,7 @@ public final class PlayerDetailInfoOuterClass {
      * ？？？？？？？？？？？？？
      * </pre>
      *
-     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 507;</code>
      * @return whether the displaySettings field is set
      */
     public boolean hasDisplaySettings() {
@@ -621,7 +621,7 @@ public final class PlayerDetailInfoOuterClass {
      * ？？？？？？？？？？？？？
      * </pre>
      *
-     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 507;</code>
      * @return this
      */
     public PlayerDetailInfo clearDisplaySettings() {
@@ -635,7 +635,7 @@ public final class PlayerDetailInfoOuterClass {
      * ？？？？？？？？？？？？？
      * </pre>
      *
-     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 507;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -653,7 +653,7 @@ public final class PlayerDetailInfoOuterClass {
      * ？？？？？？？？？？？？？
      * </pre>
      *
-     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 507;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -671,7 +671,7 @@ public final class PlayerDetailInfoOuterClass {
      * ？？？？？？？？？？？？？
      * </pre>
      *
-     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 507;</code>
      * @param value the displaySettings to set
      * @return this
      */
@@ -1201,7 +1201,7 @@ public final class PlayerDetailInfoOuterClass {
         output.writeMessageNoTag(recordInfo);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawLittleEndian16((short) 27898);
+        output.writeRawLittleEndian16((short) 8154);
         output.writeMessageNoTag(displaySettings);
       }
       if ((bitField0_ & 0x00000200) != 0) {
@@ -1349,11 +1349,11 @@ public final class PlayerDetailInfoOuterClass {
             input.readMessage(recordInfo);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 13946) {
+            if (tag != 4058) {
               break;
             }
           }
-          case 13946: {
+          case 4058: {
             // displaySettings
             input.readMessage(displaySettings);
             bitField0_ |= 0x00000100;

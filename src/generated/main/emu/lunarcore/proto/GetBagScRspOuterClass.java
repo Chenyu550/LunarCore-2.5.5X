@@ -27,7 +27,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>
@@ -98,7 +98,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>
@@ -110,7 +110,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>
@@ -124,7 +124,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>
@@ -142,7 +142,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>
@@ -160,7 +160,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>
@@ -175,7 +175,7 @@ public final class GetBagScRspOuterClass {
 
     /**
      * <pre>
-     *  5 13 12
+     *  5 13 2
      * </pre>
      *
      * <code>repeated uint32 pet_list = 5;</code>

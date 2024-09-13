@@ -13,10 +13,6 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class PlayerHeartbeatScRspOuterClass {
   /**
-   * <pre>
-   *
-   * </pre>
-   *
    * Protobuf type {@code PlayerHeartbeatScRsp}
    */
   public static final class PlayerHeartbeatScRsp extends ProtoMessage<PlayerHeartbeatScRsp> implements Cloneable {
@@ -37,14 +33,15 @@ public final class PlayerHeartbeatScRspOuterClass {
      */
     private int retcode;
 
+    /**
+     * <code>optional .ClientDownloadData download_data = 7;</code>
+     */
+    private final ClientDownloadDataOuterClass.ClientDownloadData downloadData = ClientDownloadDataOuterClass.ClientDownloadData.newInstance();
+
     private PlayerHeartbeatScRsp() {
     }
 
     /**
-     * <pre>
-     *
-     * </pre>
-     *
      * @return a new empty instance of {@code PlayerHeartbeatScRsp}
      */
     public static PlayerHeartbeatScRsp newInstance() {
@@ -162,6 +159,64 @@ public final class PlayerHeartbeatScRspOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .ClientDownloadData download_data = 7;</code>
+     * @return whether the downloadData field is set
+     */
+    public boolean hasDownloadData() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional .ClientDownloadData download_data = 7;</code>
+     * @return this
+     */
+    public PlayerHeartbeatScRsp clearDownloadData() {
+      bitField0_ &= ~0x00000008;
+      downloadData.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .ClientDownloadData download_data = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableDownloadData()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public ClientDownloadDataOuterClass.ClientDownloadData getDownloadData() {
+      return downloadData;
+    }
+
+    /**
+     * <code>optional .ClientDownloadData download_data = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public ClientDownloadDataOuterClass.ClientDownloadData getMutableDownloadData() {
+      bitField0_ |= 0x00000008;
+      return downloadData;
+    }
+
+    /**
+     * <code>optional .ClientDownloadData download_data = 7;</code>
+     * @param value the downloadData to set
+     * @return this
+     */
+    public PlayerHeartbeatScRsp setDownloadData(
+        final ClientDownloadDataOuterClass.ClientDownloadData value) {
+      bitField0_ |= 0x00000008;
+      downloadData.copyFrom(value);
+      return this;
+    }
+
     @Override
     public PlayerHeartbeatScRsp copyFrom(final PlayerHeartbeatScRsp other) {
       cachedSize = other.cachedSize;
@@ -170,6 +225,7 @@ public final class PlayerHeartbeatScRspOuterClass {
         clientTimeMs = other.clientTimeMs;
         serverTimeMs = other.serverTimeMs;
         retcode = other.retcode;
+        downloadData.copyFrom(other.downloadData);
       }
       return this;
     }
@@ -189,6 +245,9 @@ public final class PlayerHeartbeatScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
+      if (other.hasDownloadData()) {
+        getMutableDownloadData().mergeFrom(other.downloadData);
+      }
       return this;
     }
 
@@ -202,6 +261,7 @@ public final class PlayerHeartbeatScRspOuterClass {
       clientTimeMs = 0L;
       serverTimeMs = 0L;
       retcode = 0;
+      downloadData.clear();
       return this;
     }
 
@@ -212,6 +272,7 @@ public final class PlayerHeartbeatScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      downloadData.clearQuick();
       return this;
     }
 
@@ -227,7 +288,8 @@ public final class PlayerHeartbeatScRspOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs)
         && (!hasServerTimeMs() || serverTimeMs == other.serverTimeMs)
-        && (!hasRetcode() || retcode == other.retcode);
+        && (!hasRetcode() || retcode == other.retcode)
+        && (!hasDownloadData() || downloadData.equals(other.downloadData));
     }
 
     @Override
@@ -244,6 +306,10 @@ public final class PlayerHeartbeatScRspOuterClass {
         output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 58);
+        output.writeMessageNoTag(downloadData);
+      }
     }
 
     @Override
@@ -257,6 +323,9 @@ public final class PlayerHeartbeatScRspOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(downloadData);
       }
       return size;
     }
@@ -291,6 +360,15 @@ public final class PlayerHeartbeatScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
+            // downloadData
+            input.readMessage(downloadData);
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -320,6 +398,9 @@ public final class PlayerHeartbeatScRspOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeMessage(FieldNames.downloadData, downloadData);
       }
       output.endObject();
     }
@@ -360,6 +441,18 @@ public final class PlayerHeartbeatScRspOuterClass {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
                 bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1108584530:
+          case 31388929: {
+            if (input.isAtField(FieldNames.downloadData)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(downloadData);
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -424,6 +517,8 @@ public final class PlayerHeartbeatScRspOuterClass {
       static final FieldName serverTimeMs = FieldName.forField("serverTimeMs", "server_time_ms");
 
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName downloadData = FieldName.forField("downloadData", "download_data");
     }
   }
 }

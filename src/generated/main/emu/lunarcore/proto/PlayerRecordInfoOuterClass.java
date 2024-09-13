@@ -59,7 +59,7 @@ public final class PlayerRecordInfoOuterClass {
     private int oOIOMMKOIAE;
 
     /**
-     * <code>optional .PlayerCollectionInfo collection_info = 2;</code>
+     * <code>optional .PlayerCollectionInfo collection_info = 9;</code>
      */
     private final PlayerCollectionInfoOuterClass.PlayerCollectionInfo collectionInfo = PlayerCollectionInfoOuterClass.PlayerCollectionInfo.newInstance();
 
@@ -370,7 +370,7 @@ public final class PlayerRecordInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerCollectionInfo collection_info = 2;</code>
+     * <code>optional .PlayerCollectionInfo collection_info = 9;</code>
      * @return whether the collectionInfo field is set
      */
     public boolean hasCollectionInfo() {
@@ -378,7 +378,7 @@ public final class PlayerRecordInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerCollectionInfo collection_info = 2;</code>
+     * <code>optional .PlayerCollectionInfo collection_info = 9;</code>
      * @return this
      */
     public PlayerRecordInfo clearCollectionInfo() {
@@ -388,7 +388,7 @@ public final class PlayerRecordInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerCollectionInfo collection_info = 2;</code>
+     * <code>optional .PlayerCollectionInfo collection_info = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -402,7 +402,7 @@ public final class PlayerRecordInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerCollectionInfo collection_info = 2;</code>
+     * <code>optional .PlayerCollectionInfo collection_info = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -416,7 +416,7 @@ public final class PlayerRecordInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerCollectionInfo collection_info = 2;</code>
+     * <code>optional .PlayerCollectionInfo collection_info = 9;</code>
      * @param value the collectionInfo to set
      * @return this
      */
@@ -567,7 +567,7 @@ public final class PlayerRecordInfoOuterClass {
         output.writeUInt32NoTag(oOIOMMKOIAE);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(collectionInfo);
       }
     }
@@ -680,11 +680,11 @@ public final class PlayerRecordInfoOuterClass {
             oOIOMMKOIAE = input.readUInt32();
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 74) {
               break;
             }
           }
-          case 18: {
+          case 74: {
             // collectionInfo
             input.readMessage(collectionInfo);
             bitField0_ |= 0x00000100;
